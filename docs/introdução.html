@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Introdução | Introdução à linguagem R</title>
+  <meta name="description" content="Este livro contêm informação básica necessária para a programação em R" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Introdução | Introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este livro contêm informação básica necessária para a programação em R" />
+  <meta name="github-repo" content="resendejss/introducaoALinguagemR" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Introdução | Introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro contêm informação básica necessária para a programação em R" />
+  
+
+<meta name="author" content="Jean S. S. Resende, Jéssica M. Magno, João C. D. Muzzi, Mauro A. A. Castro" />
+
+
+<meta name="date" content="2023-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução à Linguagem R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefácio</a></li>
+<li class="chapter" data-level="2" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introdução.html"><a href="introdução.html#contextualizando-a-linguagem-de-programação-r"><i class="fa fa-check"></i><b>2.1</b> Contextualizando a linguagem de programação R</a></li>
+<li class="chapter" data-level="2.2" data-path="introdução.html"><a href="introdução.html#instalação-do-r"><i class="fa fa-check"></i><b>2.2</b> Instalação do R</a></li>
+<li class="chapter" data-level="2.3" data-path="introdução.html"><a href="introdução.html#instalação-do-rstudio"><i class="fa fa-check"></i><b>2.3</b> Instalação do RStudio</a></li>
+<li class="chapter" data-level="2.4" data-path="introdução.html"><a href="introdução.html#interface-do-rstudio"><i class="fa fa-check"></i><b>2.4</b> Interface do RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="introdução.html"><a href="introdução.html#pacotes"><i class="fa fa-check"></i><b>2.5</b> Pacotes</a></li>
+<li class="chapter" data-level="2.6" data-path="introdução.html"><a href="introdução.html#começando-de-fato-a-programar-em-r"><i class="fa fa-check"></i><b>2.6</b> Começando de fato a programar em R</a></li>
+<li class="chapter" data-level="2.7" data-path="introdução.html"><a href="introdução.html#acessando-o-manual-da-função"><i class="fa fa-check"></i><b>2.7</b> Acessando o manual da função</a></li>
+<li class="chapter" data-level="2.8" data-path="introdução.html"><a href="introdução.html#comentando-códigos-no-r"><i class="fa fa-check"></i><b>2.8</b> Comentando códigos no R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>3.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introdução" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Introdução<a href="introdução.html#introdução" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="contextualizando-a-linguagem-de-programação-r" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Contextualizando a linguagem de programação R<a href="introdução.html#contextualizando-a-linguagem-de-programação-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A linguagem R é uma linguagem de programação com o foco em computação estatística e manipulação de gráficos. Criada no início dos anos 90 por <a href="https://en.wikipedia.org/wiki/Ross_Ihaka">Geroge Ross Ihaka</a> e <a href="https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)">Robert Clifford Gentleman</a>, o R é usado mais utilizado por estatísticos, bioinformatas, analistas de dados e desenvolvedor de <em>software</em> estatístico. No entanto ele tem se destacado na comunidade científica. Em maio de 2023, o R ocupava a 16ª posição no <a href="https://www.tiobe.com/tiobe-index/">índice TIOBE</a>, uma medida de popularidade da linguagem de programação, sendo que em agosto de 2020 o R atingiu seu pico em ficando 8º lugar.</p>
+<p>O R é um ambiente de <em>software</em> livre de código aberto, disponível sob a <a href="https://en.wikipedia.org/wiki/GNU_General_Public_License"><em>GNU General Public License</em></a>. Seus executáveis pré-compilados são fornecidos para vários sistemas operacionais. Ele tem uma interface de linha de comando, mas também possui interfaces gráficas de usuário (GUI) de terceiros como o <a href="https://posit.co/download/rstudio-desktop/">Rstudio</a> - que será a IDE (<em>Integrated Development Envirenment</em>) que iremos utilizar na apostila.</p>
+</div>
+<div id="instalação-do-r" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Instalação do R<a href="introdução.html#instalação-do-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Acesse o repositório do R (<a href="https://cran-r.c3sl.ufpr.br/">clique aqui</a>).</li>
+<li>Acesse o link referente ao seu sitema operacional: Linux, macOS ou Windows.
+2.1. Linux: escolha a distribuição linux (debian, fedora, redhat, suse ou ubuntu) e então prossiga com os comandos no terminal.
+2.2. macOS: escolha o instalador conforme o modelo da sua máquina e execute-o.
+2.3. Windows: acesse o link Base e então baixe o instalador e execute-o.</li>
+</ol>
+</div>
+<div id="instalação-do-rstudio" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Instalação do RStudio<a href="introdução.html#instalação-do-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><a href="https://posit.co/download/rstudio-desktop/">Clique aqui</a> para acessar o repositório do RStudio.</li>
+<li>Baixe o instalador conforme o sistema operacional da sua máquina (Linux/macOS/Windows).</li>
+</ol>
+</div>
+<div id="interface-do-rstudio" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Interface do RStudio<a href="introdução.html#interface-do-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Por padrão o RStudio abre quatro janelas (pode ocorrer de uma estar oculta, mas observe o botão de minimizar/maximizar no canto superior direito de cada janela).</p>
+<ul>
+<li><strong>Editor de código</strong> (<em>janela do canto superior esquerdo</em>): Nela você digita os comando a serem executados no RStudio. Para executá-los aperte as teclas ‘CTRL’ e ‘ENTER’ simultaneamente na linha ou bloco de código selecionado.</li>
+<li><strong>Console</strong> (<em>janela do canto inferior esquerdo</em>): É visto as saídas dos comandos que são rodados. Também é possível digitar e rodar códigos diretamente nesta janela.</li>
+<li><strong>Histórico</strong> (<em>janela do canto superior direito</em>): Nesta janela ficam salvos os objetos, históricos de comandos e conexões com outros aplicativos.</li>
+<li><strong>Visualização</strong> (<em>janela do canto inferior direito</em>): Aqui você pode visualizar os gráficos no RStudio, navegar entre os arquivos do seu computador, visualizar os pacotes instalados e ver a ajuda de comandos e descrições de tabelas de dados e por fim navegar entre os arquivos html.</li>
+</ul>
+<div class="figure">
+<img src="figure/fig1_rstudio.png" alt="" />
+<p class="caption">Janelas do RStudio. Ref: <a href="https://www.est.ufmg.br/~cristianocs/Pacotes2021/Intro.html#6" class="uri">https://www.est.ufmg.br/~cristianocs/Pacotes2021/Intro.html#6</a></p>
+</div>
+</div>
+<div id="pacotes" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Pacotes<a href="introdução.html#pacotes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Por ser <em>Open Source</em>, o R permite que qualquer usuário disponibilize funções e bancos de dados a comunidade. As funções/bancos de dados são disponibilizados através de pacotes. A instalação de um pacote depende do repositório que ele está armazenado: máquina local, CRAN, GitHub, Bioconductor, entre outros. O repostitório CRAN contêm muitos pacotes e não é direcionado à uma área específica (como é o caso do Bioconductor que se destina a pacotes voltados para área de biotecnologia). A instalação de um pacote do repositório CRAN é feita pelo menu “Tools &gt; Install Packages” ou simplesmente utilizando o seguinte comando:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introdução.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">installed.packages</span>(<span class="st">&quot;nomeDoPacote&quot;</span>)</span></code></pre></div>
+<p>Para que você possa utilizar as funções do pacote que instalou, você deve usar um dos dois comandos a seguir, para de fato carregar as funções do pacote para o ambiente R:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introdução.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nomeDoPacote)</span>
+<span id="cb2-2"><a href="introdução.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(nomeDoPacote)</span></code></pre></div>
+<p>A função <code>library()</code> é utilizada normalmente no corpo do script, enquanto que a função <code>require()</code> é utilizada dentro de outras funções.</p>
+</div>
+<div id="começando-de-fato-a-programar-em-r" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Começando de fato a programar em R<a href="introdução.html#começando-de-fato-a-programar-em-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No console (janela do canto inferior esquerdo) digite o comando a seguir e tecle ENTER:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introdução.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello World&quot;</span>)</span></code></pre></div>
+<p>Agora digite o mesmo comando no editor de código (janela do canto superior esquerdo) e com o cursor na mesma linha do comando, tecle CTRL e ENTER simultaneamente:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introdução.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello World&quot;</span>)</span></code></pre></div>
+<p>A diferença é que quando executamos os comandos no editor de código, o comando continua no editor para ser executado, ou seja svocê está construindo um script. Mas você executa comando diretamente no console, eles não ficam gravados em um editor.</p>
+<p>O dado de saída da função, foi um print do que estava dentro da função. Mas como você saber o que usar dentro de uma determinada função, como <code>print()</code>? Você precisa acessar o manual desta função.</p>
+</div>
+<div id="acessando-o-manual-da-função" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Acessando o manual da função<a href="introdução.html#acessando-o-manual-da-função" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esta é uma etapa muito importante que antecede a sua caminhada no aprendizado do R. Você pode visualizar o manual da função executando um comando onde um ponto de interregoção (?) precisa anteceder a função:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introdução.html#cb5-1" aria-hidden="true" tabindex="-1"></a>?print</span></code></pre></div>
+<p>Mas se você deseja encontrar funções que realizam uma determinada ação, basta inserir dois pontos de interrogação antecedendo a ação desejada:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introdução.html#cb6-1" aria-hidden="true" tabindex="-1"></a>??priting</span></code></pre></div>
+<p>O comando acima realizará uma busca por tópicos que contenham a palavra <em>ploting</em>. Outra opçõe alternativa ao <strong>?</strong> é o uso da função <code>help()</code> e <code>help.search()</code> para <strong>??</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introdução.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;print&quot;</span>)</span>
+<span id="cb7-2"><a href="introdução.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help.search</span>(<span class="st">&quot;priting&quot;</span>)</span></code></pre></div>
+<p>Algumas funções possuem exemplos de sua execução. Se você quer saber como utilizar uma determinada função através de exemplos, execute a função <code>example()</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introdução.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(<span class="st">&quot;print&quot;</span>)</span></code></pre></div>
+</div>
+<div id="comentando-códigos-no-r" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Comentando códigos no R<a href="introdução.html#comentando-códigos-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A maioria das linguagens de programação e até linguagem de marcação, possuem uma forma de inserção de textos que não serão executados pela linguagem. Esse procedimento é denominado de comentário. Você pode comentar os seus códigos. Isso é algo essencial para todos os programadores, indiferente da linguagem. Pois, códigos comentados facilitam a interpretação do mesmo por outros programadores e até mesmo pelo autor, devido a um período de tempo que se passou desde a criação daquele código.</p>
+<p>Para comentar linhas no R você precisa inserir o <code>#</code> antes do que seria o comentário:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introdução.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isto é um comentário</span></span></code></pre></div>
+<p>Exemplo aplicado:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introdução.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello World&quot;</span>) <span class="co"># imprimindo na tela Hello World</span></span></code></pre></div>
+<p>Perceba que o conteúdo após o <code>#</code> não é interpretado no R, ou seja, este conteúdo é um comentário.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

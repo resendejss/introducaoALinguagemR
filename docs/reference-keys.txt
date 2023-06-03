@@ -19,3 +19,12 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+introdução
+contextualizando-a-linguagem-de-programação-r
+instalação-do-r
+instalação-do-rstudio
+interface-do-rstudio
+pacotes
+começando-de-fato-a-programar-em-r
+acessando-o-manual-da-função
+comentando-códigos-no-r
