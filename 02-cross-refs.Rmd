@@ -1,34 +1,50 @@
-# Cross-references {#cross}
+# Fundamentos básicos da programação
 
-Cross-references make it easier for your readers to find and link to elements in your book.
+Existem dois passos que são trilhados por toda linguagem de programação, e alguns progrmadores dizem que se uma linguagem de programação não permite a execução destes dois passos, ela não é bem considerada uma linguagem de programação. Um exemplo é a linguagem HTML, essa linguagem é dita como **linguagem de marcação** sua finalidade é trabalhar com estruturação de textos. Não iremos utilizá-la para cálculos ou procedimentos que demandam de uma rotina computacional com base em cálculos e nos dois passos. Mas quais são estes dois passos? R: condições e *loops*.
 
-## Chapters and sub-chapters
+## Condições
+Se alguma coisa for verdadeira (TRUE) o R vai agir de uma maneira, caso seja mentira (FALSE) ele vai agir de outra maneira. Você pode estabelecer algumas condições para que seja feita uma função. Veremos alguns operadores de comparação e operadores lógicos utilizados na linguagem R para trabalhar com condições.
 
-There are two steps to cross-reference any heading:
+### Operadores de comparação
+* igualdade: ==
+* diferente: !=
+* menor: <
+* maior: >
+* menor ou igual: <=
+* maior ou igual: >=
 
-1. Label the heading: `# Hello world {#nice-label}`. 
-    - Leave the label off if you like the automated heading generated based on your heading title: for example, `# Hello world` = `# Hello world {#hello-world}`.
-    - To label an un-numbered heading, use: `# Hello world {-#nice-label}` or `{# Hello world .unnumbered}`.
+### Operadores lógicos
+* E: &&
+* OU: ||
 
-1. Next, reference the labeled heading anywhere in the text using `\@ref(nice-label)`; for example, please see Chapter \@ref(cross). 
-    - If you prefer text as the link instead of a numbered reference use: [any text you want can go here](#cross).
+#### Condição: if (função `if()`)
+Determinado código será executado somente se a condição for verdadeira, abaixo é apresentado a estrura do `if`.
+```{r eval=FALSE}
+# -- estrutura
 
-## Captioned figures and tables
-
-Figures and tables *with captions* can also be cross-referenced from elsewhere in your book using `\@ref(fig:chunk-label)` and `\@ref(tab:chunk-label)`, respectively.
-
-See Figure \@ref(fig:nice-fig).
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
+# if(condicao){
+#   comandos a serem executados
+# }
 ```
 
-Don't miss Table \@ref(tab:nice-tab).
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(pressure, 10), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
+Vamos agora fazer uma aplicação: se o número dois for maior que o número um, então imprima na tela a frase: dois é maior que um. Caso contrário não faça nada.
+```{r}
+# -- aplicacao
+## -- verdadeiro
+if(2>1){
+  print("dois é maior que um")
+}
 ```
+
+
+```{r}
+## -- falso
+if(2<1){
+  print("dois é menor que um")
+}
+```
+
+
+## *Loops*
+
+

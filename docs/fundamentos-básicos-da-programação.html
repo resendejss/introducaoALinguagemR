@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 5 Footnotes and citations | Introdução à linguagem R</title>
+  <title>Capítulo 3 Fundamentos básicos da programação | Introdução à linguagem R</title>
   <meta name="description" content="Este livro contêm informação básica necessária para a programação em R" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 5 Footnotes and citations | Introdução à linguagem R" />
+  <meta property="og:title" content="Capítulo 3 Fundamentos básicos da programação | Introdução à linguagem R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este livro contêm informação básica necessária para a programação em R" />
   <meta name="github-repo" content="resendejss/introducaoALinguagemR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 5 Footnotes and citations | Introdução à linguagem R" />
+  <meta name="twitter:title" content="Capítulo 3 Fundamentos básicos da programação | Introdução à linguagem R" />
   
   <meta name="twitter:description" content="Este livro contêm informação básica necessária para a programação em R" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="parts.html"/>
-<link rel="next" href="blocks.html"/>
+<link rel="prev" href="introdução.html"/>
+<link rel="next" href="parts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,43 +222,63 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="footnotes-and-citations" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Capítulo 5</span> Footnotes and citations<a href="footnotes-and-citations.html#footnotes-and-citations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="footnotes" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Footnotes<a href="footnotes-and-citations.html#footnotes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Footnotes are put inside the square brackets after a caret <code>^[]</code>. Like this one <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<div id="fundamentos-básicos-da-programação" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Fundamentos básicos da programação<a href="fundamentos-básicos-da-programação.html#fundamentos-básicos-da-programação" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Existem dois passos que são trilhados por toda linguagem de programação, e alguns progrmadores dizem que se uma linguagem de programação não permite a execução destes dois passos, ela não é bem considerada uma linguagem de programação. Um exemplo é a linguagem HTML, essa linguagem é dita como <strong>linguagem de marcação</strong> sua finalidade é trabalhar com estruturação de textos. Não iremos utilizá-la para cálculos ou procedimentos que demandam de uma rotina computacional com base em cálculos e nos dois passos. Mas quais são estes dois passos? R: condições e <em>loops</em>.</p>
+<div id="condições" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Condições<a href="fundamentos-básicos-da-programação.html#condições" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se alguma coisa for verdadeira (TRUE) o R vai agir de uma maneira, caso seja mentira (FALSE) ele vai agir de outra maneira. Você pode estabelecer algumas condições para que seja feita uma função. Veremos alguns operadores de comparação e operadores lógicos utilizados na linguagem R para trabalhar com condições.</p>
+<div id="operadores-de-comparação" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Operadores de comparação<a href="fundamentos-básicos-da-programação.html#operadores-de-comparação" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>igualdade: ==</li>
+<li>diferente: !=</li>
+<li>menor: &lt;</li>
+<li>maior: &gt;</li>
+<li>menor ou igual: &lt;=</li>
+<li>maior ou igual: &gt;=</li>
+</ul>
 </div>
-<div id="citations" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Citations<a href="footnotes-and-citations.html#citations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Reference items in your bibliography file(s) using <code>@key</code>.</p>
-<p>For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2023</a>)</span> (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span> (this citation was added manually in an external file book.bib).
-Note that the <code>.bib</code> files need to be listed in the index.Rmd with the YAML <code>bibliography</code> key.</p>
-<p>The RStudio Visual Markdown Editor can also make it easier to insert citations: <a href="https://rstudio.github.io/visual-markdown-editing/#/citations" class="uri">https://rstudio.github.io/visual-markdown-editing/#/citations</a></p>
+<div id="operadores-lógicos" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Operadores lógicos<a href="fundamentos-básicos-da-programação.html#operadores-lógicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>E: &amp;&amp;</li>
+<li>OU: ||</li>
+</ul>
+<div id="condição-if-função-if" class="section level4 hasAnchor" number="3.1.2.1">
+<h4><span class="header-section-number">3.1.2.1</span> Condição: if (função <code>if()</code>)<a href="fundamentos-básicos-da-programação.html#condição-if-função-if" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Determinado código será executado somente se a condição for verdadeira, abaixo é apresentado a estrura do <code>if</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="fundamentos-básicos-da-programação.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- estrutura</span></span>
+<span id="cb11-2"><a href="fundamentos-básicos-da-programação.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="fundamentos-básicos-da-programação.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># if(condicao){</span></span>
+<span id="cb11-4"><a href="fundamentos-básicos-da-programação.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   comandos a serem executados</span></span>
+<span id="cb11-5"><a href="fundamentos-básicos-da-programação.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
+<p>Vamos agora fazer uma aplicação: se o número dois for maior que o número um, então imprima na tela a frase: dois é maior que um. Caso contrário não faça nada.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="fundamentos-básicos-da-programação.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- aplicacao</span></span>
+<span id="cb12-2"><a href="fundamentos-básicos-da-programação.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## -- verdadeiro</span></span>
+<span id="cb12-3"><a href="fundamentos-básicos-da-programação.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">2</span><span class="sc">&gt;</span><span class="dv">1</span>){</span>
+<span id="cb12-4"><a href="fundamentos-básicos-da-programação.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;dois é maior que um&quot;</span>)</span>
+<span id="cb12-5"><a href="fundamentos-básicos-da-programação.html#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;dois é maior que um&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="fundamentos-básicos-da-programação.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## -- falso</span></span>
+<span id="cb14-2"><a href="fundamentos-básicos-da-programação.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">2</span><span class="sc">&lt;</span><span class="dv">1</span>){</span>
+<span id="cb14-3"><a href="fundamentos-básicos-da-programação.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;dois é menor que um&quot;</span>)</span>
+<span id="cb14-4"><a href="fundamentos-básicos-da-programação.html#cb14-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="loops" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> <em>Loops</em><a href="fundamentos-básicos-da-programação.html#loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
-</div>
-<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-xie2015" class="csl-entry">
-Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
-</div>
-<div id="ref-R-bookdown" class="csl-entry">
-———. 2023. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>This is a footnote.<a href="footnotes-and-citations.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="parts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introdução.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -289,7 +309,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-citations.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-cross-refs.Rmd",
 "text": "Edit"
 },
 "history": {
