@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -168,21 +175,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="fundamentos-básicos-da-programação.html"><a href="fundamentos-básicos-da-programação.html#lista-de-exercícios"><i class="fa fa-check"></i><b>3.4</b> Lista de exercícios</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html"><i class="fa fa-check"></i><b>4</b> Fundamentos do R</a></li>
-<li class="chapter" data-level="5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html"><i class="fa fa-check"></i><b>5</b> Processamento de dados</a></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<li class="chapter" data-level="4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html"><i class="fa fa-check"></i><b>4</b> Fundamentos do R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<li class="chapter" data-level="4.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#vetores"><i class="fa fa-check"></i><b>4.1</b> Vetores</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="4.1.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#indexação-de-vetores"><i class="fa fa-check"></i><b>4.1.1</b> Indexação de vetores</a></li>
+<li class="chapter" data-level="4.1.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#gerando-sequências-e-número-aleatórios"><i class="fa fa-check"></i><b>4.1.2</b> Gerando sequências e número aleatórios</a></li>
+<li class="chapter" data-level="4.1.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#operações-com-vetores"><i class="fa fa-check"></i><b>4.1.3</b> Operações com vetores</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#matrizes"><i class="fa fa-check"></i><b>4.2</b> Matrizes</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#acessando-elementos-da-matriz"><i class="fa fa-check"></i><b>4.2.1</b> Acessando elementos da matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#data-frames"><i class="fa fa-check"></i><b>4.3</b> <em>Data frames</em></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#data-frames-disponibilizazdos-pelo-r"><i class="fa fa-check"></i><b>4.3.1</b> <em>Data frames</em> disponibilizazdos pelo R</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#criando-um-data-frame"><i class="fa fa-check"></i><b>4.3.2</b> Criando um <em>data frame</em></a></li>
+<li class="chapter" data-level="4.3.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#executando-algumas-funções-em-data-frames"><i class="fa fa-check"></i><b>4.3.3</b> Executando algumas funções em <em>data frames</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#listas"><i class="fa fa-check"></i><b>4.4</b> Listas</a></li>
+<li class="chapter" data-level="4.5" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#funções"><i class="fa fa-check"></i><b>4.5</b> Funções</a></li>
+<li class="chapter" data-level="4.6" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#lista-de-exercícios-1"><i class="fa fa-check"></i><b>4.6</b> Lista de exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html"><i class="fa fa-check"></i><b>5</b> Processamento de dados</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#primeiros-passos"><i class="fa fa-check"></i><b>5.1</b> Primeiros passos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#tipos-de-variáveis"><i class="fa fa-check"></i><b>5.1.1</b> Tipos de variáveis</a></li>
+<li class="chapter" data-level="5.1.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#conversão-de-tipos-de-variáveis"><i class="fa fa-check"></i><b>5.1.2</b> Conversão de tipos de variáveis</a></li>
+<li class="chapter" data-level="5.1.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#valores-faltantes"><i class="fa fa-check"></i><b>5.1.3</b> Valores faltantes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#importação-de-arquivos"><i class="fa fa-check"></i><b>5.2</b> Importação de arquivos</a></li>
+<li class="chapter" data-level="5.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#exportação-de-arquivos"><i class="fa fa-check"></i><b>5.3</b> Exportação de arquivos</a></li>
+<li class="chapter" data-level="5.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#manipulação-de-dados-com-pacotes-básicos"><i class="fa fa-check"></i><b>5.4</b> Manipulação de dados com pacotes básicos</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#acessando-e-modificando-dados"><i class="fa fa-check"></i><b>5.4.1</b> Acessando e modificando dados</a></li>
+<li class="chapter" data-level="5.4.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#filtrar-observações"><i class="fa fa-check"></i><b>5.4.2</b> Filtrar observações</a></li>
+<li class="chapter" data-level="5.4.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#adicionar-e-ordenar-linhas"><i class="fa fa-check"></i><b>5.4.3</b> Adicionar e ordenar linhas</a></li>
+<li class="chapter" data-level="5.4.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#selecionar-colunas-unir-data-frames-horizontalmente-e-adicionar-colunas"><i class="fa fa-check"></i><b>5.4.4</b> Selecionar colunas, unir data frames horizontalmente e adicionar colunas</a></li>
+<li class="chapter" data-level="5.4.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#removendo-objetos"><i class="fa fa-check"></i><b>5.4.5</b> Removendo objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#manipulação-de-dados-com-tidyverse"><i class="fa fa-check"></i><b>5.5</b> Manipulação de dados com tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#filtrar-observações-1"><i class="fa fa-check"></i><b>5.5.1</b> Filtrar observações</a></li>
+<li class="chapter" data-level="5.5.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#selecionar-variáveis"><i class="fa fa-check"></i><b>5.5.2</b> Selecionar variáveis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#modificação-de-dados"><i class="fa fa-check"></i><b>5.5.3</b> Modificação de dados</a></li>
+<li class="chapter" data-level="5.5.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#renomeando-variáveis"><i class="fa fa-check"></i><b>5.5.4</b> Renomeando variáveis</a></li>
+<li class="chapter" data-level="5.5.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#uso-de-pipes"><i class="fa fa-check"></i><b>5.5.5</b> Uso de pipes</a></li>
+<li class="chapter" data-level="5.5.6" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#ordenar-dados"><i class="fa fa-check"></i><b>5.5.6</b> Ordenar dados</a></li>
+<li class="chapter" data-level="5.5.7" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#combinar-variáveis"><i class="fa fa-check"></i><b>5.5.7</b> Combinar variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#lista-de-exercícios-2"><i class="fa fa-check"></i><b>5.6</b> Lista de exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>6</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-no-r"><i class="fa fa-check"></i><b>6.1</b> Gráficos no R</a></li>
+<li class="chapter" data-level="6.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-base-em-r"><i class="fa fa-check"></i><b>6.2</b> Gráficos base em R</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="gráficos.html"><a href="gráficos.html#visualizando-dados"><i class="fa fa-check"></i><b>6.2.1</b> Visualizando dados</a></li>
+<li class="chapter" data-level="6.2.2" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-pontos"><i class="fa fa-check"></i><b>6.2.2</b> Criando gráficos de pontos</a></li>
+<li class="chapter" data-level="6.2.3" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-linha"><i class="fa fa-check"></i><b>6.2.3</b> Criando gráficos de linha</a></li>
+<li class="chapter" data-level="6.2.4" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-barra"><i class="fa fa-check"></i><b>6.2.4</b> Criando gráficos de barra</a></li>
+<li class="chapter" data-level="6.2.5" data-path="gráficos.html"><a href="gráficos.html#criando-histogramas"><i class="fa fa-check"></i><b>6.2.5</b> Criando histogramas</a></li>
+<li class="chapter" data-level="6.2.6" data-path="gráficos.html"><a href="gráficos.html#criando-boxplot"><i class="fa fa-check"></i><b>6.2.6</b> Criando boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="gráficos.html"><a href="gráficos.html#lista-de-exercícios-01"><i class="fa fa-check"></i><b>6.3</b> Lista de exercícios 01</a></li>
+<li class="chapter" data-level="6.4" data-path="gráficos.html"><a href="gráficos.html#ggplot2"><i class="fa fa-check"></i><b>6.4</b> GGPLOT2</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="gráficos.html"><a href="gráficos.html#exemplos-com-os-dados-de-tumor-de-mama-de-wiscosin"><i class="fa fa-check"></i><b>6.4.1</b> Exemplos com os dados de tumor de mama de Wiscosin</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="gráficos.html"><a href="gráficos.html#bonus-track---gráficos-interativos-com-plotly"><i class="fa fa-check"></i><b>6.5</b> Bonus track - Gráficos interativos com plotly</a></li>
+<li class="chapter" data-level="6.6" data-path="gráficos.html"><a href="gráficos.html#lista-de-exercícios-02"><i class="fa fa-check"></i><b>6.6</b> Lista de exercícios 02</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -269,20 +333,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

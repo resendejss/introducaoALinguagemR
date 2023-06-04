@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -168,21 +175,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="fundamentos-básicos-da-programação.html"><a href="fundamentos-básicos-da-programação.html#lista-de-exercícios"><i class="fa fa-check"></i><b>3.4</b> Lista de exercícios</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html"><i class="fa fa-check"></i><b>4</b> Fundamentos do R</a></li>
-<li class="chapter" data-level="5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html"><i class="fa fa-check"></i><b>5</b> Processamento de dados</a></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<li class="chapter" data-level="4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html"><i class="fa fa-check"></i><b>4</b> Fundamentos do R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<li class="chapter" data-level="4.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#vetores"><i class="fa fa-check"></i><b>4.1</b> Vetores</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="4.1.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#indexação-de-vetores"><i class="fa fa-check"></i><b>4.1.1</b> Indexação de vetores</a></li>
+<li class="chapter" data-level="4.1.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#gerando-sequências-e-número-aleatórios"><i class="fa fa-check"></i><b>4.1.2</b> Gerando sequências e número aleatórios</a></li>
+<li class="chapter" data-level="4.1.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#operações-com-vetores"><i class="fa fa-check"></i><b>4.1.3</b> Operações com vetores</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#matrizes"><i class="fa fa-check"></i><b>4.2</b> Matrizes</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#acessando-elementos-da-matriz"><i class="fa fa-check"></i><b>4.2.1</b> Acessando elementos da matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#data-frames"><i class="fa fa-check"></i><b>4.3</b> <em>Data frames</em></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#data-frames-disponibilizazdos-pelo-r"><i class="fa fa-check"></i><b>4.3.1</b> <em>Data frames</em> disponibilizazdos pelo R</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#criando-um-data-frame"><i class="fa fa-check"></i><b>4.3.2</b> Criando um <em>data frame</em></a></li>
+<li class="chapter" data-level="4.3.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#executando-algumas-funções-em-data-frames"><i class="fa fa-check"></i><b>4.3.3</b> Executando algumas funções em <em>data frames</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#listas"><i class="fa fa-check"></i><b>4.4</b> Listas</a></li>
+<li class="chapter" data-level="4.5" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#funções"><i class="fa fa-check"></i><b>4.5</b> Funções</a></li>
+<li class="chapter" data-level="4.6" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#lista-de-exercícios-1"><i class="fa fa-check"></i><b>4.6</b> Lista de exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html"><i class="fa fa-check"></i><b>5</b> Processamento de dados</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#primeiros-passos"><i class="fa fa-check"></i><b>5.1</b> Primeiros passos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#tipos-de-variáveis"><i class="fa fa-check"></i><b>5.1.1</b> Tipos de variáveis</a></li>
+<li class="chapter" data-level="5.1.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#conversão-de-tipos-de-variáveis"><i class="fa fa-check"></i><b>5.1.2</b> Conversão de tipos de variáveis</a></li>
+<li class="chapter" data-level="5.1.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#valores-faltantes"><i class="fa fa-check"></i><b>5.1.3</b> Valores faltantes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#importação-de-arquivos"><i class="fa fa-check"></i><b>5.2</b> Importação de arquivos</a></li>
+<li class="chapter" data-level="5.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#exportação-de-arquivos"><i class="fa fa-check"></i><b>5.3</b> Exportação de arquivos</a></li>
+<li class="chapter" data-level="5.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#manipulação-de-dados-com-pacotes-básicos"><i class="fa fa-check"></i><b>5.4</b> Manipulação de dados com pacotes básicos</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#acessando-e-modificando-dados"><i class="fa fa-check"></i><b>5.4.1</b> Acessando e modificando dados</a></li>
+<li class="chapter" data-level="5.4.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#filtrar-observações"><i class="fa fa-check"></i><b>5.4.2</b> Filtrar observações</a></li>
+<li class="chapter" data-level="5.4.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#adicionar-e-ordenar-linhas"><i class="fa fa-check"></i><b>5.4.3</b> Adicionar e ordenar linhas</a></li>
+<li class="chapter" data-level="5.4.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#selecionar-colunas-unir-data-frames-horizontalmente-e-adicionar-colunas"><i class="fa fa-check"></i><b>5.4.4</b> Selecionar colunas, unir data frames horizontalmente e adicionar colunas</a></li>
+<li class="chapter" data-level="5.4.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#removendo-objetos"><i class="fa fa-check"></i><b>5.4.5</b> Removendo objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#manipulação-de-dados-com-tidyverse"><i class="fa fa-check"></i><b>5.5</b> Manipulação de dados com tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#filtrar-observações-1"><i class="fa fa-check"></i><b>5.5.1</b> Filtrar observações</a></li>
+<li class="chapter" data-level="5.5.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#selecionar-variáveis"><i class="fa fa-check"></i><b>5.5.2</b> Selecionar variáveis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#modificação-de-dados"><i class="fa fa-check"></i><b>5.5.3</b> Modificação de dados</a></li>
+<li class="chapter" data-level="5.5.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#renomeando-variáveis"><i class="fa fa-check"></i><b>5.5.4</b> Renomeando variáveis</a></li>
+<li class="chapter" data-level="5.5.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#uso-de-pipes"><i class="fa fa-check"></i><b>5.5.5</b> Uso de pipes</a></li>
+<li class="chapter" data-level="5.5.6" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#ordenar-dados"><i class="fa fa-check"></i><b>5.5.6</b> Ordenar dados</a></li>
+<li class="chapter" data-level="5.5.7" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#combinar-variáveis"><i class="fa fa-check"></i><b>5.5.7</b> Combinar variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#lista-de-exercícios-2"><i class="fa fa-check"></i><b>5.6</b> Lista de exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>6</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-no-r"><i class="fa fa-check"></i><b>6.1</b> Gráficos no R</a></li>
+<li class="chapter" data-level="6.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-base-em-r"><i class="fa fa-check"></i><b>6.2</b> Gráficos base em R</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="gráficos.html"><a href="gráficos.html#visualizando-dados"><i class="fa fa-check"></i><b>6.2.1</b> Visualizando dados</a></li>
+<li class="chapter" data-level="6.2.2" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-pontos"><i class="fa fa-check"></i><b>6.2.2</b> Criando gráficos de pontos</a></li>
+<li class="chapter" data-level="6.2.3" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-linha"><i class="fa fa-check"></i><b>6.2.3</b> Criando gráficos de linha</a></li>
+<li class="chapter" data-level="6.2.4" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-barra"><i class="fa fa-check"></i><b>6.2.4</b> Criando gráficos de barra</a></li>
+<li class="chapter" data-level="6.2.5" data-path="gráficos.html"><a href="gráficos.html#criando-histogramas"><i class="fa fa-check"></i><b>6.2.5</b> Criando histogramas</a></li>
+<li class="chapter" data-level="6.2.6" data-path="gráficos.html"><a href="gráficos.html#criando-boxplot"><i class="fa fa-check"></i><b>6.2.6</b> Criando boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="gráficos.html"><a href="gráficos.html#lista-de-exercícios-01"><i class="fa fa-check"></i><b>6.3</b> Lista de exercícios 01</a></li>
+<li class="chapter" data-level="6.4" data-path="gráficos.html"><a href="gráficos.html#ggplot2"><i class="fa fa-check"></i><b>6.4</b> GGPLOT2</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="gráficos.html"><a href="gráficos.html#exemplos-com-os-dados-de-tumor-de-mama-de-wiscosin"><i class="fa fa-check"></i><b>6.4.1</b> Exemplos com os dados de tumor de mama de Wiscosin</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="gráficos.html"><a href="gráficos.html#bonus-track---gráficos-interativos-com-plotly"><i class="fa fa-check"></i><b>6.5</b> Bonus track - Gráficos interativos com plotly</a></li>
+<li class="chapter" data-level="6.6" data-path="gráficos.html"><a href="gráficos.html#lista-de-exercícios-02"><i class="fa fa-check"></i><b>6.6</b> Lista de exercícios 02</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -205,7 +269,350 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="fundamentos-do-r" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Capítulo 4</span> Fundamentos do R<a href="fundamentos-do-r.html#fundamentos-do-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Em linguagens de programação um objeto é qualquer coisa que pode ser armazenado em uma variável. Em R, os principais tipos de objetos são:</p>
+<ul>
+<li><strong>Vetores</strong>: objeto unidimensional contendo TODOS os valores de um tipo de dado.</li>
+<li><strong>Matrizes</strong>: vetor (es) em duas dimensões.</li>
+<li><strong>Arrays</strong>: matrizes em mais dimensões.</li>
+<li><strong>Fatores</strong>: semelhante a vetores, mas com níveis/agrupamentos.</li>
+<li><strong>Dataframes</strong>: parecido com matriz mas permite vetores de vários tipos</li>
+<li><strong>Listas</strong>: parecido com vetor mas os elementos podem ser de tipos diferentes.</li>
+<li><strong>Funções</strong>: cálculo</li>
+</ul>
+<p>Vamos comentar sobre alguns objetos. Não iremos falar sobre todos, pois depende do porquê você quer usar o R, qual tipo de dado e análises você vai utilizar.</p>
+<div id="vetores" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Vetores<a href="fundamentos-do-r.html#vetores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Haverá momentos que precisaremos armazenar uma sequência de dados. Por exemplo: queremos armazenar as idades de pacientes de uma clínica, não seria viável declarar uma variável para cada paciente. Sendo assim, o R possui alguns objetos que são capazes de trabalhar com dados de acordo com o seu tipo.</p>
+<p>O primeiro objeto que iremos trabalhar é o <strong>vetor</strong>. Em R um vetor é uma sequência de dados de um mesmo tipo. A função que iremos utilizar para criarmos um vetor é a <code>c()</code> de concatenar.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="fundamentos-do-r.html#cb55-1" aria-hidden="true" tabindex="-1"></a>idades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">45</span>,<span class="dv">67</span>,<span class="dv">78</span>,<span class="dv">49</span>)</span>
+<span id="cb55-2"><a href="fundamentos-do-r.html#cb55-2" aria-hidden="true" tabindex="-1"></a>idades</span></code></pre></div>
+<pre><code>## [1] 45 67 78 49</code></pre>
+<p>Podemos armazenar dados de textos em um vetor.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="fundamentos-do-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a>pacientes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;id_003&quot;</span>,<span class="st">&quot;id084&quot;</span>,<span class="st">&quot;id009&quot;</span>,<span class="st">&quot;id102&quot;</span>)</span>
+<span id="cb57-2"><a href="fundamentos-do-r.html#cb57-2" aria-hidden="true" tabindex="-1"></a>pacientes</span></code></pre></div>
+<pre><code>## [1] &quot;id_003&quot; &quot;id084&quot;  &quot;id009&quot;  &quot;id102&quot;</code></pre>
+<p>Mas não podemos criar um vetor mesclando os tipos de dados, ao fazer isso o R converte todos os valores para <code>character</code>. Isso é um procedimento denominado de coerção, veremos mais adiante</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="fundamentos-do-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a>exemplo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="st">&quot;Maria&quot;</span>,<span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Os vetores são classificados em classes, são elas:</p>
+<ul>
+<li><strong>Vetor numérico</strong>: constituído por valores numéricos.</li>
+<li><strong>Vetor de <em>strings</em></strong>: constituído por caracteres.</li>
+<li><strong>Vetor lógico</strong>: constituído por valores lógicos</li>
+</ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="fundamentos-do-r.html#cb60-1" aria-hidden="true" tabindex="-1"></a>v_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)   <span class="co"># vetor numerico</span></span>
+<span id="cb60-2"><a href="fundamentos-do-r.html#cb60-2" aria-hidden="true" tabindex="-1"></a>v_str <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>) <span class="co"># vetor de strings/character</span></span>
+<span id="cb60-3"><a href="fundamentos-do-r.html#cb60-3" aria-hidden="true" tabindex="-1"></a>v_log <span class="ot">&lt;-</span> <span class="fu">c</span>(T,F,T)       <span class="co"># vetor logico</span></span></code></pre></div>
+<p>Para verificar a classe de um objeto, iremos utilizar a função <code>class()</code>.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="fundamentos-do-r.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v_num)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="fundamentos-do-r.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v_str)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="fundamentos-do-r.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v_log)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div id="indexação-de-vetores" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Indexação de vetores<a href="fundamentos-do-r.html#indexação-de-vetores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Podemos recuperar todos os valores de uma só vez de um vetor ou apenas alguns elementos. A posição inicial de um vetor possui valor 1 e segue de forma crescente da esquerda para a direita. Se quisermos acessar um elemento de determinada posição no vetor, precisaremos utilizar <code>[posição desejada]</code></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="fundamentos-do-r.html#cb67-1" aria-hidden="true" tabindex="-1"></a>genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TP53&quot;</span>,<span class="st">&quot;COI&quot;</span>,<span class="st">&quot;RHO&quot;</span>)</span>
+<span id="cb67-2"><a href="fundamentos-do-r.html#cb67-2" aria-hidden="true" tabindex="-1"></a>genes[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;COI&quot;</code></pre>
+</div>
+<div id="gerando-sequências-e-número-aleatórios" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Gerando sequências e número aleatórios<a href="fundamentos-do-r.html#gerando-sequências-e-número-aleatórios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Uma forma de criar sequências é utilizar <code>:</code> (início:fim).</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="fundamentos-do-r.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Outra forma é utilizar a função <code>seq()</code>. Com ela podemos informar o início, fim e intervalo.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="fundamentos-do-r.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<p>As funções que geram números aleatórios são importantes nos processos de amostragem. as funções mais utilizada para esse tipo de terafa são: <code>sample()</code> e <code>runif()</code>.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="fundamentos-do-r.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">10</span>) <span class="co"># gerar 10 num inteiros entre 0 e 50 sem reposicao</span></span></code></pre></div>
+<pre><code>##  [1] 47 40 50 38 27 41 48 36 34 10</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="fundamentos-do-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># gerar 5 valores entre 0 e 10 com reposicao</span></span></code></pre></div>
+<pre><code>## [1] 10  3  7  2  4</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="fundamentos-do-r.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">10</span>) <span class="co"># gerar 5 valores decimais entre 0 e 10</span></span></code></pre></div>
+<pre><code>## [1] 6.920805 5.046252 9.700923 2.257828 9.587417</code></pre>
+<p>Também podemos trabalhar com do tipo <code>character</code>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="fundamentos-do-r.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;feminino&quot;</span>, <span class="st">&quot;masculino&quot;</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;masculino&quot; &quot;feminino&quot;  &quot;feminino&quot;  &quot;masculino&quot; &quot;feminino&quot;  &quot;masculino&quot;
+##  [7] &quot;feminino&quot;  &quot;feminino&quot;  &quot;masculino&quot; &quot;masculino&quot;</code></pre>
+</div>
+<div id="operações-com-vetores" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Operações com vetores<a href="fundamentos-do-r.html#operações-com-vetores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Depois de criar os vetores podemos fazer diversas operações com eles. Abaixo seguem alguns exemplos básicos de algumas operações com vetores.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="fundamentos-do-r.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vetores</span></span>
+<span id="cb81-2"><a href="fundamentos-do-r.html#cb81-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>)</span>
+<span id="cb81-3"><a href="fundamentos-do-r.html#cb81-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb81-4"><a href="fundamentos-do-r.html#cb81-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-5"><a href="fundamentos-do-r.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de vetores</span></span>
+<span id="cb81-6"><a href="fundamentos-do-r.html#cb81-6" aria-hidden="true" tabindex="-1"></a>soma_V <span class="ot">&lt;-</span> a<span class="sc">+</span>b</span>
+<span id="cb81-7"><a href="fundamentos-do-r.html#cb81-7" aria-hidden="true" tabindex="-1"></a>soma_V</span></code></pre></div>
+<pre><code>## [1]  3  7 11 15</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="fundamentos-do-r.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subtracao_V de vetores</span></span>
+<span id="cb83-2"><a href="fundamentos-do-r.html#cb83-2" aria-hidden="true" tabindex="-1"></a>subtacao_V <span class="ot">&lt;-</span> b<span class="sc">-</span>a</span>
+<span id="cb83-3"><a href="fundamentos-do-r.html#cb83-3" aria-hidden="true" tabindex="-1"></a>subtacao_V</span></code></pre></div>
+<pre><code>## [1] 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="fundamentos-do-r.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># produtos escalares</span></span>
+<span id="cb85-2"><a href="fundamentos-do-r.html#cb85-2" aria-hidden="true" tabindex="-1"></a>produto_V <span class="ot">&lt;-</span> a<span class="sc">*</span>b</span>
+<span id="cb85-3"><a href="fundamentos-do-r.html#cb85-3" aria-hidden="true" tabindex="-1"></a>produto_V</span></code></pre></div>
+<pre><code>## [1]  2 12 30 56</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="fundamentos-do-r.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># divisao</span></span>
+<span id="cb87-2"><a href="fundamentos-do-r.html#cb87-2" aria-hidden="true" tabindex="-1"></a>divisao_V <span class="ot">&lt;-</span> b<span class="sc">/</span>a</span>
+<span id="cb87-3"><a href="fundamentos-do-r.html#cb87-3" aria-hidden="true" tabindex="-1"></a>divisao_V</span></code></pre></div>
+<pre><code>## [1] 2.000000 1.333333 1.200000 1.142857</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="fundamentos-do-r.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># potenciacao</span></span>
+<span id="cb89-2"><a href="fundamentos-do-r.html#cb89-2" aria-hidden="true" tabindex="-1"></a>potenciacao <span class="ot">&lt;-</span> a<span class="sc">^</span>b</span>
+<span id="cb89-3"><a href="fundamentos-do-r.html#cb89-3" aria-hidden="true" tabindex="-1"></a>potenciacao</span></code></pre></div>
+<pre><code>## [1]       1      81   15625 5764801</code></pre>
+<p>Algumas operações básicas voltadas para a parte estatística envolvendo os vetores:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="fundamentos-do-r.html#cb91-1" aria-hidden="true" tabindex="-1"></a>prostate <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>,<span class="dv">58</span>,<span class="dv">59</span>,<span class="dv">63</span>,<span class="dv">78</span>,<span class="dv">67</span>)</span>
+<span id="cb91-2"><a href="fundamentos-do-r.html#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="fundamentos-do-r.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(prostate)      <span class="co"># valor maximo</span></span></code></pre></div>
+<pre><code>## [1] 78</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="fundamentos-do-r.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(prostate)      <span class="co"># valor minimo</span></span></code></pre></div>
+<pre><code>## [1] 58</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="fundamentos-do-r.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(prostate)    <span class="co"># minimo e maximo</span></span></code></pre></div>
+<pre><code>## [1] 58 78</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="fundamentos-do-r.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(prostate)      <span class="co"># soma dos valores</span></span></code></pre></div>
+<pre><code>## [1] 390</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="fundamentos-do-r.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(prostate)   <span class="co"># numero de observacoes</span></span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="fundamentos-do-r.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(prostate)     <span class="co"># media</span></span></code></pre></div>
+<pre><code>## [1] 65</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="fundamentos-do-r.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(prostate)   <span class="co"># mediana</span></span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="fundamentos-do-r.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(prostate) <span class="co"># quartis</span></span></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+## 58.0 60.0 64.0 66.5 78.0</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="fundamentos-do-r.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(prostate)  <span class="co"># resumo</span></span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    58.0    60.0    64.0    65.0    66.5    78.0</code></pre>
+</div>
+</div>
+<div id="matrizes" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Matrizes<a href="fundamentos-do-r.html#matrizes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Matriz é um objeto que distribui os elementos em coordenadas (linhas e colunas). Matriz é mais utilizada em análises multivariadas de fenômenos biológicos, como por exemplo, na organização, manejo e cálculos realizados com dados de mudanças
+conformacionais de proteínas ao longo do tempo. Há diversas formas de construir uma matriz, veremos algumas delas.</p>
+<p><strong>Função <code>matrix()</code></strong>: Esta função é própria para a criação de matrizes em R. Para saber mais a fundo sosbre os argumentos da função acesse o manual da função (<code>?matrix</code>). Basicamente precisamos informar um conjunto de dados para a função criar a matriz.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="fundamentos-do-r.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##       [,1]
+##  [1,]    1
+##  [2,]    2
+##  [3,]    3
+##  [4,]    4
+##  [5,]    5
+##  [6,]    6
+##  [7,]    7
+##  [8,]    8
+##  [9,]    9
+## [10,]   10</code></pre>
+<p>No entanto, podemos usar mais argumentos da função.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="fundamentos-do-r.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setando numero de linhas e colunas</span></span>
+<span id="cb111-2"><a href="fundamentos-do-r.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">5</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="fundamentos-do-r.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setando a ordem prenchimento pelas linhas</span></span>
+<span id="cb113-2"><a href="fundamentos-do-r.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">5</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]    6    7    8    9   10</code></pre>
+<p><strong>Funções <code>cbind()</code> e <code>rbind()</code></strong>: Outr forma de criar matrizes é juntando vetores por meio da junção de colunas (<code>cbind()</code>) ou linhas (<code>rbind()</code>).</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="fundamentos-do-r.html#cb115-1" aria-hidden="true" tabindex="-1"></a>vet_1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb115-2"><a href="fundamentos-do-r.html#cb115-2" aria-hidden="true" tabindex="-1"></a>vet_2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">12</span>, <span class="at">to=</span><span class="dv">20</span>, <span class="at">by=</span><span class="dv">2</span>)</span>
+<span id="cb115-3"><a href="fundamentos-do-r.html#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="fundamentos-do-r.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="co"># unindo vetores atraves das colunas</span></span>
+<span id="cb115-5"><a href="fundamentos-do-r.html#cb115-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(vet_1, vet_2) </span></code></pre></div>
+<pre><code>##      vet_1 vet_2
+## [1,]     1    12
+## [2,]     2    14
+## [3,]     3    16
+## [4,]     4    18
+## [5,]     5    20</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="fundamentos-do-r.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unindo vetores atraves das linhas</span></span>
+<span id="cb117-2"><a href="fundamentos-do-r.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(vet_1, vet_2)</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5]
+## vet_1    1    2    3    4    5
+## vet_2   12   14   16   18   20</code></pre>
+<div id="acessando-elementos-da-matriz" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Acessando elementos da matriz<a href="fundamentos-do-r.html#acessando-elementos-da-matriz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os comandos para acessar elementos de uma matriz são parecidos com os comandos utilizados para acessar os elementos de vetores, a diferença é que na matriz temos linhas e colunas, sendo assim precisamos informar a linha e a coluna do elemento que desejamos visualizar.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="fundamentos-do-r.html#cb119-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">15</span>,<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb119-2"><a href="fundamentos-do-r.html#cb119-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-3"><a href="fundamentos-do-r.html#cb119-3" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">3</span>,<span class="dv">2</span>] <span class="co"># elemento com coordenadas: terceira linha  e segunda coluna</span></span></code></pre></div>
+<pre><code>## [1] 7.898432</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="fundamentos-do-r.html#cb121-1" aria-hidden="true" tabindex="-1"></a>A[,<span class="dv">1</span>] <span class="co"># elemento com coordenadas: todas as linhas e somente a primeira coluna</span></span></code></pre></div>
+<pre><code>## [1] 3.646411 9.843310 1.509163 8.265754 8.140321</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="fundamentos-do-r.html#cb123-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,] <span class="co"># elemento com coordenadas: linhas 1, 2 e 3 e todas as colunas</span></span></code></pre></div>
+<pre><code>##          [,1]      [,2]     [,3]
+## [1,] 3.646411 1.5979066 2.239768
+## [2,] 9.843310 0.6103663 5.938150
+## [3,] 1.509163 7.8984323 8.553139</code></pre>
+</div>
+</div>
+<div id="data-frames" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> <em>Data frames</em><a href="fundamentos-do-r.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esse objeto é como um banco de dados, as colunas são as variáveis e as linhas referem-se aos registros. A diferença entre matrizes e data frames é que matrizes são vetores com duas dimensões de modo que, possuem uma única classe, já os data frames possuem colunas que podem ter classes diferentes.</p>
+<div id="data-frames-disponibilizazdos-pelo-r" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> <em>Data frames</em> disponibilizazdos pelo R<a href="fundamentos-do-r.html#data-frames-disponibilizazdos-pelo-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O R disponibiliza vários bancos de dados como exemplo. Vamos trabalhar com um banco de dados disponibilizado pelo R. Para isso vamos utilizar a função <code>data()</code>.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="fundamentos-do-r.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># consultando os bancos de dados disponiveis</span></span>
+<span id="cb125-2"><a href="fundamentos-do-r.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>()</span>
+<span id="cb125-3"><a href="fundamentos-do-r.html#cb125-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-4"><a href="fundamentos-do-r.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="co"># acessando um banco de dados</span></span>
+<span id="cb125-5"><a href="fundamentos-do-r.html#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb125-6"><a href="fundamentos-do-r.html#cb125-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-7"><a href="fundamentos-do-r.html#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="co"># documentacao do banco de dados</span></span>
+<span id="cb125-8"><a href="fundamentos-do-r.html#cb125-8" aria-hidden="true" tabindex="-1"></a>?iris</span></code></pre></div>
+</div>
+<div id="criando-um-data-frame" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Criando um <em>data frame</em><a href="fundamentos-do-r.html#criando-um-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para criar um <em>data frame</em> no R vamos utilizar a função <code>data.frame()</code>.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="fundamentos-do-r.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># construindo uma tabela de metadados de pacientes</span></span>
+<span id="cb126-2"><a href="fundamentos-do-r.html#cb126-2" aria-hidden="true" tabindex="-1"></a>metadados_pac <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb126-3"><a href="fundamentos-do-r.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">paciente =</span> <span class="fu">c</span>(<span class="st">&quot;A01&quot;</span>, <span class="st">&quot;A02&quot;</span>, <span class="st">&quot;B03&quot;</span>, <span class="st">&quot;B05&quot;</span>, <span class="st">&quot;C01&quot;</span>),</span>
+<span id="cb126-4"><a href="fundamentos-do-r.html#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">48</span>, <span class="dv">65</span>, <span class="dv">54</span>, <span class="dv">72</span>),</span>
+<span id="cb126-5"><a href="fundamentos-do-r.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;feminino&quot;</span>, <span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;feminino&quot;</span>),</span>
+<span id="cb126-6"><a href="fundamentos-do-r.html#cb126-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fumante =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span>
+<span id="cb126-7"><a href="fundamentos-do-r.html#cb126-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-8"><a href="fundamentos-do-r.html#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="co"># visualizando o data frame</span></span>
+<span id="cb126-9"><a href="fundamentos-do-r.html#cb126-9" aria-hidden="true" tabindex="-1"></a>metadados_pac</span></code></pre></div>
+<pre><code>##   paciente idade      sexo fumante
+## 1      A01    45 masculino    TRUE
+## 2      A02    48 masculino   FALSE
+## 3      B03    65  feminino   FALSE
+## 4      B05    54 masculino   FALSE
+## 5      C01    72  feminino    TRUE</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="fundamentos-do-r.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualizando a idade e sexo</span></span>
+<span id="cb128-2"><a href="fundamentos-do-r.html#cb128-2" aria-hidden="true" tabindex="-1"></a>metadados_pac[,<span class="fu">c</span>(<span class="st">&quot;idade&quot;</span>,<span class="st">&quot;sexo&quot;</span>)]</span></code></pre></div>
+<pre><code>##   idade      sexo
+## 1    45 masculino
+## 2    48 masculino
+## 3    65  feminino
+## 4    54 masculino
+## 5    72  feminino</code></pre>
+</div>
+<div id="executando-algumas-funções-em-data-frames" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Executando algumas funções em <em>data frames</em><a href="fundamentos-do-r.html#executando-algumas-funções-em-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="fundamentos-do-r.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- banco de dados: iris --</span></span>
+<span id="cb130-2"><a href="fundamentos-do-r.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="do">## -- primeiro contato com o dado</span></span>
+<span id="cb130-3"><a href="fundamentos-do-r.html#cb130-3" aria-hidden="true" tabindex="-1"></a>?iris <span class="co"># documentacao</span></span>
+<span id="cb130-4"><a href="fundamentos-do-r.html#cb130-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-5"><a href="fundamentos-do-r.html#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris)         <span class="co"># dimensoes: linhas e colunas</span></span></code></pre></div>
+<pre><code>## [1] 150   5</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="fundamentos-do-r.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)        <span class="co"># cabecalho</span></span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="fundamentos-do-r.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(iris)        <span class="co"># calda</span></span></code></pre></div>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 145          6.7         3.3          5.7         2.5 virginica
+## 146          6.7         3.0          5.2         2.3 virginica
+## 147          6.3         2.5          5.0         1.9 virginica
+## 148          6.5         3.0          5.2         2.0 virginica
+## 149          6.2         3.4          5.4         2.3 virginica
+## 150          5.9         3.0          5.1         1.8 virginica</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="fundamentos-do-r.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)     <span class="co"># resumo estatistico</span></span></code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="fundamentos-do-r.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)         <span class="co"># estrutura</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="fundamentos-do-r.html#cb140-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>Sepal.Length <span class="co"># selecionando uma variavel</span></span></code></pre></div>
+<pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+##  [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+##  [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+##  [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+##  [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+##  [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+## [109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+## [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+## [145] 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
+</div>
+</div>
+<div id="listas" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Listas<a href="fundamentos-do-r.html#listas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uma lista no R é como um vetor capaz de armazenar elementos com diferentes tipos de dados (armazenando em uma dimensão). Uma mesma lista podemos armazenar vetor, matriz, dataframe, e outros. Sendo assim, as lista podem ser complexas .</p>
+<p>Para criar uma lista utilize a função <code>list()</code></p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="fundamentos-do-r.html#cb142-1" aria-hidden="true" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;Hello world&quot;</span>,vet_1,A, metadados_pac) </span>
+<span id="cb142-2"><a href="fundamentos-do-r.html#cb142-2" aria-hidden="true" tabindex="-1"></a>lista</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Hello world&quot;
+## 
+## [[2]]
+## [1] 1 2 3 4 5
+## 
+## [[3]]
+##          [,1]      [,2]     [,3]
+## [1,] 3.646411 1.5979066 2.239768
+## [2,] 9.843310 0.6103663 5.938150
+## [3,] 1.509163 7.8984323 8.553139
+## [4,] 8.265754 9.8323602 2.213032
+## [5,] 8.140321 7.3529484 8.374873
+## 
+## [[4]]
+##   paciente idade      sexo fumante
+## 1      A01    45 masculino    TRUE
+## 2      A02    48 masculino   FALSE
+## 3      B03    65  feminino   FALSE
+## 4      B05    54 masculino   FALSE
+## 5      C01    72  feminino    TRUE</code></pre>
+<p>Os colchetes duplos <code>[[]]</code> indicam qual elemento da lista está sendo apresentado, enquanto que o simples <code>[]</code> mostra o subelemento da lista.</p>
+</div>
+<div id="funções" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Funções<a href="fundamentos-do-r.html#funções" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Um dos grandes poderes do R é a criação de funções com o intuito de realizar trabalhos específicos. A sintaxe básica é: function(lista de argumentos) corpo da função. function indica para o R que estamos criando uma função. Lista de argumentos são argumentos que serão avaliados pela função, tais argumentos são separados por vírgulas. Já o corpo da função é onde iremos escrever o nosso algoritmo a ser utilizado para realizar os cálculos. Utilizamos o assignment para nomear a função.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="fundamentos-do-r.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criando a funcao</span></span>
+<span id="cb144-2"><a href="fundamentos-do-r.html#cb144-2" aria-hidden="true" tabindex="-1"></a>mult_lad <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb144-3"><a href="fundamentos-do-r.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> y</span>
+<span id="cb144-4"><a href="fundamentos-do-r.html#cb144-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb144-5"><a href="fundamentos-do-r.html#cb144-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-6"><a href="fundamentos-do-r.html#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="co"># executando a funcao</span></span>
+<span id="cb144-7"><a href="fundamentos-do-r.html#cb144-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mult_lad</span>(<span class="dv">2</span>,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="fundamentos-do-r.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mult_lad</span>(<span class="dv">10</span>,<span class="dv">17</span>)</span></code></pre></div>
+<pre><code>## [1] 170</code></pre>
+<p>Podemos criar uma funcao que calcule o pH de écidos e bases fortes</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="fundamentos-do-r.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criando a funcao</span></span>
+<span id="cb148-2"><a href="fundamentos-do-r.html#cb148-2" aria-hidden="true" tabindex="-1"></a>ph <span class="ot">&lt;-</span> <span class="cf">function</span>(h){</span>
+<span id="cb148-3"><a href="fundamentos-do-r.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">log10</span>(h)</span>
+<span id="cb148-4"><a href="fundamentos-do-r.html#cb148-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb148-5"><a href="fundamentos-do-r.html#cb148-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-6"><a href="fundamentos-do-r.html#cb148-6" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando a funcao</span></span>
+<span id="cb148-7"><a href="fundamentos-do-r.html#cb148-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ph</span>(<span class="fl">0.01</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="fundamentos-do-r.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ph</span>(<span class="dv">10</span><span class="sc">^-</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+</div>
+<div id="lista-de-exercícios-1" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Lista de exercícios<a href="fundamentos-do-r.html#lista-de-exercícios-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Crie uma matriz com a sequência de 1 a 20, contendo 4 linhas</li>
+<li>Calcule a média de todas as colunas da matriz do exercício anterior.</li>
+<li>Calcule a média dos números pares de todas as colunas da matriz do exercício 1.</li>
+<li>Crie um objeto com 100 valores aleatórios de uma distribuição uniforme. Quantos elementos são maiores ou iguais a 0,5?</li>
+</ol>
 
+</div>
 </div>
             </section>
 
@@ -267,20 +674,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

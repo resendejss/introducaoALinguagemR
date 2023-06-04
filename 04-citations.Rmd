@@ -1,3 +1,654 @@
 # Processamento de dados
 
+O R possui diversas funções para várias operações com manejo de dados e neste tópico iremos ensinar o básico, ou seja, como importá-los, exportá-los e editá-los no R. Na maioria das vezes os dados não estão em um formato ideal e precisamos manejá-los. A manipulação de dados envolve a transformação de um tipo de objeto em outro, limpeza e filtragem, agregações, reestruturação e junção dos dados.
 
+Para obter os arquivos de input utilizados neste tópico acesse: 
+
+## Primeiros passos
+### Tipos de variáveis
+Os objetos no R, podem armazenar diferentes tipos de dados, no decorrer deste subtópico iremos trabalhar com alguns desses tipos.
+```{r}
+# -- TIPOS DE VARIAVEIS --
+
+## tipo caracter
+caracter <- "string"
+
+## tipo numerico inteiro
+inteiro <- 7L
+
+## tipo numerico decimal
+decimal <- 7.5
+
+## tipo logico
+logico <- TRUE
+```
+
+Para verificar o tipo de cada objeto criado vamos utilizar a função `class()`.
+```{r}
+# -- VERIFICACAO DE VARIAVEIS --
+## funcao class()
+class(caracter)
+class(inteiro)
+class(decimal)
+class(logico)
+
+## funcao is.
+is.double(caracter)
+is.numeric(caracter)
+is.character(caracter)
+is.double(decimal)
+is.numeric(decimal)
+is.integer(decimal)
+```
+
+Existem também tipos mais complexos como: vector; array; matrix; list; data.frame;
+factor.
+
+### Conversão de tipos de variáveis
+Muitas vezes quando importamos os dados para o R, ele os trata como sendo de um tipo diferente do qual desejamos, assim, é preciso convertê-los.
+```{r eval=FALSE}
+# -- CONVERSAO DE VARIAVEIS --
+## alguns exemplos de transformacoes
+conv_decimal <- as.double(inteiro) # convertendo para decimal
+conv_inteiro <- as.integer(decimal) # convertendo para inteiro
+conv_caracter <- as.character(inteiro) # convertendo para caracter
+```
+
+### Valores faltantes
+Valores faltantes, assim como o próprio nome já diz, são valores ausentes, ou seja, quando você estiver trabalhando com seus dados, talvez você não tenha todos os valores esperados, então você precisa preencher esses "valores faltantes"com a sigla NA, pois o R ao encontrar o NA ele entende que é um valor que está faltando. Abaixo seguem algumas funções para trabalhar com NA.
+```{r eval=FALSE}
+# -- TRABALHANDO COM VALORES FALTANTES --
+## Trabalhando com banco de dados do R
+### verificar os bancos de dados data () disponiveis no R
+
+### escolher o banco de dados iris para tralhar
+data("iris")
+
+### fazer uma copia do banco de dados
+data_iris <- iris
+
+### remover o banco de dados do ambiente de trabalho
+rm(iris)
+
+### estudar o banco de dados
+?iris
+
+### verificar o tipo do objeto
+class(data_iris)
+
+### "sentindo os dados" - resumo estatistico
+summary(data_iris)
+
+### verificar a ocorrencia de NA
+#### is.na retorna TRUE caso haja NA (valores não anotados), do contrário retorna FALSE
+is.na(data_iris$Sepal.Length)
+is.na(data_iris$Sepal.Width)
+
+### verificar se todo o objeto esta preenchido
+#### complete.cases retorna TRUE se todos os dados estão preenchidos e FALSE para os faltantes
+complete.cases(data_iris$Sepal.Length)
+complete.cases(data_iris$Sepal.Width)
+
+## Trabalhando com seus dados (exemplo)
+### criando banco de dados
+coorte <- data.frame(
+barcode = c("A01B1", "A01B2", "A02B3"),
+sexo = c("Feminino", "Feminino", NA),
+fumante = c(T, F, T),
+idade = c(65, 68, 79))
+
+### visualizar os dados
+View(coorte)
+
+### "sentindo os dados" - resumo estatistico
+summary(coorte)
+
+### vericar o conteudo de NA
+is.na(coorte$sexo)
+complete.cases(coorte$sexo)
+
+# Perceba que complete.cases e is.na retornam respostas contrários, pois o primeiro verifica se os dados estão preenchidos e o segundo se existem dados faltantes.
+
+### preencher NA com "Não informado"
+coorte$sexo[is.na(coorte$sexo)] <- "Não informado"
+### verificar se o objeto esta preenchido
+complete.cases(coorte$fumante)
+```
+
+## Importação de arquivos
+Haverá momentos que precisaremos importar arquivos para o ambiente R e transformá-los em objetos. Antes de importar nossos dados, precisamos executar alguns comandos para averiguar se estamos no diretório correto (onde o arquivo está armazenado), ou seja, confirmar se o arquivo realmente está no diretório.
+```{r eval=FALSE}
+# -- DIRETORO DE TRABALHO --
+## Verificar o diretorio de trabalho
+getwd()
+
+## Definir diretorio de trabalho
+setwd("caminho/onde/se/encontra/o/arquivo")
+
+## Verificar quais arquivos estao no mesmo diretorio
+dir()
+```
+
+Agora iremos utilizar alguns comandos para importar para o ambiente R arquivos com diferentes extensões.
+```{r eval=FALSE}
+# -- IMPORTACAO DE ARQUIVOS PARA O AMBIENTE R --
+input_1 <- read.table(file = "ChickWeight.csv", header = T, sep = ",")
+input_2 <- read.csv(file = "arquivo(,).csv", header = T)
+input_3 <- read.csv2("arquivo(;).csv", header = T)
+```
+
+Agora vamos utilizar a função read_delim() do pacote readr para ler arquivos com
+diversos tipos de separadores. Por exemplo, vamos importar um arquivo compactado:
+```{r eval=FALSE}
+# -- IMPORTACAO DE ARQUIVOS COMPACTADOS PARA O AMBIENTE R --
+library(readr)
+input_zip <- read_delim("arquivo.zip", delim = ";")
+```
+
+Quando não quisermos importar um arquivo inteiro, mas apenas algumas observações (linhas) e variáveis (colunas), faremos da seguinte maneira:
+```{r eval=FALSE}
+# -- IMPORTACAO DE PARTES DE UM ARQUIVO PARA O AMBIENTE R --
+## Vamos importar as quatro primeiras linhas de um arquivo
+input_txt_4l <- read_delim("arquivo(;).csv", delim = ";", n_max = 4)
+```
+
+Para importar arquivos do Excel (extensão "xlsx") utilizaremos o pacote readxl.
+```{r eval=FALSE}
+# -- IMPORTACAO DE ARQUIVOS DO EXCEL --
+input_xlsx <- readxl::read_xlsx("arquivo.xlsx")
+```
+
+## Exportação de arquivos
+Para exportar arquivos do ambiente R, para um diretório do seu computador, utilizaremos a função `write.table()`. Esta função está contida no pacote base do R, ou seja, esse pacote é instalado no momento em que instalamos o R.
+```{r eval=FALSE}
+#  -- EXPORTACAO DE ARQUIVOS DO AMBIENTE R PARA O UM DIRETORIO NO COMPUTADOR
+## Exportando arquivo no diretorio de trabalho
+write.csv(input_csv_4l, file = "teste.csv", row.names = F, quote = F)
+write.csv2(input_csv_4l, file = "teste2.csv", row.names = F, quote = F)
+
+## Exportando arquivo em um dirtorio especifico
+write.csv2(input_csv_4l, file ="~/caminho/do/diretorio/desejado/teste.csv",row.names = F, quote = F)
+```
+
+## Manipulação de dados com pacotes básicos
+A manipulação de dados consiste em modificar ou selecionar variáveis de interesse dentro de um conjunto de dados. Nesse exercício, vamos baixar dados de biópsias de nódulos de mama de Wiscosin (W.N. Street, W.H. Wolberg and O.L. Mangasarian, 1993).
+```{r eval=FALSE}
+# Vamos baixar os dados de características de nódulos de mama de Wiscosin
+# Mais informações sobre esse dataset em https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29
+
+download.file(
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/breast-
+cancer-wisconsin/wdbc.data',
+destfile = "wbdc.data")
+
+# Vamos importar os dados para o ambiente do R.
+# Os dados estão separados por vírgula, por isso o argumento sep=','
+# outras opções e argumentos podem ser vistos em help(read.table)
+brca <- read.table(file = "./wbdc.data", sep = ',')
+
+# Ver nomes das colunas
+colnames(brca)
+View(brca)
+# Mudar nome da segunda coluna
+colnames(brca)[2] <- "Coluna2"
+colnames(brca)
+# Mudar todos os nomes de colunas conforme descritos no dataset
+colnames(brca) <- c('id_number', 'diagnosis', 'radius_mean',
+                    'texture_mean', 'perimeter_mean', 'area_mean',
+                    'smoothness_mean', 'compactness_mean',
+                    'concavity_mean','concave_points_mean',
+                    'symmetry_mean', 'fractal_dimension_mean',
+                    'radius_se', 'texture_se', 'perimeter_se',
+                    'area_se', 'smoothness_se', 'compactness_se',
+                    'concavity_se', 'concave_points_se',
+                    'symmetry_se', 'fractal_dimension_se',
+                    'radius_worst', 'texture_worst',
+                    'perimeter_worst', 'area_worst',
+                    'smoothness_worst', 'compactness_worst',
+                    'concavity_worst', 'concave_points_worst',
+                    'symmetry_worst', 'fractal_dimension_worst')
+head(brca)
+View(brca)
+class(brca)
+summary(brca)
+```
+
+Ao observarmos o summary do data frame que criamos, percebemos que a maioria das colunas foram identificadas com valores numéricos, com exceção da coluna ’diagnosis’. Essa coluna foi identificada contendo caracteres e no summary indica 369 caracteres (1 para cada linha). Entretanto, ao observarmos melhor, essa coluna apresenta somente valores de ’B’ para amostras benignas e ’M’ para amostras malignas. Nesse caso, podemos alterá-los para fatores para facilitar o manejo dos
+dados.
+```{r eval=FALSE}
+# Acessando o resumo da coluna 'diagnosis' do data frame 'brca'
+summary(brca$diagnosis)
+
+# Transformando os valores da coluna em fatores
+brca$diagnosis <- as.factor(brca$diagnosis)
+
+# Agora o summary indica a quantidade de linhas em cada fator. Um resumo que faz mais sentido para nossa análise.
+summary(brca$diagnosis)
+```
+
+### Acessando e modificando dados
+Aqui vamos ver maneiras de acessar, visualizar ou modificar elementos dentro de um data frame. Existe mais de uma forma de realizar as mesmas ações como podemos ver nos exemplos a seguir.
+```{r eval=FALSE}
+# Acessando itens do data frame
+# Visualizando item na 2 linha e 3 coluna
+brca[2,3]
+
+# Mudando valor da 2 linha e 3 coluna
+brca[2,3] <- 22
+brca[2,3]
+
+# Visualizando valores da 5 linha
+brca[5,]
+
+# Visualizando valores da 1 à5 linha
+brca[1:5,]
+
+# Visualizando valores da 2 coluna
+brca[,2]
+
+# Visualizando coluna "diagnosis"
+brca$diagnosis
+
+# Visualizando as 2, 3 e 4 colunas
+brca[,c(2,3,4)]
+
+# Visualizando a 2, 3 e 4 colunas e as linhas 2,4,6
+brca[c(2,4,6), c(2,3,4)]
+
+# Visualizando as colunas "diagnosis", "radius_mean" e
+# "texture_mean" para as linhas 2,4,6
+brca[c(2,4,6), c("diagnosis", "radius_mean", "texture_mean")]
+
+# Mudando ordem na visualização das colunas
+brca[c(2,4,6), c("radius_mean", "diagnosis", "texture_mean")]
+
+# Excluir 1 coluna
+brca <- brca[,-1]
+
+# Criando novo data frame somente com as colunas de interesse:
+brca <- brca[,c("diagnosis", "radius_mean", "texture_mean",
+"symmetry_mean", "area_mean", "perimeter_mean")]
+
+# Adicionar coluna com a razão do perímetro pelo raio dos nódulos
+brca$perimeter.radius <- brca$perimeter_mean/brca$radius_mean summary(brca$perimeter.radius)
+
+# Perceba como os valores da razão do perímetro pelo raio dos nódulos se
+aproxima do valor de 2*pi (aprox. 6.28)
+```
+
+### Filtrar observações
+Os data frames ou matrizes no R são entendidos como objetos com 2 dimensões, a primeira sendo as observações (linhas) e a segunda as variáveis (colunas). Aqui começaremos tratando de operações com as linhas (observações).
+
+As observações (linhas) do data frame podem ser selecionados de acordo com seus valores ou características. Para isso podemos usar valores lógicos (TRUE or FALSE) ou índices (1,2,3...). Operadores lógicos são úteis para adicionarmos condições a serem cumpridas na seleção dos dados. Na linguagem R, o operador de igual ’=’ se refere a atribuição de valores, assim como ’<-’. Portanto, o operador lógico para igualdade é ’==’. Ele irá testar se o valor à esquerda é igual ao valor da direita, caso positivo retorna TRUE, do contrário FALSE. O operador para diferença é ’!=’, tendo uso análogo. Além disso é possível comparar valores maiores (’>’), menores (’<’), maiores e iguais (’>=’) ou menores e iguais (’<=’).
+```{r eval=FALSE}
+# Filtrar só amostras benignas
+benign <- brca[brca$diagnosis == "B",]
+summary(benign)
+dim(benign)
+
+# Filtrar só amostras não benignas
+malign <- brca[brca$diagnosis != "B",]
+summary(malign)
+dim(malign)
+
+# Filtrar só tumores com raio maior do 16
+radius16 <- brca[brca$radius_mean > 16,]
+summary(radius16)
+
+# Filtrar tumores com raio menor ou igual a 16
+radius.menor16 <- brca[brca$radius_mean <= 16,]
+summary(radius16.menor16)
+```
+
+Além disso, é possível adicionar condições. Por exemplo o operador ’’ (’E’) indica a intersecção de condições, ou seja, a condição1 E a condição2 devem ser atendidas para que o valor retornado seja TRUE. Caso qualquer uma não seja atendida, o teste lógico retorna FALSE.
+```{r eval=FALSE}
+# Filtrar só tumores com raio maior do que 16 E (&) benignas
+radius16ebenign <- brca[brca$radius_mean > 16 & brca$diagnosis == "B",]
+summary(radius16ebenign)
+```
+
+á o operador ’|’ (’OU’) indica a união de condições, ou seja, a condição1 OU a condição2, ou ambas podem ser atendidas para que o valor retornado seja TRUE. Nesse caso, o teste lógico só retorna FALSE caso as duas condições NÃO sejam atendidas.
+```{r eval=FALSE}
+# Filtrar só tumores com raio maior do que 16 ou (|) benignas
+radius16oubenign <- brca[brca$radius_mean > 16 | brca$diagnosis == "B",]
+summary(radius16oubenign)
+```
+
+### Adicionar e ordenar linhas
+Por fim, podemos adicionar linhas ao data frame ou mesmo unir dois data frames verticalmente utilizando a função `rbind()` (row bind).
+```{r eval=FALSE}
+# Adicionar linhas, importante ter o mesmo número de variáveis do que o dataframe
+novalinha <- c("M", 20.5, 21.5, 0.2, 1203, 130.5, 6.6)
+dim(brca)
+brca2 <- rbind(brca, novalinha)
+dim(brca2)
+
+# Unindo dados de benignos e malignos
+brca2 <- rbind(benign, malign)
+summary(brca2)
+```
+
+A função `order()` retorna o ordenamento dos índices das linhas. Essa função serve justamente para ordenar um objeto de acordo com seu valor. Caso tenha valor numérico, a função ordena do menor para o maior, caso seja uma letra ou palavra, a função ordena em ordem alfabética. O argumento `decreasing = T`, oferece a opção de ordenamento decrescente tanto numérico quanto alfabético.
+```{r eval=FALSE}
+# Ordenar tabela
+brca <- brca[order(brca$radius_mean),]
+brca <- brca[order(brca$radius_mean, decreasing = T),]
+brca <- brca[order(brca$diagnosis, decreasing = F),]
+```
+
+### Selecionar colunas, unir data frames horizontalmente e adicionar colunas
+De maneira semelhante ao que foi feito com as observações (linhas), aqui podemos selecionar e unir variáveis (colunas). Alguns exemplos já foram mostrados nas seções anteriores. Aqui focaremos em como criar novos data frames com algumas colunas e uni-los com a função `cbind()` (column bind).
+```{r eval=FALSE}
+# Ver dimensões do data frame
+dim(brca)
+
+## Cria novo data frame com as 3 primeiras colunas
+MeiaTabela <- brca[,1:3]
+dim(MeiaTabela)
+
+## Cria novo data frame com as 3 colunas seguintes
+MeiaTabela2 <- brca[,4:6]
+dim(MeiaTabela2)
+
+## Une as duas tabelas
+NovaTabela <- cbind(MeiaTabela, MeiaTabela2)
+dim(NovaTabela)
+
+## Adiciona coluna perimeter.radius ao data frame
+NovaTabela2 <- cbind(NovaTabela, brca$perimeter.radius)
+NovaTabela3 <- cbind(NovaTabela, perimeter.radius = brca$perimeter.radius)
+```
+
+### Removendo objetos
+Os objetos no R são salvos na memória RAM. Ao final da seção, podemos salvar os objetos ou liberar a memória alocada. Entretanto, durante o trabalho podemos limpar o ambiente de trabalho removendo objetos que não serão mais utilizados. Em especial, isso se torna útil quando carregamos data frames muito grandes, os quais podem consumir muito espaço na memória do computador.
+```{r eval=FALSE}
+# Remover objetos do ambiente de trabalho
+rm(NovaTabela, NovaTabela2, NovaTabela3, novalinha,
+MeiaTabela, MeiaTabela2, brca2, radius16.benign,
+radius16ebenign, radius16oubenign)
+```
+
+## Manipulação de dados com tidyverse
+Neste tópico vamos trabalhar com funções do pacote `dplyr` e `tidyr.` A comunidade que trabalha com R conhece bem esses pacotes devido às funções importantes para manipulação de dados que eles contêm. Essencialmente os pacotes `dplyr` e `tidyr` desempenham as mesmas funções das apresentadas pelas funções básicas. As vantagens se dão em tornar o código mais limpo e legível.
+
+### Filtrar observações
+A primeira função que utilizaremos é a função `filter()` do pacote `dplyr`, ela filtra observações.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - FILTRAR DADOS -
+### Criando banco de dados
+alunos <- data.frame(
+nome = c("Jean", "Dan", "Pepe", "Bruna", "Rafaela"),
+altura = c(1.74, 1.70, 1.73, 1.65, 1.68),
+massa = c(69, 66, NA, 55, 53),
+sexo = c("masculino", "masculino", "masculino", "feminino", "feminino")
+)
+
+### Filtrar dados
+library(dplyr)
+
+#### filtrar observacoes com altura maior que 1.7
+filter(alunos, altura >= 1.7)
+
+#### filtrar observacoes com altura maior ou igual a 1.68 sendo do sexo
+feminino
+filter(alunos, altura >= 1.68 & sexo == "feminino")
+
+#### filtrar observacoes com altura maior ou igual a 1.68, sendo do sexo
+feminino e com massa maior que 50
+filter(alunos, altura >= 1.68 & sexo == "feminino" & massa > 50)
+```
+
+A função `filter()` também está disponível no pacote `stats` (um dos pacotes básicos do R), assim, certifique-se que esteja carregando o pacote correto ou utilize a sintaxe `dplyr::filter()` para ter certeza de que está usando a função certa.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - FILTRAR DADOS -
+dplyr::filter(alunos, altura > 1.68 & sexo == "feminino")
+```
+
+### Selecionar variáveis
+O pacote dplyr disponibiliza a função select(), ela seleciona as variáveis do nosso objeto.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - SELECIONAR VARIAVEIS -
+### selecionar as colunas: nomes, sexo, massa
+select(alunos, nomes, sexo, massa)
+
+### selecionar as colunas que terminam com o caracter: "a"
+select(alunos, ends_with("a"))
+
+### selecionar as colunas que contêm a sequência de caracteres: "no"
+select(alunos, contains("no"))
+
+### selecionar as colunas: 2, 3 e 4
+select(alunos, 2:4)
+
+### visualizar todas as linhas e as colunas 1, 2 e 3
+alunos[,1:3]
+
+### visuzalizar todas as linhas e as colunas 1, 4 e 3
+alunos[, c(1,4,3)]
+```
+
+### Modificação de dados
+Utilizando o mesmo exemplo, vamos criar uma coluna com o nome de imc e colocarmos o
+resultado do cálculo nessa coluna.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - INSERIR UMA COLUNA NO CONJUNTO DE DADOS -
+### inserir uma coluna nos conjunto de dados com o resultado do imc de cada
+aluno
+alunos_2 <- mutate(alunos, imc = (peso/(altura)^2))
+```
+
+### Renomeando variáveis
+Que tal renomear o nome de alguma variável? Podemos renomear nossas variáveis utilizando a função `rename()` que também é do pacote `dplyr`.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - RENOMEAR UMA COLUNA DO CONJUNTO DE DADOS-
+### renomear as colunas: altura para altura.m e massa para massa.kg
+alunos <- rename(alunos,
+                 altura.m = altura,
+                 massa.kg = massa)
+```
+
+### Uso de pipes
+Quando queremos fazer operações múltiplas em sequência, podemos utilizar o pipe (%>%), ele pertence ao pacote magrittr. O uso de pipes serve para simplificar o código. Supondo que precisamos selecionar, sumarizar e plotar alguns dados, podemos fazer comandos para cada execução, porém fica confuso porque temos que executar um de cada vez. Com o uso de pipes colocamos um comando em sequência do outro e o resultado de um comando serve como entrada para o outro comando.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - USO DE PIPES -
+### Sem pipes
+select(filter(alunos_2, imc >= 23), nome, massa)
+
+### Com pipes
+alunos_2 %>%
+filter(imc >= 23) %>%
+select(nome, massa, imc)
+
+#### a media das massas e o somatorio das massas separando por sexo
+alunos_2 %>%
+group_by(sexo) %>%
+summarise(media = mean(massa),
+somatorio = sum(massa))
+
+#### a media, desvio padrao e quantidade das massas separando por sexo
+alunos_2 %>%
+group_by(sexo) %>%
+summarise(media = mean(massa),
+sd.massa = sd(massa),
+total.massa = n())
+
+#### a media, desvio padrao e quantidade das massas separando por sexo
+alunos %>%
+group_by(sexo) %>%
+summarise(media = mean(massa, na.rm = TRUE),
+sd.massa = sd(massa, na.rm = T),
+total.massa = n())
+```
+
+### Ordenar dados
+Há momentos em que precisaremos ordenar nossos dados, para termos uma melhor visualização facilitando nossas análises. Para ordenar os dados utilizaremos a função `arrange()` do pacote `dplyr`.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - ORDENAR DADOS -
+### ordenando de forma decrescente o objeto "alunos" atraves da variavel massa
+alunos %>%
+arrange(desc(massa))
+
+### agrupando por sexo e ordenando pela massa
+alunos %>%
+group_by(sexo) %>%
+arrange(desc(massa), .by_group = TRUE)
+
+#### ---- note que informei ".by_grupo = TRUE" para poder ordenar primeiro o "
+feminino" e depois o "masculino" ----
+```
+
+### Combinar variáveis
+Quando quisermos combinar variáveis podemos utilizar a `função bind_cols()`.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - COMBINAR VARIAVEIS -
+### criar conjunto de dados para combinar
+complemento <- data.frame(
+  nome = c("Jean", "Dan", "Pepe", "Bruna", "Rafaela"),
+  tipo.sang = c("A+", "A+", "B-", "B+","B-"))
+
+### combinando objetos
+bind_cols(alunos, complemento)
+```
+
+**Unir variáveis à esquerda (left jooin)**
+Neste caso não é necessário ter o mesmo número de observações, uma vez que serão unidos somente os objetos que contém a mesma chave.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - UNIR VARIAVEIS A ESQUERDA -
+### criar conjunto de dados para combinar
+complemento_1 <- data.frame(
+  nome = c("Dan", "Pepe"),
+  estado = c("PR", "SC"))
+
+### combinando objetos
+left_join(alunos, complemento_1)
+```
+
+**Unir variáveis à direita (right join)**
+Vamos unir observações que correspondem à objetos a direita. Para unir objetos cuja variável de um seja diferente da variável do outro basta informar ao comando.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - UNIR VARIAVEIS A DIREITA -
+### criar conjunto de dados para combinar
+alunos_4 <- data.frame(
+  aluno = c("Jean", "Tamara", "Rafaela"),
+  cid.natal = c("Umuarama-PR", "Curitiba-PR", "Maringa-PR"))
+
+### unindo o objeto da direita ao da esquerda considerando que as variaveis
+nome e aluno sao as mesmas
+right_join(alunos_4, alunos, by = c("aluno" = "nome"))
+```
+
+**Unir variáveis internamente (inner join)**
+Diversas vezes queremos unir bancos de dados incompletos, assim, podemos utilizar a função `inner_join()`, ela irá desconsiderar as observações que não possuem todas as variáveis completas.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - UNIR VARIAVEIS INTERNAMENTE -
+### unindo objetos considerando que as variaveis nome e aluno sao as mesmas
+inner_join(alunos_4, alunos, by = c("aluno" = "nome"))
+```
+
+**Unir todas as observações dos objetos (full join)**
+Se desejamos unir todas as observações de dois objetos podemos utilizar a função `full_join()`.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - UNIR TODAS AS VARIAVEIS -
+### unindo objetos considerando que as variaveis nome e aluno sao as mesmas
+full_join(alunos_4, alunos, by = c("aluno" = "nome"))
+```
+
+**Semi join e anti join**
+Se desejamos saber quais observações de um objeto possuem correspondências em outro objeto podemos fazer uso da função `semi_join()`.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - MESMAS CORRESPONDENCIAS -
+### criar um novo conjunto de dados.
+alunos_5 <- left_join(complemento_1, alunos)
+
+### verificar observacoes de "alunos" que possuem correspondencias com
+observacoes com "alunos.5".
+semi_join(alunos, alunos_5)
+```
+
+Porém, se desejamos saber quais observações não possuem correspondências em outro objeto podemos fazer uso da função `anti_join()`.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - CORRESPONDENCIAS DIFERENTES -
+### verificar observacoes de "alunos" que nao possuem correspondencias com observacoes de "alunos.5"
+anti_join(alunos, alunos_5)
+```
+
+Se quisermos distinguir os dados, ou seja, quais observações são de um grupo A e quais são de um grupo B, podemos criar uma lista com os objetos, nomear cada um dos elementos da lista e em seguida unir com a função `bind_rows()` definindo o argumento “.id”.
+```{r eval=FALSE}
+# -- MANIPULACAO DE DADOS --
+## - SEPARAR EM GRUPOS -
+### exemplo 01
+lista.1 <- list(alunos_5, alunos)
+names(lista.1) <- c("A", "B")
+lista.1
+
+### exemplo 02
+bind_rows(lista.1, .id = "turma")
+```
+
+**Pivot wider e pivot longer**
+Duas funções que podem parecer um pouco difíceis de utilizar em um primeiro momento, mas são bastante úteis em determinadas situações são `pivot wider()` e `pivot longer()`. Como o nome sugere, a função `pivot wider()` "alonga"seus dados no sentido horizontal. Ou seja, ela vai distribuir os valores alocados nas linhas dentro de várias variáveis. Na prática, ela diminui o número de linhas do seu data frame distribuindo em mais colunas. A função `pivot longer()` faz o oposto, ela une variáveis (colunas) dentro de uma ou mais colunas pivôs, repetindo os demais valores. Na prática, ela aumenta o número de linhas e diminui o de colunas. Essa função é especialmente útil no manejo de dados para a construção de boxplots (veremos adiante).
+
+Utilizaremos as 10 primeiras linhas do data set com informações da quantidade de cartões que cada jogador levou na Copa do Mundo de 2018.
+```{r eval=FALSE}
+# pivot_wider e longer
+# 10 primeiras linhas da tabela de cartões por jogador da Copa do Mundo de 2018
+# https://pt.wikipedia.org/wiki/Dados_disciplinares_da_Copa_do_Mundo_FIFA_de_2018
+df <- data.frame(
+  stringsAsFactors = FALSE,
+  Jogador = c("Carlos Sánchez","Michael Lang","Igor Smolnikov","Jérôme Boateng",
+              "Sebastian Larsson","Aleksandar Mitrovi","Ante Rebi",
+              "Armando Cooper","Blaise Matuidi","Casemiro"),
+Selecao = c("Colômbia","Suíça","Rússia","Alemanha","Suécia","Sérvia","Croácia",
+            "Panamá","França","Brasil"),
+Cartao.Amarelo = c(1L, 0L, 0L, 0L, 3L, 2L, 2L, 2L, 2L, 2L),
+Cartao.Amarelo.Vermelho = c(0L, 0L, 1L, 1L, 0L, 0L, 0L, 0L, 0L, 0L),
+Cartao.Vermelho = c(1L, 1L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L))
+
+# Vamos escolher as colunas pivôs, que nesse caso serão as 3 colunas com as quantidades de cada cartão que os jogadores receberam.
+# A opção names_to se refere a coluna que será gerada com os nomes das colunas pivos e values_to éo nome da coluna que será gerada com os valores.
+dim(df)
+df_longer <-
+tidyr::pivot_longer(
+  data = df,
+  names_to = "Cartao",
+  values_to = "Qtde",
+  cols = c("Cartao.Amarelo","Cartao.Amarelo.Vermelho","Cartao.Vermelho"))
+dim(df_longer)
+
+# O pivot_wider faz a operação contrária, escolhemos de onde virão os nomes das novas colunas (names_from) e de onde virão os valores a serem preenchidos (values_from)
+df_wider <-
+  tidyr::pivot_wider(
+    data = df_longer,
+    names_from = c("Cartao"),
+    values_from = c("Qtde"))
+dim(df_wider)
+```
+
+## Lista de exercícios
+1. Utilizando o data frame “trees” responda as seguintes questões:
+* Qual a dimensão do objeto “trees”?
+* Alguma variável possui valores ausentes?
+* Existe alguma variável do tipo “caracter”?
+* Qual a média de cada variável?
+* Qual o mínimo e máximo de cada variável?
+* Na descrição desse data set qual a unidade de cada coluna? Metros, pés, polegadas?
+2. Para esse exercício considere 1 polegada = 0.0254 metros e 1 pé = 0.3048 metros e 1 pé³ = 0.028317 metros cúbicos.Faça as seguintes alterações:
+* Passe os valores da variável “Girth” para metros.
+* Passe os valores da variável “Height” para metros.
+* Passe os valores da variável “Volume” para m³.
+3. Filtre a tabela para somente observações com altura acima de 23m. Quantas observações sobraram?
+4. Exporte esse conjunto de dados para o seu diretório de trabalho

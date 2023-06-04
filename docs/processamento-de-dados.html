@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="fundamentos-do-r.html"/>
-<link rel="next" href="blocks.html"/>
+<link rel="next" href="gráficos.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -168,21 +175,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="fundamentos-básicos-da-programação.html"><a href="fundamentos-básicos-da-programação.html#lista-de-exercícios"><i class="fa fa-check"></i><b>3.4</b> Lista de exercícios</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html"><i class="fa fa-check"></i><b>4</b> Fundamentos do R</a></li>
-<li class="chapter" data-level="5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html"><i class="fa fa-check"></i><b>5</b> Processamento de dados</a></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<li class="chapter" data-level="4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html"><i class="fa fa-check"></i><b>4</b> Fundamentos do R</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<li class="chapter" data-level="4.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#vetores"><i class="fa fa-check"></i><b>4.1</b> Vetores</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="4.1.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#indexação-de-vetores"><i class="fa fa-check"></i><b>4.1.1</b> Indexação de vetores</a></li>
+<li class="chapter" data-level="4.1.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#gerando-sequências-e-número-aleatórios"><i class="fa fa-check"></i><b>4.1.2</b> Gerando sequências e número aleatórios</a></li>
+<li class="chapter" data-level="4.1.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#operações-com-vetores"><i class="fa fa-check"></i><b>4.1.3</b> Operações com vetores</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#matrizes"><i class="fa fa-check"></i><b>4.2</b> Matrizes</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#acessando-elementos-da-matriz"><i class="fa fa-check"></i><b>4.2.1</b> Acessando elementos da matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#data-frames"><i class="fa fa-check"></i><b>4.3</b> <em>Data frames</em></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#data-frames-disponibilizazdos-pelo-r"><i class="fa fa-check"></i><b>4.3.1</b> <em>Data frames</em> disponibilizazdos pelo R</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#criando-um-data-frame"><i class="fa fa-check"></i><b>4.3.2</b> Criando um <em>data frame</em></a></li>
+<li class="chapter" data-level="4.3.3" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#executando-algumas-funções-em-data-frames"><i class="fa fa-check"></i><b>4.3.3</b> Executando algumas funções em <em>data frames</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#listas"><i class="fa fa-check"></i><b>4.4</b> Listas</a></li>
+<li class="chapter" data-level="4.5" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#funções"><i class="fa fa-check"></i><b>4.5</b> Funções</a></li>
+<li class="chapter" data-level="4.6" data-path="fundamentos-do-r.html"><a href="fundamentos-do-r.html#lista-de-exercícios-1"><i class="fa fa-check"></i><b>4.6</b> Lista de exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html"><i class="fa fa-check"></i><b>5</b> Processamento de dados</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#primeiros-passos"><i class="fa fa-check"></i><b>5.1</b> Primeiros passos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#tipos-de-variáveis"><i class="fa fa-check"></i><b>5.1.1</b> Tipos de variáveis</a></li>
+<li class="chapter" data-level="5.1.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#conversão-de-tipos-de-variáveis"><i class="fa fa-check"></i><b>5.1.2</b> Conversão de tipos de variáveis</a></li>
+<li class="chapter" data-level="5.1.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#valores-faltantes"><i class="fa fa-check"></i><b>5.1.3</b> Valores faltantes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#importação-de-arquivos"><i class="fa fa-check"></i><b>5.2</b> Importação de arquivos</a></li>
+<li class="chapter" data-level="5.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#exportação-de-arquivos"><i class="fa fa-check"></i><b>5.3</b> Exportação de arquivos</a></li>
+<li class="chapter" data-level="5.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#manipulação-de-dados-com-pacotes-básicos"><i class="fa fa-check"></i><b>5.4</b> Manipulação de dados com pacotes básicos</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#acessando-e-modificando-dados"><i class="fa fa-check"></i><b>5.4.1</b> Acessando e modificando dados</a></li>
+<li class="chapter" data-level="5.4.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#filtrar-observações"><i class="fa fa-check"></i><b>5.4.2</b> Filtrar observações</a></li>
+<li class="chapter" data-level="5.4.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#adicionar-e-ordenar-linhas"><i class="fa fa-check"></i><b>5.4.3</b> Adicionar e ordenar linhas</a></li>
+<li class="chapter" data-level="5.4.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#selecionar-colunas-unir-data-frames-horizontalmente-e-adicionar-colunas"><i class="fa fa-check"></i><b>5.4.4</b> Selecionar colunas, unir data frames horizontalmente e adicionar colunas</a></li>
+<li class="chapter" data-level="5.4.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#removendo-objetos"><i class="fa fa-check"></i><b>5.4.5</b> Removendo objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#manipulação-de-dados-com-tidyverse"><i class="fa fa-check"></i><b>5.5</b> Manipulação de dados com tidyverse</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#filtrar-observações-1"><i class="fa fa-check"></i><b>5.5.1</b> Filtrar observações</a></li>
+<li class="chapter" data-level="5.5.2" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#selecionar-variáveis"><i class="fa fa-check"></i><b>5.5.2</b> Selecionar variáveis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#modificação-de-dados"><i class="fa fa-check"></i><b>5.5.3</b> Modificação de dados</a></li>
+<li class="chapter" data-level="5.5.4" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#renomeando-variáveis"><i class="fa fa-check"></i><b>5.5.4</b> Renomeando variáveis</a></li>
+<li class="chapter" data-level="5.5.5" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#uso-de-pipes"><i class="fa fa-check"></i><b>5.5.5</b> Uso de pipes</a></li>
+<li class="chapter" data-level="5.5.6" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#ordenar-dados"><i class="fa fa-check"></i><b>5.5.6</b> Ordenar dados</a></li>
+<li class="chapter" data-level="5.5.7" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#combinar-variáveis"><i class="fa fa-check"></i><b>5.5.7</b> Combinar variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="processamento-de-dados.html"><a href="processamento-de-dados.html#lista-de-exercícios-2"><i class="fa fa-check"></i><b>5.6</b> Lista de exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>6</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-no-r"><i class="fa fa-check"></i><b>6.1</b> Gráficos no R</a></li>
+<li class="chapter" data-level="6.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-base-em-r"><i class="fa fa-check"></i><b>6.2</b> Gráficos base em R</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="gráficos.html"><a href="gráficos.html#visualizando-dados"><i class="fa fa-check"></i><b>6.2.1</b> Visualizando dados</a></li>
+<li class="chapter" data-level="6.2.2" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-pontos"><i class="fa fa-check"></i><b>6.2.2</b> Criando gráficos de pontos</a></li>
+<li class="chapter" data-level="6.2.3" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-linha"><i class="fa fa-check"></i><b>6.2.3</b> Criando gráficos de linha</a></li>
+<li class="chapter" data-level="6.2.4" data-path="gráficos.html"><a href="gráficos.html#criando-gráficos-de-barra"><i class="fa fa-check"></i><b>6.2.4</b> Criando gráficos de barra</a></li>
+<li class="chapter" data-level="6.2.5" data-path="gráficos.html"><a href="gráficos.html#criando-histogramas"><i class="fa fa-check"></i><b>6.2.5</b> Criando histogramas</a></li>
+<li class="chapter" data-level="6.2.6" data-path="gráficos.html"><a href="gráficos.html#criando-boxplot"><i class="fa fa-check"></i><b>6.2.6</b> Criando boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="gráficos.html"><a href="gráficos.html#lista-de-exercícios-01"><i class="fa fa-check"></i><b>6.3</b> Lista de exercícios 01</a></li>
+<li class="chapter" data-level="6.4" data-path="gráficos.html"><a href="gráficos.html#ggplot2"><i class="fa fa-check"></i><b>6.4</b> GGPLOT2</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="gráficos.html"><a href="gráficos.html#exemplos-com-os-dados-de-tumor-de-mama-de-wiscosin"><i class="fa fa-check"></i><b>6.4.1</b> Exemplos com os dados de tumor de mama de Wiscosin</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="gráficos.html"><a href="gráficos.html#bonus-track---gráficos-interativos-com-plotly"><i class="fa fa-check"></i><b>6.5</b> Bonus track - Gráficos interativos com plotly</a></li>
+<li class="chapter" data-level="6.6" data-path="gráficos.html"><a href="gráficos.html#lista-de-exercícios-02"><i class="fa fa-check"></i><b>6.6</b> Lista de exercícios 02</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -205,7 +269,606 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="processamento-de-dados" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Capítulo 5</span> Processamento de dados<a href="processamento-de-dados.html#processamento-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>O R possui diversas funções para várias operações com manejo de dados e neste tópico iremos ensinar o básico, ou seja, como importá-los, exportá-los e editá-los no R. Na maioria das vezes os dados não estão em um formato ideal e precisamos manejá-los. A manipulação de dados envolve a transformação de um tipo de objeto em outro, limpeza e filtragem, agregações, reestruturação e junção dos dados.</p>
+<p>Para obter os arquivos de input utilizados neste tópico acesse:</p>
+<div id="primeiros-passos" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Primeiros passos<a href="processamento-de-dados.html#primeiros-passos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tipos-de-variáveis" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Tipos de variáveis<a href="processamento-de-dados.html#tipos-de-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os objetos no R, podem armazenar diferentes tipos de dados, no decorrer deste subtópico iremos trabalhar com alguns desses tipos.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="processamento-de-dados.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- TIPOS DE VARIAVEIS --</span></span>
+<span id="cb152-2"><a href="processamento-de-dados.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="processamento-de-dados.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="do">## tipo caracter</span></span>
+<span id="cb152-4"><a href="processamento-de-dados.html#cb152-4" aria-hidden="true" tabindex="-1"></a>caracter <span class="ot">&lt;-</span> <span class="st">&quot;string&quot;</span></span>
+<span id="cb152-5"><a href="processamento-de-dados.html#cb152-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-6"><a href="processamento-de-dados.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="do">## tipo numerico inteiro</span></span>
+<span id="cb152-7"><a href="processamento-de-dados.html#cb152-7" aria-hidden="true" tabindex="-1"></a>inteiro <span class="ot">&lt;-</span> 7L</span>
+<span id="cb152-8"><a href="processamento-de-dados.html#cb152-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-9"><a href="processamento-de-dados.html#cb152-9" aria-hidden="true" tabindex="-1"></a><span class="do">## tipo numerico decimal</span></span>
+<span id="cb152-10"><a href="processamento-de-dados.html#cb152-10" aria-hidden="true" tabindex="-1"></a>decimal <span class="ot">&lt;-</span> <span class="fl">7.5</span></span>
+<span id="cb152-11"><a href="processamento-de-dados.html#cb152-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-12"><a href="processamento-de-dados.html#cb152-12" aria-hidden="true" tabindex="-1"></a><span class="do">## tipo logico</span></span>
+<span id="cb152-13"><a href="processamento-de-dados.html#cb152-13" aria-hidden="true" tabindex="-1"></a>logico <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div>
+<p>Para verificar o tipo de cada objeto criado vamos utilizar a função <code>class()</code>.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="processamento-de-dados.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- VERIFICACAO DE VARIAVEIS --</span></span>
+<span id="cb153-2"><a href="processamento-de-dados.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="do">## funcao class()</span></span>
+<span id="cb153-3"><a href="processamento-de-dados.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(caracter)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="processamento-de-dados.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(inteiro)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="processamento-de-dados.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(decimal)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="processamento-de-dados.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(logico)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="processamento-de-dados.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="do">## funcao is.</span></span>
+<span id="cb161-2"><a href="processamento-de-dados.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(caracter)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="processamento-de-dados.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(caracter)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="processamento-de-dados.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(caracter)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="processamento-de-dados.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(decimal)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="processamento-de-dados.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(decimal)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="processamento-de-dados.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(decimal)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Existem também tipos mais complexos como: vector; array; matrix; list; data.frame;
+factor.</p>
+</div>
+<div id="conversão-de-tipos-de-variáveis" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Conversão de tipos de variáveis<a href="processamento-de-dados.html#conversão-de-tipos-de-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Muitas vezes quando importamos os dados para o R, ele os trata como sendo de um tipo diferente do qual desejamos, assim, é preciso convertê-los.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="processamento-de-dados.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- CONVERSAO DE VARIAVEIS --</span></span>
+<span id="cb173-2"><a href="processamento-de-dados.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="do">## alguns exemplos de transformacoes</span></span>
+<span id="cb173-3"><a href="processamento-de-dados.html#cb173-3" aria-hidden="true" tabindex="-1"></a>conv_decimal <span class="ot">&lt;-</span> <span class="fu">as.double</span>(inteiro) <span class="co"># convertendo para decimal</span></span>
+<span id="cb173-4"><a href="processamento-de-dados.html#cb173-4" aria-hidden="true" tabindex="-1"></a>conv_inteiro <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(decimal) <span class="co"># convertendo para inteiro</span></span>
+<span id="cb173-5"><a href="processamento-de-dados.html#cb173-5" aria-hidden="true" tabindex="-1"></a>conv_caracter <span class="ot">&lt;-</span> <span class="fu">as.character</span>(inteiro) <span class="co"># convertendo para caracter</span></span></code></pre></div>
+</div>
+<div id="valores-faltantes" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Valores faltantes<a href="processamento-de-dados.html#valores-faltantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Valores faltantes, assim como o próprio nome já diz, são valores ausentes, ou seja, quando você estiver trabalhando com seus dados, talvez você não tenha todos os valores esperados, então você precisa preencher esses “valores faltantes”com a sigla NA, pois o R ao encontrar o NA ele entende que é um valor que está faltando. Abaixo seguem algumas funções para trabalhar com NA.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="processamento-de-dados.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- TRABALHANDO COM VALORES FALTANTES --</span></span>
+<span id="cb174-2"><a href="processamento-de-dados.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Trabalhando com banco de dados do R</span></span>
+<span id="cb174-3"><a href="processamento-de-dados.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar os bancos de dados data () disponiveis no R</span></span>
+<span id="cb174-4"><a href="processamento-de-dados.html#cb174-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-5"><a href="processamento-de-dados.html#cb174-5" aria-hidden="true" tabindex="-1"></a><span class="do">### escolher o banco de dados iris para tralhar</span></span>
+<span id="cb174-6"><a href="processamento-de-dados.html#cb174-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb174-7"><a href="processamento-de-dados.html#cb174-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-8"><a href="processamento-de-dados.html#cb174-8" aria-hidden="true" tabindex="-1"></a><span class="do">### fazer uma copia do banco de dados</span></span>
+<span id="cb174-9"><a href="processamento-de-dados.html#cb174-9" aria-hidden="true" tabindex="-1"></a>data_iris <span class="ot">&lt;-</span> iris</span>
+<span id="cb174-10"><a href="processamento-de-dados.html#cb174-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-11"><a href="processamento-de-dados.html#cb174-11" aria-hidden="true" tabindex="-1"></a><span class="do">### remover o banco de dados do ambiente de trabalho</span></span>
+<span id="cb174-12"><a href="processamento-de-dados.html#cb174-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(iris)</span>
+<span id="cb174-13"><a href="processamento-de-dados.html#cb174-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-14"><a href="processamento-de-dados.html#cb174-14" aria-hidden="true" tabindex="-1"></a><span class="do">### estudar o banco de dados</span></span>
+<span id="cb174-15"><a href="processamento-de-dados.html#cb174-15" aria-hidden="true" tabindex="-1"></a>?iris</span>
+<span id="cb174-16"><a href="processamento-de-dados.html#cb174-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-17"><a href="processamento-de-dados.html#cb174-17" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar o tipo do objeto</span></span>
+<span id="cb174-18"><a href="processamento-de-dados.html#cb174-18" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data_iris)</span>
+<span id="cb174-19"><a href="processamento-de-dados.html#cb174-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-20"><a href="processamento-de-dados.html#cb174-20" aria-hidden="true" tabindex="-1"></a><span class="do">### &quot;sentindo os dados&quot; - resumo estatistico</span></span>
+<span id="cb174-21"><a href="processamento-de-dados.html#cb174-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_iris)</span>
+<span id="cb174-22"><a href="processamento-de-dados.html#cb174-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-23"><a href="processamento-de-dados.html#cb174-23" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar a ocorrencia de NA</span></span>
+<span id="cb174-24"><a href="processamento-de-dados.html#cb174-24" aria-hidden="true" tabindex="-1"></a><span class="do">#### is.na retorna TRUE caso haja NA (valores não anotados), do contrário retorna FALSE</span></span>
+<span id="cb174-25"><a href="processamento-de-dados.html#cb174-25" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(data_iris<span class="sc">$</span>Sepal.Length)</span>
+<span id="cb174-26"><a href="processamento-de-dados.html#cb174-26" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(data_iris<span class="sc">$</span>Sepal.Width)</span>
+<span id="cb174-27"><a href="processamento-de-dados.html#cb174-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-28"><a href="processamento-de-dados.html#cb174-28" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar se todo o objeto esta preenchido</span></span>
+<span id="cb174-29"><a href="processamento-de-dados.html#cb174-29" aria-hidden="true" tabindex="-1"></a><span class="do">#### complete.cases retorna TRUE se todos os dados estão preenchidos e FALSE para os faltantes</span></span>
+<span id="cb174-30"><a href="processamento-de-dados.html#cb174-30" aria-hidden="true" tabindex="-1"></a><span class="fu">complete.cases</span>(data_iris<span class="sc">$</span>Sepal.Length)</span>
+<span id="cb174-31"><a href="processamento-de-dados.html#cb174-31" aria-hidden="true" tabindex="-1"></a><span class="fu">complete.cases</span>(data_iris<span class="sc">$</span>Sepal.Width)</span>
+<span id="cb174-32"><a href="processamento-de-dados.html#cb174-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-33"><a href="processamento-de-dados.html#cb174-33" aria-hidden="true" tabindex="-1"></a><span class="do">## Trabalhando com seus dados (exemplo)</span></span>
+<span id="cb174-34"><a href="processamento-de-dados.html#cb174-34" aria-hidden="true" tabindex="-1"></a><span class="do">### criando banco de dados</span></span>
+<span id="cb174-35"><a href="processamento-de-dados.html#cb174-35" aria-hidden="true" tabindex="-1"></a>coorte <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb174-36"><a href="processamento-de-dados.html#cb174-36" aria-hidden="true" tabindex="-1"></a><span class="at">barcode =</span> <span class="fu">c</span>(<span class="st">&quot;A01B1&quot;</span>, <span class="st">&quot;A01B2&quot;</span>, <span class="st">&quot;A02B3&quot;</span>),</span>
+<span id="cb174-37"><a href="processamento-de-dados.html#cb174-37" aria-hidden="true" tabindex="-1"></a><span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;Feminino&quot;</span>, <span class="st">&quot;Feminino&quot;</span>, <span class="cn">NA</span>),</span>
+<span id="cb174-38"><a href="processamento-de-dados.html#cb174-38" aria-hidden="true" tabindex="-1"></a><span class="at">fumante =</span> <span class="fu">c</span>(T, F, T),</span>
+<span id="cb174-39"><a href="processamento-de-dados.html#cb174-39" aria-hidden="true" tabindex="-1"></a><span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">79</span>))</span>
+<span id="cb174-40"><a href="processamento-de-dados.html#cb174-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-41"><a href="processamento-de-dados.html#cb174-41" aria-hidden="true" tabindex="-1"></a><span class="do">### visualizar os dados</span></span>
+<span id="cb174-42"><a href="processamento-de-dados.html#cb174-42" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(coorte)</span>
+<span id="cb174-43"><a href="processamento-de-dados.html#cb174-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-44"><a href="processamento-de-dados.html#cb174-44" aria-hidden="true" tabindex="-1"></a><span class="do">### &quot;sentindo os dados&quot; - resumo estatistico</span></span>
+<span id="cb174-45"><a href="processamento-de-dados.html#cb174-45" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(coorte)</span>
+<span id="cb174-46"><a href="processamento-de-dados.html#cb174-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-47"><a href="processamento-de-dados.html#cb174-47" aria-hidden="true" tabindex="-1"></a><span class="do">### vericar o conteudo de NA</span></span>
+<span id="cb174-48"><a href="processamento-de-dados.html#cb174-48" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(coorte<span class="sc">$</span>sexo)</span>
+<span id="cb174-49"><a href="processamento-de-dados.html#cb174-49" aria-hidden="true" tabindex="-1"></a><span class="fu">complete.cases</span>(coorte<span class="sc">$</span>sexo)</span>
+<span id="cb174-50"><a href="processamento-de-dados.html#cb174-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-51"><a href="processamento-de-dados.html#cb174-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Perceba que complete.cases e is.na retornam respostas contrários, pois o primeiro verifica se os dados estão preenchidos e o segundo se existem dados faltantes.</span></span>
+<span id="cb174-52"><a href="processamento-de-dados.html#cb174-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-53"><a href="processamento-de-dados.html#cb174-53" aria-hidden="true" tabindex="-1"></a><span class="do">### preencher NA com &quot;Não informado&quot;</span></span>
+<span id="cb174-54"><a href="processamento-de-dados.html#cb174-54" aria-hidden="true" tabindex="-1"></a>coorte<span class="sc">$</span>sexo[<span class="fu">is.na</span>(coorte<span class="sc">$</span>sexo)] <span class="ot">&lt;-</span> <span class="st">&quot;Não informado&quot;</span></span>
+<span id="cb174-55"><a href="processamento-de-dados.html#cb174-55" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar se o objeto esta preenchido</span></span>
+<span id="cb174-56"><a href="processamento-de-dados.html#cb174-56" aria-hidden="true" tabindex="-1"></a><span class="fu">complete.cases</span>(coorte<span class="sc">$</span>fumante)</span></code></pre></div>
+</div>
+</div>
+<div id="importação-de-arquivos" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Importação de arquivos<a href="processamento-de-dados.html#importação-de-arquivos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Haverá momentos que precisaremos importar arquivos para o ambiente R e transformá-los em objetos. Antes de importar nossos dados, precisamos executar alguns comandos para averiguar se estamos no diretório correto (onde o arquivo está armazenado), ou seja, confirmar se o arquivo realmente está no diretório.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="processamento-de-dados.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- DIRETORO DE TRABALHO --</span></span>
+<span id="cb175-2"><a href="processamento-de-dados.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Verificar o diretorio de trabalho</span></span>
+<span id="cb175-3"><a href="processamento-de-dados.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb175-4"><a href="processamento-de-dados.html#cb175-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb175-5"><a href="processamento-de-dados.html#cb175-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Definir diretorio de trabalho</span></span>
+<span id="cb175-6"><a href="processamento-de-dados.html#cb175-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;caminho/onde/se/encontra/o/arquivo&quot;</span>)</span>
+<span id="cb175-7"><a href="processamento-de-dados.html#cb175-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb175-8"><a href="processamento-de-dados.html#cb175-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Verificar quais arquivos estao no mesmo diretorio</span></span>
+<span id="cb175-9"><a href="processamento-de-dados.html#cb175-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
+<p>Agora iremos utilizar alguns comandos para importar para o ambiente R arquivos com diferentes extensões.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="processamento-de-dados.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- IMPORTACAO DE ARQUIVOS PARA O AMBIENTE R --</span></span>
+<span id="cb176-2"><a href="processamento-de-dados.html#cb176-2" aria-hidden="true" tabindex="-1"></a>input_1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;ChickWeight.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb176-3"><a href="processamento-de-dados.html#cb176-3" aria-hidden="true" tabindex="-1"></a>input_2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;arquivo(,).csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb176-4"><a href="processamento-de-dados.html#cb176-4" aria-hidden="true" tabindex="-1"></a>input_3 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;arquivo(;).csv&quot;</span>, <span class="at">header =</span> T)</span></code></pre></div>
+<p>Agora vamos utilizar a função read_delim() do pacote readr para ler arquivos com
+diversos tipos de separadores. Por exemplo, vamos importar um arquivo compactado:</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="processamento-de-dados.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- IMPORTACAO DE ARQUIVOS COMPACTADOS PARA O AMBIENTE R --</span></span>
+<span id="cb177-2"><a href="processamento-de-dados.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb177-3"><a href="processamento-de-dados.html#cb177-3" aria-hidden="true" tabindex="-1"></a>input_zip <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;arquivo.zip&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<p>Quando não quisermos importar um arquivo inteiro, mas apenas algumas observações (linhas) e variáveis (colunas), faremos da seguinte maneira:</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="processamento-de-dados.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- IMPORTACAO DE PARTES DE UM ARQUIVO PARA O AMBIENTE R --</span></span>
+<span id="cb178-2"><a href="processamento-de-dados.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Vamos importar as quatro primeiras linhas de um arquivo</span></span>
+<span id="cb178-3"><a href="processamento-de-dados.html#cb178-3" aria-hidden="true" tabindex="-1"></a>input_txt_4l <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;arquivo(;).csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">n_max =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>Para importar arquivos do Excel (extensão “xlsx”) utilizaremos o pacote readxl.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="processamento-de-dados.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- IMPORTACAO DE ARQUIVOS DO EXCEL --</span></span>
+<span id="cb179-2"><a href="processamento-de-dados.html#cb179-2" aria-hidden="true" tabindex="-1"></a>input_xlsx <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&quot;arquivo.xlsx&quot;</span>)</span></code></pre></div>
+</div>
+<div id="exportação-de-arquivos" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Exportação de arquivos<a href="processamento-de-dados.html#exportação-de-arquivos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para exportar arquivos do ambiente R, para um diretório do seu computador, utilizaremos a função <code>write.table()</code>. Esta função está contida no pacote base do R, ou seja, esse pacote é instalado no momento em que instalamos o R.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="processamento-de-dados.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  -- EXPORTACAO DE ARQUIVOS DO AMBIENTE R PARA O UM DIRETORIO NO COMPUTADOR</span></span>
+<span id="cb180-2"><a href="processamento-de-dados.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Exportando arquivo no diretorio de trabalho</span></span>
+<span id="cb180-3"><a href="processamento-de-dados.html#cb180-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(input_csv_4l, <span class="at">file =</span> <span class="st">&quot;teste.csv&quot;</span>, <span class="at">row.names =</span> F, <span class="at">quote =</span> F)</span>
+<span id="cb180-4"><a href="processamento-de-dados.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(input_csv_4l, <span class="at">file =</span> <span class="st">&quot;teste2.csv&quot;</span>, <span class="at">row.names =</span> F, <span class="at">quote =</span> F)</span>
+<span id="cb180-5"><a href="processamento-de-dados.html#cb180-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-6"><a href="processamento-de-dados.html#cb180-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Exportando arquivo em um dirtorio especifico</span></span>
+<span id="cb180-7"><a href="processamento-de-dados.html#cb180-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(input_csv_4l, <span class="at">file =</span><span class="st">&quot;~/caminho/do/diretorio/desejado/teste.csv&quot;</span>,<span class="at">row.names =</span> F, <span class="at">quote =</span> F)</span></code></pre></div>
+</div>
+<div id="manipulação-de-dados-com-pacotes-básicos" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Manipulação de dados com pacotes básicos<a href="processamento-de-dados.html#manipulação-de-dados-com-pacotes-básicos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A manipulação de dados consiste em modificar ou selecionar variáveis de interesse dentro de um conjunto de dados. Nesse exercício, vamos baixar dados de biópsias de nódulos de mama de Wiscosin (W.N. Street, W.H. Wolberg and O.L. Mangasarian, 1993).</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="processamento-de-dados.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos baixar os dados de características de nódulos de mama de Wiscosin</span></span>
+<span id="cb181-2"><a href="processamento-de-dados.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Mais informações sobre esse dataset em https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29</span></span>
+<span id="cb181-3"><a href="processamento-de-dados.html#cb181-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-4"><a href="processamento-de-dados.html#cb181-4" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb181-5"><a href="processamento-de-dados.html#cb181-5" aria-hidden="true" tabindex="-1"></a><span class="at">url =</span> <span class="st">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-</span></span>
+<span id="cb181-6"><a href="processamento-de-dados.html#cb181-6" aria-hidden="true" tabindex="-1"></a><span class="st">cancer-wisconsin/wdbc.data&#39;</span>,</span>
+<span id="cb181-7"><a href="processamento-de-dados.html#cb181-7" aria-hidden="true" tabindex="-1"></a><span class="at">destfile =</span> <span class="st">&quot;wbdc.data&quot;</span>)</span>
+<span id="cb181-8"><a href="processamento-de-dados.html#cb181-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-9"><a href="processamento-de-dados.html#cb181-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos importar os dados para o ambiente do R.</span></span>
+<span id="cb181-10"><a href="processamento-de-dados.html#cb181-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Os dados estão separados por vírgula, por isso o argumento sep=&#39;,&#39;</span></span>
+<span id="cb181-11"><a href="processamento-de-dados.html#cb181-11" aria-hidden="true" tabindex="-1"></a><span class="co"># outras opções e argumentos podem ser vistos em help(read.table)</span></span>
+<span id="cb181-12"><a href="processamento-de-dados.html#cb181-12" aria-hidden="true" tabindex="-1"></a>brca <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;./wbdc.data&quot;</span>, <span class="at">sep =</span> <span class="st">&#39;,&#39;</span>)</span>
+<span id="cb181-13"><a href="processamento-de-dados.html#cb181-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-14"><a href="processamento-de-dados.html#cb181-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver nomes das colunas</span></span>
+<span id="cb181-15"><a href="processamento-de-dados.html#cb181-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brca)</span>
+<span id="cb181-16"><a href="processamento-de-dados.html#cb181-16" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(brca)</span>
+<span id="cb181-17"><a href="processamento-de-dados.html#cb181-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Mudar nome da segunda coluna</span></span>
+<span id="cb181-18"><a href="processamento-de-dados.html#cb181-18" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brca)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Coluna2&quot;</span></span>
+<span id="cb181-19"><a href="processamento-de-dados.html#cb181-19" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brca)</span>
+<span id="cb181-20"><a href="processamento-de-dados.html#cb181-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Mudar todos os nomes de colunas conforme descritos no dataset</span></span>
+<span id="cb181-21"><a href="processamento-de-dados.html#cb181-21" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(brca) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;id_number&#39;</span>, <span class="st">&#39;diagnosis&#39;</span>, <span class="st">&#39;radius_mean&#39;</span>,</span>
+<span id="cb181-22"><a href="processamento-de-dados.html#cb181-22" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;texture_mean&#39;</span>, <span class="st">&#39;perimeter_mean&#39;</span>, <span class="st">&#39;area_mean&#39;</span>,</span>
+<span id="cb181-23"><a href="processamento-de-dados.html#cb181-23" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;smoothness_mean&#39;</span>, <span class="st">&#39;compactness_mean&#39;</span>,</span>
+<span id="cb181-24"><a href="processamento-de-dados.html#cb181-24" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;concavity_mean&#39;</span>,<span class="st">&#39;concave_points_mean&#39;</span>,</span>
+<span id="cb181-25"><a href="processamento-de-dados.html#cb181-25" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;symmetry_mean&#39;</span>, <span class="st">&#39;fractal_dimension_mean&#39;</span>,</span>
+<span id="cb181-26"><a href="processamento-de-dados.html#cb181-26" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;radius_se&#39;</span>, <span class="st">&#39;texture_se&#39;</span>, <span class="st">&#39;perimeter_se&#39;</span>,</span>
+<span id="cb181-27"><a href="processamento-de-dados.html#cb181-27" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;area_se&#39;</span>, <span class="st">&#39;smoothness_se&#39;</span>, <span class="st">&#39;compactness_se&#39;</span>,</span>
+<span id="cb181-28"><a href="processamento-de-dados.html#cb181-28" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;concavity_se&#39;</span>, <span class="st">&#39;concave_points_se&#39;</span>,</span>
+<span id="cb181-29"><a href="processamento-de-dados.html#cb181-29" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;symmetry_se&#39;</span>, <span class="st">&#39;fractal_dimension_se&#39;</span>,</span>
+<span id="cb181-30"><a href="processamento-de-dados.html#cb181-30" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;radius_worst&#39;</span>, <span class="st">&#39;texture_worst&#39;</span>,</span>
+<span id="cb181-31"><a href="processamento-de-dados.html#cb181-31" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;perimeter_worst&#39;</span>, <span class="st">&#39;area_worst&#39;</span>,</span>
+<span id="cb181-32"><a href="processamento-de-dados.html#cb181-32" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;smoothness_worst&#39;</span>, <span class="st">&#39;compactness_worst&#39;</span>,</span>
+<span id="cb181-33"><a href="processamento-de-dados.html#cb181-33" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;concavity_worst&#39;</span>, <span class="st">&#39;concave_points_worst&#39;</span>,</span>
+<span id="cb181-34"><a href="processamento-de-dados.html#cb181-34" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;symmetry_worst&#39;</span>, <span class="st">&#39;fractal_dimension_worst&#39;</span>)</span>
+<span id="cb181-35"><a href="processamento-de-dados.html#cb181-35" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(brca)</span>
+<span id="cb181-36"><a href="processamento-de-dados.html#cb181-36" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(brca)</span>
+<span id="cb181-37"><a href="processamento-de-dados.html#cb181-37" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(brca)</span>
+<span id="cb181-38"><a href="processamento-de-dados.html#cb181-38" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brca)</span></code></pre></div>
+<p>Ao observarmos o summary do data frame que criamos, percebemos que a maioria das colunas foram identificadas com valores numéricos, com exceção da coluna ’diagnosis’. Essa coluna foi identificada contendo caracteres e no summary indica 369 caracteres (1 para cada linha). Entretanto, ao observarmos melhor, essa coluna apresenta somente valores de ’B’ para amostras benignas e ’M’ para amostras malignas. Nesse caso, podemos alterá-los para fatores para facilitar o manejo dos
+dados.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="processamento-de-dados.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acessando o resumo da coluna &#39;diagnosis&#39; do data frame &#39;brca&#39;</span></span>
+<span id="cb182-2"><a href="processamento-de-dados.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brca<span class="sc">$</span>diagnosis)</span>
+<span id="cb182-3"><a href="processamento-de-dados.html#cb182-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-4"><a href="processamento-de-dados.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformando os valores da coluna em fatores</span></span>
+<span id="cb182-5"><a href="processamento-de-dados.html#cb182-5" aria-hidden="true" tabindex="-1"></a>brca<span class="sc">$</span>diagnosis <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(brca<span class="sc">$</span>diagnosis)</span>
+<span id="cb182-6"><a href="processamento-de-dados.html#cb182-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-7"><a href="processamento-de-dados.html#cb182-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Agora o summary indica a quantidade de linhas em cada fator. Um resumo que faz mais sentido para nossa análise.</span></span>
+<span id="cb182-8"><a href="processamento-de-dados.html#cb182-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brca<span class="sc">$</span>diagnosis)</span></code></pre></div>
+<div id="acessando-e-modificando-dados" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Acessando e modificando dados<a href="processamento-de-dados.html#acessando-e-modificando-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Aqui vamos ver maneiras de acessar, visualizar ou modificar elementos dentro de um data frame. Existe mais de uma forma de realizar as mesmas ações como podemos ver nos exemplos a seguir.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="processamento-de-dados.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acessando itens do data frame</span></span>
+<span id="cb183-2"><a href="processamento-de-dados.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando item na 2 linha e 3 coluna</span></span>
+<span id="cb183-3"><a href="processamento-de-dados.html#cb183-3" aria-hidden="true" tabindex="-1"></a>brca[<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb183-4"><a href="processamento-de-dados.html#cb183-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-5"><a href="processamento-de-dados.html#cb183-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Mudando valor da 2 linha e 3 coluna</span></span>
+<span id="cb183-6"><a href="processamento-de-dados.html#cb183-6" aria-hidden="true" tabindex="-1"></a>brca[<span class="dv">2</span>,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">22</span></span>
+<span id="cb183-7"><a href="processamento-de-dados.html#cb183-7" aria-hidden="true" tabindex="-1"></a>brca[<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb183-8"><a href="processamento-de-dados.html#cb183-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-9"><a href="processamento-de-dados.html#cb183-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando valores da 5 linha</span></span>
+<span id="cb183-10"><a href="processamento-de-dados.html#cb183-10" aria-hidden="true" tabindex="-1"></a>brca[<span class="dv">5</span>,]</span>
+<span id="cb183-11"><a href="processamento-de-dados.html#cb183-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-12"><a href="processamento-de-dados.html#cb183-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando valores da 1 à5 linha</span></span>
+<span id="cb183-13"><a href="processamento-de-dados.html#cb183-13" aria-hidden="true" tabindex="-1"></a>brca[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
+<span id="cb183-14"><a href="processamento-de-dados.html#cb183-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-15"><a href="processamento-de-dados.html#cb183-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando valores da 2 coluna</span></span>
+<span id="cb183-16"><a href="processamento-de-dados.html#cb183-16" aria-hidden="true" tabindex="-1"></a>brca[,<span class="dv">2</span>]</span>
+<span id="cb183-17"><a href="processamento-de-dados.html#cb183-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-18"><a href="processamento-de-dados.html#cb183-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando coluna &quot;diagnosis&quot;</span></span>
+<span id="cb183-19"><a href="processamento-de-dados.html#cb183-19" aria-hidden="true" tabindex="-1"></a>brca<span class="sc">$</span>diagnosis</span>
+<span id="cb183-20"><a href="processamento-de-dados.html#cb183-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-21"><a href="processamento-de-dados.html#cb183-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando as 2, 3 e 4 colunas</span></span>
+<span id="cb183-22"><a href="processamento-de-dados.html#cb183-22" aria-hidden="true" tabindex="-1"></a>brca[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span>
+<span id="cb183-23"><a href="processamento-de-dados.html#cb183-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-24"><a href="processamento-de-dados.html#cb183-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando a 2, 3 e 4 colunas e as linhas 2,4,6</span></span>
+<span id="cb183-25"><a href="processamento-de-dados.html#cb183-25" aria-hidden="true" tabindex="-1"></a>brca[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span>
+<span id="cb183-26"><a href="processamento-de-dados.html#cb183-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-27"><a href="processamento-de-dados.html#cb183-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizando as colunas &quot;diagnosis&quot;, &quot;radius_mean&quot; e</span></span>
+<span id="cb183-28"><a href="processamento-de-dados.html#cb183-28" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;texture_mean&quot; para as linhas 2,4,6</span></span>
+<span id="cb183-29"><a href="processamento-de-dados.html#cb183-29" aria-hidden="true" tabindex="-1"></a>brca[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="fu">c</span>(<span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;texture_mean&quot;</span>)]</span>
+<span id="cb183-30"><a href="processamento-de-dados.html#cb183-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-31"><a href="processamento-de-dados.html#cb183-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Mudando ordem na visualização das colunas</span></span>
+<span id="cb183-32"><a href="processamento-de-dados.html#cb183-32" aria-hidden="true" tabindex="-1"></a>brca[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="fu">c</span>(<span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;texture_mean&quot;</span>)]</span>
+<span id="cb183-33"><a href="processamento-de-dados.html#cb183-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-34"><a href="processamento-de-dados.html#cb183-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Excluir 1 coluna</span></span>
+<span id="cb183-35"><a href="processamento-de-dados.html#cb183-35" aria-hidden="true" tabindex="-1"></a>brca <span class="ot">&lt;-</span> brca[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb183-36"><a href="processamento-de-dados.html#cb183-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-37"><a href="processamento-de-dados.html#cb183-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando novo data frame somente com as colunas de interesse:</span></span>
+<span id="cb183-38"><a href="processamento-de-dados.html#cb183-38" aria-hidden="true" tabindex="-1"></a>brca <span class="ot">&lt;-</span> brca[,<span class="fu">c</span>(<span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;texture_mean&quot;</span>,</span>
+<span id="cb183-39"><a href="processamento-de-dados.html#cb183-39" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;symmetry_mean&quot;</span>, <span class="st">&quot;area_mean&quot;</span>, <span class="st">&quot;perimeter_mean&quot;</span>)]</span>
+<span id="cb183-40"><a href="processamento-de-dados.html#cb183-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-41"><a href="processamento-de-dados.html#cb183-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar coluna com a razão do perímetro pelo raio dos nódulos</span></span>
+<span id="cb183-42"><a href="processamento-de-dados.html#cb183-42" aria-hidden="true" tabindex="-1"></a>brca<span class="sc">$</span>perimeter.radius <span class="ot">&lt;-</span> brca<span class="sc">$</span>perimeter_mean<span class="sc">/</span>brca<span class="sc">$</span>radius_mean <span class="fu">summary</span>(brca<span class="sc">$</span>perimeter.radius)</span>
+<span id="cb183-43"><a href="processamento-de-dados.html#cb183-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-44"><a href="processamento-de-dados.html#cb183-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Perceba como os valores da razão do perímetro pelo raio dos nódulos se</span></span>
+<span id="cb183-45"><a href="processamento-de-dados.html#cb183-45" aria-hidden="true" tabindex="-1"></a>aproxima do valor de <span class="dv">2</span><span class="sc">*</span><span class="fu">pi</span> (aprox. <span class="fl">6.28</span>)</span></code></pre></div>
+</div>
+<div id="filtrar-observações" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Filtrar observações<a href="processamento-de-dados.html#filtrar-observações" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os data frames ou matrizes no R são entendidos como objetos com 2 dimensões, a primeira sendo as observações (linhas) e a segunda as variáveis (colunas). Aqui começaremos tratando de operações com as linhas (observações).</p>
+<p>As observações (linhas) do data frame podem ser selecionados de acordo com seus valores ou características. Para isso podemos usar valores lógicos (TRUE or FALSE) ou índices (1,2,3…). Operadores lógicos são úteis para adicionarmos condições a serem cumpridas na seleção dos dados. Na linguagem R, o operador de igual ’=’ se refere a atribuição de valores, assim como ’&lt;-’. Portanto, o operador lógico para igualdade é ’==’. Ele irá testar se o valor à esquerda é igual ao valor da direita, caso positivo retorna TRUE, do contrário FALSE. O operador para diferença é ’!=’, tendo uso análogo. Além disso é possível comparar valores maiores (’&gt;’), menores (’&lt;’), maiores e iguais (’&gt;=’) ou menores e iguais (’&lt;=’).</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="processamento-de-dados.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar só amostras benignas</span></span>
+<span id="cb184-2"><a href="processamento-de-dados.html#cb184-2" aria-hidden="true" tabindex="-1"></a>benign <span class="ot">&lt;-</span> brca[brca<span class="sc">$</span>diagnosis <span class="sc">==</span> <span class="st">&quot;B&quot;</span>,]</span>
+<span id="cb184-3"><a href="processamento-de-dados.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(benign)</span>
+<span id="cb184-4"><a href="processamento-de-dados.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(benign)</span>
+<span id="cb184-5"><a href="processamento-de-dados.html#cb184-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-6"><a href="processamento-de-dados.html#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar só amostras não benignas</span></span>
+<span id="cb184-7"><a href="processamento-de-dados.html#cb184-7" aria-hidden="true" tabindex="-1"></a>malign <span class="ot">&lt;-</span> brca[brca<span class="sc">$</span>diagnosis <span class="sc">!=</span> <span class="st">&quot;B&quot;</span>,]</span>
+<span id="cb184-8"><a href="processamento-de-dados.html#cb184-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(malign)</span>
+<span id="cb184-9"><a href="processamento-de-dados.html#cb184-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(malign)</span>
+<span id="cb184-10"><a href="processamento-de-dados.html#cb184-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-11"><a href="processamento-de-dados.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar só tumores com raio maior do 16</span></span>
+<span id="cb184-12"><a href="processamento-de-dados.html#cb184-12" aria-hidden="true" tabindex="-1"></a>radius16 <span class="ot">&lt;-</span> brca[brca<span class="sc">$</span>radius_mean <span class="sc">&gt;</span> <span class="dv">16</span>,]</span>
+<span id="cb184-13"><a href="processamento-de-dados.html#cb184-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(radius16)</span>
+<span id="cb184-14"><a href="processamento-de-dados.html#cb184-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-15"><a href="processamento-de-dados.html#cb184-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar tumores com raio menor ou igual a 16</span></span>
+<span id="cb184-16"><a href="processamento-de-dados.html#cb184-16" aria-hidden="true" tabindex="-1"></a>radius.menor16 <span class="ot">&lt;-</span> brca[brca<span class="sc">$</span>radius_mean <span class="sc">&lt;=</span> <span class="dv">16</span>,]</span>
+<span id="cb184-17"><a href="processamento-de-dados.html#cb184-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(radius16.menor16)</span></code></pre></div>
+<p>Além disso, é possível adicionar condições. Por exemplo o operador ’’ (’E’) indica a intersecção de condições, ou seja, a condição1 E a condição2 devem ser atendidas para que o valor retornado seja TRUE. Caso qualquer uma não seja atendida, o teste lógico retorna FALSE.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="processamento-de-dados.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar só tumores com raio maior do que 16 E (&amp;) benignas</span></span>
+<span id="cb185-2"><a href="processamento-de-dados.html#cb185-2" aria-hidden="true" tabindex="-1"></a>radius16ebenign <span class="ot">&lt;-</span> brca[brca<span class="sc">$</span>radius_mean <span class="sc">&gt;</span> <span class="dv">16</span> <span class="sc">&amp;</span> brca<span class="sc">$</span>diagnosis <span class="sc">==</span> <span class="st">&quot;B&quot;</span>,]</span>
+<span id="cb185-3"><a href="processamento-de-dados.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(radius16ebenign)</span></code></pre></div>
+<p>á o operador ’|’ (’OU’) indica a união de condições, ou seja, a condição1 OU a condição2, ou ambas podem ser atendidas para que o valor retornado seja TRUE. Nesse caso, o teste lógico só retorna FALSE caso as duas condições NÃO sejam atendidas.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="processamento-de-dados.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar só tumores com raio maior do que 16 ou (|) benignas</span></span>
+<span id="cb186-2"><a href="processamento-de-dados.html#cb186-2" aria-hidden="true" tabindex="-1"></a>radius16oubenign <span class="ot">&lt;-</span> brca[brca<span class="sc">$</span>radius_mean <span class="sc">&gt;</span> <span class="dv">16</span> <span class="sc">|</span> brca<span class="sc">$</span>diagnosis <span class="sc">==</span> <span class="st">&quot;B&quot;</span>,]</span>
+<span id="cb186-3"><a href="processamento-de-dados.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(radius16oubenign)</span></code></pre></div>
+</div>
+<div id="adicionar-e-ordenar-linhas" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Adicionar e ordenar linhas<a href="processamento-de-dados.html#adicionar-e-ordenar-linhas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Por fim, podemos adicionar linhas ao data frame ou mesmo unir dois data frames verticalmente utilizando a função <code>rbind()</code> (row bind).</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="processamento-de-dados.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar linhas, importante ter o mesmo número de variáveis do que o dataframe</span></span>
+<span id="cb187-2"><a href="processamento-de-dados.html#cb187-2" aria-hidden="true" tabindex="-1"></a>novalinha <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="fl">20.5</span>, <span class="fl">21.5</span>, <span class="fl">0.2</span>, <span class="dv">1203</span>, <span class="fl">130.5</span>, <span class="fl">6.6</span>)</span>
+<span id="cb187-3"><a href="processamento-de-dados.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(brca)</span>
+<span id="cb187-4"><a href="processamento-de-dados.html#cb187-4" aria-hidden="true" tabindex="-1"></a>brca2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(brca, novalinha)</span>
+<span id="cb187-5"><a href="processamento-de-dados.html#cb187-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(brca2)</span>
+<span id="cb187-6"><a href="processamento-de-dados.html#cb187-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-7"><a href="processamento-de-dados.html#cb187-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Unindo dados de benignos e malignos</span></span>
+<span id="cb187-8"><a href="processamento-de-dados.html#cb187-8" aria-hidden="true" tabindex="-1"></a>brca2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(benign, malign)</span>
+<span id="cb187-9"><a href="processamento-de-dados.html#cb187-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brca2)</span></code></pre></div>
+<p>A função <code>order()</code> retorna o ordenamento dos índices das linhas. Essa função serve justamente para ordenar um objeto de acordo com seu valor. Caso tenha valor numérico, a função ordena do menor para o maior, caso seja uma letra ou palavra, a função ordena em ordem alfabética. O argumento <code>decreasing = T</code>, oferece a opção de ordenamento decrescente tanto numérico quanto alfabético.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="processamento-de-dados.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar tabela</span></span>
+<span id="cb188-2"><a href="processamento-de-dados.html#cb188-2" aria-hidden="true" tabindex="-1"></a>brca <span class="ot">&lt;-</span> brca[<span class="fu">order</span>(brca<span class="sc">$</span>radius_mean),]</span>
+<span id="cb188-3"><a href="processamento-de-dados.html#cb188-3" aria-hidden="true" tabindex="-1"></a>brca <span class="ot">&lt;-</span> brca[<span class="fu">order</span>(brca<span class="sc">$</span>radius_mean, <span class="at">decreasing =</span> T),]</span>
+<span id="cb188-4"><a href="processamento-de-dados.html#cb188-4" aria-hidden="true" tabindex="-1"></a>brca <span class="ot">&lt;-</span> brca[<span class="fu">order</span>(brca<span class="sc">$</span>diagnosis, <span class="at">decreasing =</span> F),]</span></code></pre></div>
+</div>
+<div id="selecionar-colunas-unir-data-frames-horizontalmente-e-adicionar-colunas" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Selecionar colunas, unir data frames horizontalmente e adicionar colunas<a href="processamento-de-dados.html#selecionar-colunas-unir-data-frames-horizontalmente-e-adicionar-colunas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De maneira semelhante ao que foi feito com as observações (linhas), aqui podemos selecionar e unir variáveis (colunas). Alguns exemplos já foram mostrados nas seções anteriores. Aqui focaremos em como criar novos data frames com algumas colunas e uni-los com a função <code>cbind()</code> (column bind).</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="processamento-de-dados.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver dimensões do data frame</span></span>
+<span id="cb189-2"><a href="processamento-de-dados.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(brca)</span>
+<span id="cb189-3"><a href="processamento-de-dados.html#cb189-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-4"><a href="processamento-de-dados.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Cria novo data frame com as 3 primeiras colunas</span></span>
+<span id="cb189-5"><a href="processamento-de-dados.html#cb189-5" aria-hidden="true" tabindex="-1"></a>MeiaTabela <span class="ot">&lt;-</span> brca[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb189-6"><a href="processamento-de-dados.html#cb189-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(MeiaTabela)</span>
+<span id="cb189-7"><a href="processamento-de-dados.html#cb189-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-8"><a href="processamento-de-dados.html#cb189-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Cria novo data frame com as 3 colunas seguintes</span></span>
+<span id="cb189-9"><a href="processamento-de-dados.html#cb189-9" aria-hidden="true" tabindex="-1"></a>MeiaTabela2 <span class="ot">&lt;-</span> brca[,<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb189-10"><a href="processamento-de-dados.html#cb189-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(MeiaTabela2)</span>
+<span id="cb189-11"><a href="processamento-de-dados.html#cb189-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-12"><a href="processamento-de-dados.html#cb189-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Une as duas tabelas</span></span>
+<span id="cb189-13"><a href="processamento-de-dados.html#cb189-13" aria-hidden="true" tabindex="-1"></a>NovaTabela <span class="ot">&lt;-</span> <span class="fu">cbind</span>(MeiaTabela, MeiaTabela2)</span>
+<span id="cb189-14"><a href="processamento-de-dados.html#cb189-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(NovaTabela)</span>
+<span id="cb189-15"><a href="processamento-de-dados.html#cb189-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-16"><a href="processamento-de-dados.html#cb189-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Adiciona coluna perimeter.radius ao data frame</span></span>
+<span id="cb189-17"><a href="processamento-de-dados.html#cb189-17" aria-hidden="true" tabindex="-1"></a>NovaTabela2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(NovaTabela, brca<span class="sc">$</span>perimeter.radius)</span>
+<span id="cb189-18"><a href="processamento-de-dados.html#cb189-18" aria-hidden="true" tabindex="-1"></a>NovaTabela3 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(NovaTabela, <span class="at">perimeter.radius =</span> brca<span class="sc">$</span>perimeter.radius)</span></code></pre></div>
+</div>
+<div id="removendo-objetos" class="section level3 hasAnchor" number="5.4.5">
+<h3><span class="header-section-number">5.4.5</span> Removendo objetos<a href="processamento-de-dados.html#removendo-objetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os objetos no R são salvos na memória RAM. Ao final da seção, podemos salvar os objetos ou liberar a memória alocada. Entretanto, durante o trabalho podemos limpar o ambiente de trabalho removendo objetos que não serão mais utilizados. Em especial, isso se torna útil quando carregamos data frames muito grandes, os quais podem consumir muito espaço na memória do computador.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="processamento-de-dados.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remover objetos do ambiente de trabalho</span></span>
+<span id="cb190-2"><a href="processamento-de-dados.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(NovaTabela, NovaTabela2, NovaTabela3, novalinha,</span>
+<span id="cb190-3"><a href="processamento-de-dados.html#cb190-3" aria-hidden="true" tabindex="-1"></a>MeiaTabela, MeiaTabela2, brca2, radius16.benign,</span>
+<span id="cb190-4"><a href="processamento-de-dados.html#cb190-4" aria-hidden="true" tabindex="-1"></a>radius16ebenign, radius16oubenign)</span></code></pre></div>
+</div>
+</div>
+<div id="manipulação-de-dados-com-tidyverse" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Manipulação de dados com tidyverse<a href="processamento-de-dados.html#manipulação-de-dados-com-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Neste tópico vamos trabalhar com funções do pacote <code>dplyr</code> e <code>tidyr.</code> A comunidade que trabalha com R conhece bem esses pacotes devido às funções importantes para manipulação de dados que eles contêm. Essencialmente os pacotes <code>dplyr</code> e <code>tidyr</code> desempenham as mesmas funções das apresentadas pelas funções básicas. As vantagens se dão em tornar o código mais limpo e legível.</p>
+<div id="filtrar-observações-1" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Filtrar observações<a href="processamento-de-dados.html#filtrar-observações-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A primeira função que utilizaremos é a função <code>filter()</code> do pacote <code>dplyr</code>, ela filtra observações.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="processamento-de-dados.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb191-2"><a href="processamento-de-dados.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - FILTRAR DADOS -</span></span>
+<span id="cb191-3"><a href="processamento-de-dados.html#cb191-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Criando banco de dados</span></span>
+<span id="cb191-4"><a href="processamento-de-dados.html#cb191-4" aria-hidden="true" tabindex="-1"></a>alunos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb191-5"><a href="processamento-de-dados.html#cb191-5" aria-hidden="true" tabindex="-1"></a><span class="at">nome =</span> <span class="fu">c</span>(<span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Dan&quot;</span>, <span class="st">&quot;Pepe&quot;</span>, <span class="st">&quot;Bruna&quot;</span>, <span class="st">&quot;Rafaela&quot;</span>),</span>
+<span id="cb191-6"><a href="processamento-de-dados.html#cb191-6" aria-hidden="true" tabindex="-1"></a><span class="at">altura =</span> <span class="fu">c</span>(<span class="fl">1.74</span>, <span class="fl">1.70</span>, <span class="fl">1.73</span>, <span class="fl">1.65</span>, <span class="fl">1.68</span>),</span>
+<span id="cb191-7"><a href="processamento-de-dados.html#cb191-7" aria-hidden="true" tabindex="-1"></a><span class="at">massa =</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">66</span>, <span class="cn">NA</span>, <span class="dv">55</span>, <span class="dv">53</span>),</span>
+<span id="cb191-8"><a href="processamento-de-dados.html#cb191-8" aria-hidden="true" tabindex="-1"></a><span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;masculino&quot;</span>, <span class="st">&quot;feminino&quot;</span>, <span class="st">&quot;feminino&quot;</span>)</span>
+<span id="cb191-9"><a href="processamento-de-dados.html#cb191-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb191-10"><a href="processamento-de-dados.html#cb191-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-11"><a href="processamento-de-dados.html#cb191-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Filtrar dados</span></span>
+<span id="cb191-12"><a href="processamento-de-dados.html#cb191-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb191-13"><a href="processamento-de-dados.html#cb191-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-14"><a href="processamento-de-dados.html#cb191-14" aria-hidden="true" tabindex="-1"></a><span class="do">#### filtrar observacoes com altura maior que 1.7</span></span>
+<span id="cb191-15"><a href="processamento-de-dados.html#cb191-15" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(alunos, altura <span class="sc">&gt;=</span> <span class="fl">1.7</span>)</span>
+<span id="cb191-16"><a href="processamento-de-dados.html#cb191-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-17"><a href="processamento-de-dados.html#cb191-17" aria-hidden="true" tabindex="-1"></a><span class="do">#### filtrar observacoes com altura maior ou igual a 1.68 sendo do sexo</span></span>
+<span id="cb191-18"><a href="processamento-de-dados.html#cb191-18" aria-hidden="true" tabindex="-1"></a>feminino</span>
+<span id="cb191-19"><a href="processamento-de-dados.html#cb191-19" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(alunos, altura <span class="sc">&gt;=</span> <span class="fl">1.68</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="st">&quot;feminino&quot;</span>)</span>
+<span id="cb191-20"><a href="processamento-de-dados.html#cb191-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-21"><a href="processamento-de-dados.html#cb191-21" aria-hidden="true" tabindex="-1"></a><span class="do">#### filtrar observacoes com altura maior ou igual a 1.68, sendo do sexo</span></span>
+<span id="cb191-22"><a href="processamento-de-dados.html#cb191-22" aria-hidden="true" tabindex="-1"></a>feminino e com massa maior que <span class="dv">50</span></span>
+<span id="cb191-23"><a href="processamento-de-dados.html#cb191-23" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(alunos, altura <span class="sc">&gt;=</span> <span class="fl">1.68</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="st">&quot;feminino&quot;</span> <span class="sc">&amp;</span> massa <span class="sc">&gt;</span> <span class="dv">50</span>)</span></code></pre></div>
+<p>A função <code>filter()</code> também está disponível no pacote <code>stats</code> (um dos pacotes básicos do R), assim, certifique-se que esteja carregando o pacote correto ou utilize a sintaxe <code>dplyr::filter()</code> para ter certeza de que está usando a função certa.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="processamento-de-dados.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb192-2"><a href="processamento-de-dados.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - FILTRAR DADOS -</span></span>
+<span id="cb192-3"><a href="processamento-de-dados.html#cb192-3" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(alunos, altura <span class="sc">&gt;</span> <span class="fl">1.68</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="st">&quot;feminino&quot;</span>)</span></code></pre></div>
+</div>
+<div id="selecionar-variáveis" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Selecionar variáveis<a href="processamento-de-dados.html#selecionar-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O pacote dplyr disponibiliza a função select(), ela seleciona as variáveis do nosso objeto.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="processamento-de-dados.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb193-2"><a href="processamento-de-dados.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - SELECIONAR VARIAVEIS -</span></span>
+<span id="cb193-3"><a href="processamento-de-dados.html#cb193-3" aria-hidden="true" tabindex="-1"></a><span class="do">### selecionar as colunas: nomes, sexo, massa</span></span>
+<span id="cb193-4"><a href="processamento-de-dados.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(alunos, nomes, sexo, massa)</span>
+<span id="cb193-5"><a href="processamento-de-dados.html#cb193-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb193-6"><a href="processamento-de-dados.html#cb193-6" aria-hidden="true" tabindex="-1"></a><span class="do">### selecionar as colunas que terminam com o caracter: &quot;a&quot;</span></span>
+<span id="cb193-7"><a href="processamento-de-dados.html#cb193-7" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(alunos, <span class="fu">ends_with</span>(<span class="st">&quot;a&quot;</span>))</span>
+<span id="cb193-8"><a href="processamento-de-dados.html#cb193-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb193-9"><a href="processamento-de-dados.html#cb193-9" aria-hidden="true" tabindex="-1"></a><span class="do">### selecionar as colunas que contêm a sequência de caracteres: &quot;no&quot;</span></span>
+<span id="cb193-10"><a href="processamento-de-dados.html#cb193-10" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(alunos, <span class="fu">contains</span>(<span class="st">&quot;no&quot;</span>))</span>
+<span id="cb193-11"><a href="processamento-de-dados.html#cb193-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb193-12"><a href="processamento-de-dados.html#cb193-12" aria-hidden="true" tabindex="-1"></a><span class="do">### selecionar as colunas: 2, 3 e 4</span></span>
+<span id="cb193-13"><a href="processamento-de-dados.html#cb193-13" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(alunos, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb193-14"><a href="processamento-de-dados.html#cb193-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb193-15"><a href="processamento-de-dados.html#cb193-15" aria-hidden="true" tabindex="-1"></a><span class="do">### visualizar todas as linhas e as colunas 1, 2 e 3</span></span>
+<span id="cb193-16"><a href="processamento-de-dados.html#cb193-16" aria-hidden="true" tabindex="-1"></a>alunos[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb193-17"><a href="processamento-de-dados.html#cb193-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb193-18"><a href="processamento-de-dados.html#cb193-18" aria-hidden="true" tabindex="-1"></a><span class="do">### visuzalizar todas as linhas e as colunas 1, 4 e 3</span></span>
+<span id="cb193-19"><a href="processamento-de-dados.html#cb193-19" aria-hidden="true" tabindex="-1"></a>alunos[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>)]</span></code></pre></div>
+</div>
+<div id="modificação-de-dados" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> Modificação de dados<a href="processamento-de-dados.html#modificação-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Utilizando o mesmo exemplo, vamos criar uma coluna com o nome de imc e colocarmos o
+resultado do cálculo nessa coluna.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="processamento-de-dados.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb194-2"><a href="processamento-de-dados.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - INSERIR UMA COLUNA NO CONJUNTO DE DADOS -</span></span>
+<span id="cb194-3"><a href="processamento-de-dados.html#cb194-3" aria-hidden="true" tabindex="-1"></a><span class="do">### inserir uma coluna nos conjunto de dados com o resultado do imc de cada</span></span>
+<span id="cb194-4"><a href="processamento-de-dados.html#cb194-4" aria-hidden="true" tabindex="-1"></a>aluno</span>
+<span id="cb194-5"><a href="processamento-de-dados.html#cb194-5" aria-hidden="true" tabindex="-1"></a>alunos_2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(alunos, <span class="at">imc =</span> (peso<span class="sc">/</span>(altura)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+</div>
+<div id="renomeando-variáveis" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> Renomeando variáveis<a href="processamento-de-dados.html#renomeando-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Que tal renomear o nome de alguma variável? Podemos renomear nossas variáveis utilizando a função <code>rename()</code> que também é do pacote <code>dplyr</code>.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="processamento-de-dados.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb195-2"><a href="processamento-de-dados.html#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - RENOMEAR UMA COLUNA DO CONJUNTO DE DADOS-</span></span>
+<span id="cb195-3"><a href="processamento-de-dados.html#cb195-3" aria-hidden="true" tabindex="-1"></a><span class="do">### renomear as colunas: altura para altura.m e massa para massa.kg</span></span>
+<span id="cb195-4"><a href="processamento-de-dados.html#cb195-4" aria-hidden="true" tabindex="-1"></a>alunos <span class="ot">&lt;-</span> <span class="fu">rename</span>(alunos,</span>
+<span id="cb195-5"><a href="processamento-de-dados.html#cb195-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">altura.m =</span> altura,</span>
+<span id="cb195-6"><a href="processamento-de-dados.html#cb195-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">massa.kg =</span> massa)</span></code></pre></div>
+</div>
+<div id="uso-de-pipes" class="section level3 hasAnchor" number="5.5.5">
+<h3><span class="header-section-number">5.5.5</span> Uso de pipes<a href="processamento-de-dados.html#uso-de-pipes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quando queremos fazer operações múltiplas em sequência, podemos utilizar o pipe (%&gt;%), ele pertence ao pacote magrittr. O uso de pipes serve para simplificar o código. Supondo que precisamos selecionar, sumarizar e plotar alguns dados, podemos fazer comandos para cada execução, porém fica confuso porque temos que executar um de cada vez. Com o uso de pipes colocamos um comando em sequência do outro e o resultado de um comando serve como entrada para o outro comando.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="processamento-de-dados.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb196-2"><a href="processamento-de-dados.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - USO DE PIPES -</span></span>
+<span id="cb196-3"><a href="processamento-de-dados.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Sem pipes</span></span>
+<span id="cb196-4"><a href="processamento-de-dados.html#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="fu">filter</span>(alunos_2, imc <span class="sc">&gt;=</span> <span class="dv">23</span>), nome, massa)</span>
+<span id="cb196-5"><a href="processamento-de-dados.html#cb196-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-6"><a href="processamento-de-dados.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="do">### Com pipes</span></span>
+<span id="cb196-7"><a href="processamento-de-dados.html#cb196-7" aria-hidden="true" tabindex="-1"></a>alunos_2 <span class="sc">%&gt;%</span></span>
+<span id="cb196-8"><a href="processamento-de-dados.html#cb196-8" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(imc <span class="sc">&gt;=</span> <span class="dv">23</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb196-9"><a href="processamento-de-dados.html#cb196-9" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(nome, massa, imc)</span>
+<span id="cb196-10"><a href="processamento-de-dados.html#cb196-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-11"><a href="processamento-de-dados.html#cb196-11" aria-hidden="true" tabindex="-1"></a><span class="do">#### a media das massas e o somatorio das massas separando por sexo</span></span>
+<span id="cb196-12"><a href="processamento-de-dados.html#cb196-12" aria-hidden="true" tabindex="-1"></a>alunos_2 <span class="sc">%&gt;%</span></span>
+<span id="cb196-13"><a href="processamento-de-dados.html#cb196-13" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb196-14"><a href="processamento-de-dados.html#cb196-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(massa),</span>
+<span id="cb196-15"><a href="processamento-de-dados.html#cb196-15" aria-hidden="true" tabindex="-1"></a><span class="at">somatorio =</span> <span class="fu">sum</span>(massa))</span>
+<span id="cb196-16"><a href="processamento-de-dados.html#cb196-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-17"><a href="processamento-de-dados.html#cb196-17" aria-hidden="true" tabindex="-1"></a><span class="do">#### a media, desvio padrao e quantidade das massas separando por sexo</span></span>
+<span id="cb196-18"><a href="processamento-de-dados.html#cb196-18" aria-hidden="true" tabindex="-1"></a>alunos_2 <span class="sc">%&gt;%</span></span>
+<span id="cb196-19"><a href="processamento-de-dados.html#cb196-19" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb196-20"><a href="processamento-de-dados.html#cb196-20" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(massa),</span>
+<span id="cb196-21"><a href="processamento-de-dados.html#cb196-21" aria-hidden="true" tabindex="-1"></a><span class="at">sd.massa =</span> <span class="fu">sd</span>(massa),</span>
+<span id="cb196-22"><a href="processamento-de-dados.html#cb196-22" aria-hidden="true" tabindex="-1"></a><span class="at">total.massa =</span> <span class="fu">n</span>())</span>
+<span id="cb196-23"><a href="processamento-de-dados.html#cb196-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-24"><a href="processamento-de-dados.html#cb196-24" aria-hidden="true" tabindex="-1"></a><span class="do">#### a media, desvio padrao e quantidade das massas separando por sexo</span></span>
+<span id="cb196-25"><a href="processamento-de-dados.html#cb196-25" aria-hidden="true" tabindex="-1"></a>alunos <span class="sc">%&gt;%</span></span>
+<span id="cb196-26"><a href="processamento-de-dados.html#cb196-26" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb196-27"><a href="processamento-de-dados.html#cb196-27" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(massa, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb196-28"><a href="processamento-de-dados.html#cb196-28" aria-hidden="true" tabindex="-1"></a><span class="at">sd.massa =</span> <span class="fu">sd</span>(massa, <span class="at">na.rm =</span> T),</span>
+<span id="cb196-29"><a href="processamento-de-dados.html#cb196-29" aria-hidden="true" tabindex="-1"></a><span class="at">total.massa =</span> <span class="fu">n</span>())</span></code></pre></div>
+</div>
+<div id="ordenar-dados" class="section level3 hasAnchor" number="5.5.6">
+<h3><span class="header-section-number">5.5.6</span> Ordenar dados<a href="processamento-de-dados.html#ordenar-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Há momentos em que precisaremos ordenar nossos dados, para termos uma melhor visualização facilitando nossas análises. Para ordenar os dados utilizaremos a função <code>arrange()</code> do pacote <code>dplyr</code>.</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="processamento-de-dados.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb197-2"><a href="processamento-de-dados.html#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - ORDENAR DADOS -</span></span>
+<span id="cb197-3"><a href="processamento-de-dados.html#cb197-3" aria-hidden="true" tabindex="-1"></a><span class="do">### ordenando de forma decrescente o objeto &quot;alunos&quot; atraves da variavel massa</span></span>
+<span id="cb197-4"><a href="processamento-de-dados.html#cb197-4" aria-hidden="true" tabindex="-1"></a>alunos <span class="sc">%&gt;%</span></span>
+<span id="cb197-5"><a href="processamento-de-dados.html#cb197-5" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(massa))</span>
+<span id="cb197-6"><a href="processamento-de-dados.html#cb197-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb197-7"><a href="processamento-de-dados.html#cb197-7" aria-hidden="true" tabindex="-1"></a><span class="do">### agrupando por sexo e ordenando pela massa</span></span>
+<span id="cb197-8"><a href="processamento-de-dados.html#cb197-8" aria-hidden="true" tabindex="-1"></a>alunos <span class="sc">%&gt;%</span></span>
+<span id="cb197-9"><a href="processamento-de-dados.html#cb197-9" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb197-10"><a href="processamento-de-dados.html#cb197-10" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">desc</span>(massa), <span class="at">.by_group =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb197-11"><a href="processamento-de-dados.html#cb197-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb197-12"><a href="processamento-de-dados.html#cb197-12" aria-hidden="true" tabindex="-1"></a><span class="do">#### ---- note que informei &quot;.by_grupo = TRUE&quot; para poder ordenar primeiro o &quot;</span></span>
+<span id="cb197-13"><a href="processamento-de-dados.html#cb197-13" aria-hidden="true" tabindex="-1"></a>feminino<span class="st">&quot; e depois o &quot;</span>masculino<span class="st">&quot; ----</span></span></code></pre></div>
+</div>
+<div id="combinar-variáveis" class="section level3 hasAnchor" number="5.5.7">
+<h3><span class="header-section-number">5.5.7</span> Combinar variáveis<a href="processamento-de-dados.html#combinar-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quando quisermos combinar variáveis podemos utilizar a <code>função bind_cols()</code>.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="processamento-de-dados.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb198-2"><a href="processamento-de-dados.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - COMBINAR VARIAVEIS -</span></span>
+<span id="cb198-3"><a href="processamento-de-dados.html#cb198-3" aria-hidden="true" tabindex="-1"></a><span class="do">### criar conjunto de dados para combinar</span></span>
+<span id="cb198-4"><a href="processamento-de-dados.html#cb198-4" aria-hidden="true" tabindex="-1"></a>complemento <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb198-5"><a href="processamento-de-dados.html#cb198-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">nome =</span> <span class="fu">c</span>(<span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Dan&quot;</span>, <span class="st">&quot;Pepe&quot;</span>, <span class="st">&quot;Bruna&quot;</span>, <span class="st">&quot;Rafaela&quot;</span>),</span>
+<span id="cb198-6"><a href="processamento-de-dados.html#cb198-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tipo.sang =</span> <span class="fu">c</span>(<span class="st">&quot;A+&quot;</span>, <span class="st">&quot;A+&quot;</span>, <span class="st">&quot;B-&quot;</span>, <span class="st">&quot;B+&quot;</span>,<span class="st">&quot;B-&quot;</span>))</span>
+<span id="cb198-7"><a href="processamento-de-dados.html#cb198-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-8"><a href="processamento-de-dados.html#cb198-8" aria-hidden="true" tabindex="-1"></a><span class="do">### combinando objetos</span></span>
+<span id="cb198-9"><a href="processamento-de-dados.html#cb198-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_cols</span>(alunos, complemento)</span></code></pre></div>
+<p><strong>Unir variáveis à esquerda (left jooin)</strong>
+Neste caso não é necessário ter o mesmo número de observações, uma vez que serão unidos somente os objetos que contém a mesma chave.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="processamento-de-dados.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb199-2"><a href="processamento-de-dados.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - UNIR VARIAVEIS A ESQUERDA -</span></span>
+<span id="cb199-3"><a href="processamento-de-dados.html#cb199-3" aria-hidden="true" tabindex="-1"></a><span class="do">### criar conjunto de dados para combinar</span></span>
+<span id="cb199-4"><a href="processamento-de-dados.html#cb199-4" aria-hidden="true" tabindex="-1"></a>complemento_1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb199-5"><a href="processamento-de-dados.html#cb199-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">nome =</span> <span class="fu">c</span>(<span class="st">&quot;Dan&quot;</span>, <span class="st">&quot;Pepe&quot;</span>),</span>
+<span id="cb199-6"><a href="processamento-de-dados.html#cb199-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">estado =</span> <span class="fu">c</span>(<span class="st">&quot;PR&quot;</span>, <span class="st">&quot;SC&quot;</span>))</span>
+<span id="cb199-7"><a href="processamento-de-dados.html#cb199-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-8"><a href="processamento-de-dados.html#cb199-8" aria-hidden="true" tabindex="-1"></a><span class="do">### combinando objetos</span></span>
+<span id="cb199-9"><a href="processamento-de-dados.html#cb199-9" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(alunos, complemento_1)</span></code></pre></div>
+<p><strong>Unir variáveis à direita (right join)</strong>
+Vamos unir observações que correspondem à objetos a direita. Para unir objetos cuja variável de um seja diferente da variável do outro basta informar ao comando.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="processamento-de-dados.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb200-2"><a href="processamento-de-dados.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - UNIR VARIAVEIS A DIREITA -</span></span>
+<span id="cb200-3"><a href="processamento-de-dados.html#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="do">### criar conjunto de dados para combinar</span></span>
+<span id="cb200-4"><a href="processamento-de-dados.html#cb200-4" aria-hidden="true" tabindex="-1"></a>alunos_4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb200-5"><a href="processamento-de-dados.html#cb200-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">c</span>(<span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Tamara&quot;</span>, <span class="st">&quot;Rafaela&quot;</span>),</span>
+<span id="cb200-6"><a href="processamento-de-dados.html#cb200-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">cid.natal =</span> <span class="fu">c</span>(<span class="st">&quot;Umuarama-PR&quot;</span>, <span class="st">&quot;Curitiba-PR&quot;</span>, <span class="st">&quot;Maringa-PR&quot;</span>))</span>
+<span id="cb200-7"><a href="processamento-de-dados.html#cb200-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-8"><a href="processamento-de-dados.html#cb200-8" aria-hidden="true" tabindex="-1"></a><span class="do">### unindo o objeto da direita ao da esquerda considerando que as variaveis</span></span>
+<span id="cb200-9"><a href="processamento-de-dados.html#cb200-9" aria-hidden="true" tabindex="-1"></a>nome e aluno sao as mesmas</span>
+<span id="cb200-10"><a href="processamento-de-dados.html#cb200-10" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(alunos_4, alunos, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;aluno&quot;</span> <span class="ot">=</span> <span class="st">&quot;nome&quot;</span>))</span></code></pre></div>
+<p><strong>Unir variáveis internamente (inner join)</strong>
+Diversas vezes queremos unir bancos de dados incompletos, assim, podemos utilizar a função <code>inner_join()</code>, ela irá desconsiderar as observações que não possuem todas as variáveis completas.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="processamento-de-dados.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb201-2"><a href="processamento-de-dados.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - UNIR VARIAVEIS INTERNAMENTE -</span></span>
+<span id="cb201-3"><a href="processamento-de-dados.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="do">### unindo objetos considerando que as variaveis nome e aluno sao as mesmas</span></span>
+<span id="cb201-4"><a href="processamento-de-dados.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(alunos_4, alunos, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;aluno&quot;</span> <span class="ot">=</span> <span class="st">&quot;nome&quot;</span>))</span></code></pre></div>
+<p><strong>Unir todas as observações dos objetos (full join)</strong>
+Se desejamos unir todas as observações de dois objetos podemos utilizar a função <code>full_join()</code>.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="processamento-de-dados.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb202-2"><a href="processamento-de-dados.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - UNIR TODAS AS VARIAVEIS -</span></span>
+<span id="cb202-3"><a href="processamento-de-dados.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="do">### unindo objetos considerando que as variaveis nome e aluno sao as mesmas</span></span>
+<span id="cb202-4"><a href="processamento-de-dados.html#cb202-4" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(alunos_4, alunos, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;aluno&quot;</span> <span class="ot">=</span> <span class="st">&quot;nome&quot;</span>))</span></code></pre></div>
+<p><strong>Semi join e anti join</strong>
+Se desejamos saber quais observações de um objeto possuem correspondências em outro objeto podemos fazer uso da função <code>semi_join()</code>.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="processamento-de-dados.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb203-2"><a href="processamento-de-dados.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - MESMAS CORRESPONDENCIAS -</span></span>
+<span id="cb203-3"><a href="processamento-de-dados.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="do">### criar um novo conjunto de dados.</span></span>
+<span id="cb203-4"><a href="processamento-de-dados.html#cb203-4" aria-hidden="true" tabindex="-1"></a>alunos_5 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(complemento_1, alunos)</span>
+<span id="cb203-5"><a href="processamento-de-dados.html#cb203-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb203-6"><a href="processamento-de-dados.html#cb203-6" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar observacoes de &quot;alunos&quot; que possuem correspondencias com</span></span>
+<span id="cb203-7"><a href="processamento-de-dados.html#cb203-7" aria-hidden="true" tabindex="-1"></a>observacoes com <span class="st">&quot;alunos.5&quot;</span>.</span>
+<span id="cb203-8"><a href="processamento-de-dados.html#cb203-8" aria-hidden="true" tabindex="-1"></a><span class="fu">semi_join</span>(alunos, alunos_5)</span></code></pre></div>
+<p>Porém, se desejamos saber quais observações não possuem correspondências em outro objeto podemos fazer uso da função <code>anti_join()</code>.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="processamento-de-dados.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb204-2"><a href="processamento-de-dados.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - CORRESPONDENCIAS DIFERENTES -</span></span>
+<span id="cb204-3"><a href="processamento-de-dados.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="do">### verificar observacoes de &quot;alunos&quot; que nao possuem correspondencias com observacoes de &quot;alunos.5&quot;</span></span>
+<span id="cb204-4"><a href="processamento-de-dados.html#cb204-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anti_join</span>(alunos, alunos_5)</span></code></pre></div>
+<p>Se quisermos distinguir os dados, ou seja, quais observações são de um grupo A e quais são de um grupo B, podemos criar uma lista com os objetos, nomear cada um dos elementos da lista e em seguida unir com a função <code>bind_rows()</code> definindo o argumento “.id”.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="processamento-de-dados.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- MANIPULACAO DE DADOS --</span></span>
+<span id="cb205-2"><a href="processamento-de-dados.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="do">## - SEPARAR EM GRUPOS -</span></span>
+<span id="cb205-3"><a href="processamento-de-dados.html#cb205-3" aria-hidden="true" tabindex="-1"></a><span class="do">### exemplo 01</span></span>
+<span id="cb205-4"><a href="processamento-de-dados.html#cb205-4" aria-hidden="true" tabindex="-1"></a>lista<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">list</span>(alunos_5, alunos)</span>
+<span id="cb205-5"><a href="processamento-de-dados.html#cb205-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lista<span class="fl">.1</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>)</span>
+<span id="cb205-6"><a href="processamento-de-dados.html#cb205-6" aria-hidden="true" tabindex="-1"></a>lista<span class="fl">.1</span></span>
+<span id="cb205-7"><a href="processamento-de-dados.html#cb205-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-8"><a href="processamento-de-dados.html#cb205-8" aria-hidden="true" tabindex="-1"></a><span class="do">### exemplo 02</span></span>
+<span id="cb205-9"><a href="processamento-de-dados.html#cb205-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(lista<span class="fl">.1</span>, <span class="at">.id =</span> <span class="st">&quot;turma&quot;</span>)</span></code></pre></div>
+<p><strong>Pivot wider e pivot longer</strong>
+Duas funções que podem parecer um pouco difíceis de utilizar em um primeiro momento, mas são bastante úteis em determinadas situações são <code>pivot wider()</code> e <code>pivot longer()</code>. Como o nome sugere, a função <code>pivot wider()</code> “alonga”seus dados no sentido horizontal. Ou seja, ela vai distribuir os valores alocados nas linhas dentro de várias variáveis. Na prática, ela diminui o número de linhas do seu data frame distribuindo em mais colunas. A função <code>pivot longer()</code> faz o oposto, ela une variáveis (colunas) dentro de uma ou mais colunas pivôs, repetindo os demais valores. Na prática, ela aumenta o número de linhas e diminui o de colunas. Essa função é especialmente útil no manejo de dados para a construção de boxplots (veremos adiante).</p>
+<p>Utilizaremos as 10 primeiras linhas do data set com informações da quantidade de cartões que cada jogador levou na Copa do Mundo de 2018.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="processamento-de-dados.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot_wider e longer</span></span>
+<span id="cb206-2"><a href="processamento-de-dados.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 primeiras linhas da tabela de cartões por jogador da Copa do Mundo de 2018</span></span>
+<span id="cb206-3"><a href="processamento-de-dados.html#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="co"># https://pt.wikipedia.org/wiki/Dados_disciplinares_da_Copa_do_Mundo_FIFA_de_2018</span></span>
+<span id="cb206-4"><a href="processamento-de-dados.html#cb206-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb206-5"><a href="processamento-de-dados.html#cb206-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb206-6"><a href="processamento-de-dados.html#cb206-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Jogador =</span> <span class="fu">c</span>(<span class="st">&quot;Carlos Sánchez&quot;</span>,<span class="st">&quot;Michael Lang&quot;</span>,<span class="st">&quot;Igor Smolnikov&quot;</span>,<span class="st">&quot;Jérôme Boateng&quot;</span>,</span>
+<span id="cb206-7"><a href="processamento-de-dados.html#cb206-7" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;Sebastian Larsson&quot;</span>,<span class="st">&quot;Aleksandar Mitrovi&quot;</span>,<span class="st">&quot;Ante Rebi&quot;</span>,</span>
+<span id="cb206-8"><a href="processamento-de-dados.html#cb206-8" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;Armando Cooper&quot;</span>,<span class="st">&quot;Blaise Matuidi&quot;</span>,<span class="st">&quot;Casemiro&quot;</span>),</span>
+<span id="cb206-9"><a href="processamento-de-dados.html#cb206-9" aria-hidden="true" tabindex="-1"></a><span class="at">Selecao =</span> <span class="fu">c</span>(<span class="st">&quot;Colômbia&quot;</span>,<span class="st">&quot;Suíça&quot;</span>,<span class="st">&quot;Rússia&quot;</span>,<span class="st">&quot;Alemanha&quot;</span>,<span class="st">&quot;Suécia&quot;</span>,<span class="st">&quot;Sérvia&quot;</span>,<span class="st">&quot;Croácia&quot;</span>,</span>
+<span id="cb206-10"><a href="processamento-de-dados.html#cb206-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Panamá&quot;</span>,<span class="st">&quot;França&quot;</span>,<span class="st">&quot;Brasil&quot;</span>),</span>
+<span id="cb206-11"><a href="processamento-de-dados.html#cb206-11" aria-hidden="true" tabindex="-1"></a><span class="at">Cartao.Amarelo =</span> <span class="fu">c</span>(1L, 0L, 0L, 0L, 3L, 2L, 2L, 2L, 2L, 2L),</span>
+<span id="cb206-12"><a href="processamento-de-dados.html#cb206-12" aria-hidden="true" tabindex="-1"></a><span class="at">Cartao.Amarelo.Vermelho =</span> <span class="fu">c</span>(0L, 0L, 1L, 1L, 0L, 0L, 0L, 0L, 0L, 0L),</span>
+<span id="cb206-13"><a href="processamento-de-dados.html#cb206-13" aria-hidden="true" tabindex="-1"></a><span class="at">Cartao.Vermelho =</span> <span class="fu">c</span>(1L, 1L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L))</span>
+<span id="cb206-14"><a href="processamento-de-dados.html#cb206-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-15"><a href="processamento-de-dados.html#cb206-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos escolher as colunas pivôs, que nesse caso serão as 3 colunas com as quantidades de cada cartão que os jogadores receberam.</span></span>
+<span id="cb206-16"><a href="processamento-de-dados.html#cb206-16" aria-hidden="true" tabindex="-1"></a><span class="co"># A opção names_to se refere a coluna que será gerada com os nomes das colunas pivos e values_to éo nome da coluna que será gerada com os valores.</span></span>
+<span id="cb206-17"><a href="processamento-de-dados.html#cb206-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
+<span id="cb206-18"><a href="processamento-de-dados.html#cb206-18" aria-hidden="true" tabindex="-1"></a>df_longer <span class="ot">&lt;-</span></span>
+<span id="cb206-19"><a href="processamento-de-dados.html#cb206-19" aria-hidden="true" tabindex="-1"></a>tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb206-20"><a href="processamento-de-dados.html#cb206-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
+<span id="cb206-21"><a href="processamento-de-dados.html#cb206-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;Cartao&quot;</span>,</span>
+<span id="cb206-22"><a href="processamento-de-dados.html#cb206-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;Qtde&quot;</span>,</span>
+<span id="cb206-23"><a href="processamento-de-dados.html#cb206-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Cartao.Amarelo&quot;</span>,<span class="st">&quot;Cartao.Amarelo.Vermelho&quot;</span>,<span class="st">&quot;Cartao.Vermelho&quot;</span>))</span>
+<span id="cb206-24"><a href="processamento-de-dados.html#cb206-24" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df_longer)</span>
+<span id="cb206-25"><a href="processamento-de-dados.html#cb206-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-26"><a href="processamento-de-dados.html#cb206-26" aria-hidden="true" tabindex="-1"></a><span class="co"># O pivot_wider faz a operação contrária, escolhemos de onde virão os nomes das novas colunas (names_from) e de onde virão os valores a serem preenchidos (values_from)</span></span>
+<span id="cb206-27"><a href="processamento-de-dados.html#cb206-27" aria-hidden="true" tabindex="-1"></a>df_wider <span class="ot">&lt;-</span></span>
+<span id="cb206-28"><a href="processamento-de-dados.html#cb206-28" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb206-29"><a href="processamento-de-dados.html#cb206-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> df_longer,</span>
+<span id="cb206-30"><a href="processamento-de-dados.html#cb206-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">&quot;Cartao&quot;</span>),</span>
+<span id="cb206-31"><a href="processamento-de-dados.html#cb206-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(<span class="st">&quot;Qtde&quot;</span>))</span>
+<span id="cb206-32"><a href="processamento-de-dados.html#cb206-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df_wider)</span></code></pre></div>
+</div>
+</div>
+<div id="lista-de-exercícios-2" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Lista de exercícios<a href="processamento-de-dados.html#lista-de-exercícios-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Utilizando o data frame “trees” responda as seguintes questões:</li>
+</ol>
+<ul>
+<li>Qual a dimensão do objeto “trees”?</li>
+<li>Alguma variável possui valores ausentes?</li>
+<li>Existe alguma variável do tipo “caracter”?</li>
+<li>Qual a média de cada variável?</li>
+<li>Qual o mínimo e máximo de cada variável?</li>
+<li>Na descrição desse data set qual a unidade de cada coluna? Metros, pés, polegadas?</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Para esse exercício considere 1 polegada = 0.0254 metros e 1 pé = 0.3048 metros e 1 pé³ = 0.028317 metros cúbicos.Faça as seguintes alterações:</li>
+</ol>
+<ul>
+<li>Passe os valores da variável “Girth” para metros.</li>
+<li>Passe os valores da variável “Height” para metros.</li>
+<li>Passe os valores da variável “Volume” para m³.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Filtre a tabela para somente observações com altura acima de 23m. Quantas observações sobraram?</li>
+<li>Exporte esse conjunto de dados para o seu diretório de trabalho</li>
+</ol>
 
+</div>
 </div>
             </section>
 
@@ -213,7 +876,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="fundamentos-do-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="gráficos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -267,20 +930,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

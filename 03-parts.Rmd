@@ -1,7 +1,256 @@
 # Fundamentos do R
 
+Em linguagens de programação um objeto é qualquer coisa que pode ser armazenado em uma variável. Em R, os principais tipos de objetos são: 
 
+* **Vetores**: objeto unidimensional contendo TODOS os valores de um tipo de dado.
+* **Matrizes**: vetor (es) em duas dimensões.
+* **Arrays**: matrizes em mais dimensões.
+* **Fatores**: semelhante a vetores, mas com níveis/agrupamentos.
+* **Dataframes**: parecido com matriz mas permite vetores de vários tipos
+* **Listas**: parecido com vetor mas os elementos podem ser de tipos diferentes.
+* **Funções**: cálculo
 
+Vamos comentar sobre alguns objetos. Não iremos falar sobre todos, pois depende do porquê você quer usar o R, qual tipo de dado e análises você vai utilizar.
 
+## Vetores
+Haverá momentos que precisaremos armazenar uma sequência de dados. Por exemplo: queremos armazenar as idades de pacientes de uma clínica, não seria viável declarar uma variável para cada paciente. Sendo assim, o R possui alguns objetos que são capazes de trabalhar com dados de acordo com o seu tipo.
 
+O primeiro objeto que iremos trabalhar é o **vetor**. Em R um vetor é uma sequência de dados de um mesmo tipo. A função que iremos utilizar para criarmos um vetor é a `c()` de concatenar.
+```{r}
+idades <- c(45,67,78,49)
+idades
+```
+
+Podemos armazenar dados de textos em um vetor.
+```{r}
+pacientes <- c("id_003","id084","id009","id102")
+pacientes
+```
+
+Mas não podemos criar um vetor mesclando os tipos de dados, ao fazer isso o R converte todos os valores para `character`. Isso é um procedimento denominado de coerção, veremos mais adiante
+```{r}
+exemplo <- c(5,"Maria",TRUE)
+```
+
+Os vetores são classificados em classes, são elas:
+
+* **Vetor numérico**: constituído por valores numéricos.
+* **Vetor de _strings_**: constituído por caracteres.
+* **Vetor lógico**: constituído por valores lógicos
+```{r}
+v_num <- c(1,2,3,4,5)   # vetor numerico
+v_str <- c("a","b","c") # vetor de strings/character
+v_log <- c(T,F,T)       # vetor logico
+```
+
+Para verificar a classe de um objeto, iremos utilizar a função `class()`.
+```{r}
+class(v_num)
+class(v_str)
+class(v_log)
+```
+
+### Indexação de vetores
+Podemos recuperar todos os valores de uma só vez de um vetor ou apenas alguns elementos. A posição inicial de um vetor possui valor 1 e segue de forma crescente da esquerda para a direita. Se quisermos acessar um elemento de determinada posição no vetor, precisaremos utilizar `[posição desejada]`
+```{r}
+genes <- c("TP53","COI","RHO")
+genes[2]
+```
+
+### Gerando sequências e número aleatórios
+
+Uma forma de criar sequências é utilizar `:` (início:fim).
+```{r}
+1:10
+```
+
+Outra forma é utilizar a função `seq()`. Com ela podemos informar o início, fim e intervalo.
+```{r}
+seq(1,10,2)
+```
+
+As funções que geram números aleatórios são importantes nos processos de amostragem. as funções mais utilizada para esse tipo de terafa são: `sample()` e `runif()`.
+```{r}
+sample(0:50, 10) # gerar 10 num inteiros entre 0 e 50 sem reposicao
+sample(0:10, 5, replace = TRUE) # gerar 5 valores entre 0 e 10 com reposicao
+runif(5, 0, 10) # gerar 5 valores decimais entre 0 e 10
+```
+
+Também podemos trabalhar com do tipo `character`.
+```{r}
+sample(c("feminino", "masculino"), 10, replace = TRUE)
+```
+
+### Operações com vetores
+Depois de criar os vetores podemos fazer diversas operações com eles. Abaixo seguem alguns exemplos básicos de algumas operações com vetores.
+```{r}
+# vetores
+a <- c(1,3,5,7)
+b <- c(2,4,6,8)
+
+# soma de vetores
+soma_V <- a+b
+soma_V
+
+# subtracao_V de vetores
+subtacao_V <- b-a
+subtacao_V
+
+# produtos escalares
+produto_V <- a*b
+produto_V
+
+# divisao
+divisao_V <- b/a
+divisao_V
+
+# potenciacao
+potenciacao <- a^b
+potenciacao
+```
+
+Algumas operações básicas voltadas para a parte estatística envolvendo os vetores:
+```{r}
+prostate <- c(65,58,59,63,78,67)
+
+max(prostate)      # valor maximo
+min(prostate)      # valor minimo
+range(prostate)    # minimo e maximo
+sum(prostate)      # soma dos valores
+length(prostate)   # numero de observacoes
+mean(prostate)     # media
+median(prostate)   # mediana
+quantile(prostate) # quartis
+summary(prostate)  # resumo
+```
+
+## Matrizes
+
+Matriz é um objeto que distribui os elementos em coordenadas (linhas e colunas). Matriz é mais utilizada em análises multivariadas de fenômenos biológicos, como por exemplo, na organização, manejo e cálculos realizados com dados de mudanças
+conformacionais de proteínas ao longo do tempo. Há diversas formas de construir uma matriz, veremos algumas delas.
+
+**Função `matrix()`**: Esta função é própria para a criação de matrizes em R. Para saber mais a fundo sosbre os argumentos da função acesse o manual da função (`?matrix`). Basicamente precisamos informar um conjunto de dados para a função criar a matriz.
+```{r}
+matrix(1:10)
+```
+
+No entanto, podemos usar mais argumentos da função.
+```{r}
+# setando numero de linhas e colunas
+matrix(1:10, ncol = 5, nrow = 2)
+
+# setando a ordem prenchimento pelas linhas
+matrix(1:10, ncol = 5, nrow = 2, byrow = TRUE)
+```
+
+**Funções `cbind()` e `rbind()`**: Outr forma de criar matrizes é juntando vetores por meio da junção de colunas (`cbind()`) ou linhas (`rbind()`).
+```{r}
+vet_1 <- 1:5
+vet_2 <- seq(from=12, to=20, by=2)
+
+# unindo vetores atraves das colunas
+cbind(vet_1, vet_2) 
+
+# unindo vetores atraves das linhas
+rbind(vet_1, vet_2)
+```
+
+### Acessando elementos da matriz
+Os comandos para acessar elementos de uma matriz são parecidos com os comandos utilizados para acessar os elementos de vetores, a diferença é que na matriz temos linhas e colunas, sendo assim precisamos informar a linha e a coluna do elemento que desejamos visualizar.
+```{r}
+A <- matrix(runif(15,0,10), ncol = 3)
+
+A[3,2] # elemento com coordenadas: terceira linha  e segunda coluna
+A[,1] # elemento com coordenadas: todas as linhas e somente a primeira coluna
+A[1:3,] # elemento com coordenadas: linhas 1, 2 e 3 e todas as colunas
+```
+
+## *Data frames*
+Esse objeto é como um banco de dados, as colunas são as variáveis e as linhas referem-se aos registros. A diferença entre matrizes e data frames é que matrizes são vetores com duas dimensões de modo que, possuem uma única classe, já os data frames possuem colunas que podem ter classes diferentes.
+
+### *Data frames* disponibilizazdos pelo R
+O R disponibiliza vários bancos de dados como exemplo. Vamos trabalhar com um banco de dados disponibilizado pelo R. Para isso vamos utilizar a função `data()`.
+```{r}
+# consultando os bancos de dados disponiveis
+data()
+
+# acessando um banco de dados
+data("iris")
+
+# documentacao do banco de dados
+?iris
+```
+
+### Criando um *data frame*
+Para criar um *data frame* no R vamos utilizar a função `data.frame()`.
+```{r}
+# construindo uma tabela de metadados de pacientes
+metadados_pac <- data.frame(
+  paciente = c("A01", "A02", "B03", "B05", "C01"),
+  idade = c(45, 48, 65, 54, 72),
+  sexo = c("masculino", "masculino", "feminino", "masculino", "feminino"),
+  fumante = c(TRUE, FALSE, FALSE, FALSE, TRUE))
+
+# visualizando o data frame
+metadados_pac
+
+# visualizando a idade e sexo
+metadados_pac[,c("idade","sexo")]
+```
+
+### Executando algumas funções em *data frames*
+```{r}
+# -- banco de dados: iris --
+## -- primeiro contato com o dado
+?iris # documentacao
+
+dim(iris)         # dimensoes: linhas e colunas
+head(iris)        # cabecalho
+tail(iris)        # calda
+summary(iris)     # resumo estatistico
+str(iris)         # estrutura
+iris$Sepal.Length # selecionando uma variavel
+```
+
+## Listas
+Uma lista no R é como um vetor capaz de armazenar elementos com diferentes tipos de dados (armazenando em uma dimensão). Uma mesma lista podemos armazenar vetor, matriz, dataframe, e outros. Sendo assim, as lista podem ser complexas .
+
+Para criar uma lista utilize a função `list()`
+```{r}
+lista <- list("Hello world",vet_1,A, metadados_pac) 
+lista
+```
+
+Os colchetes duplos `[[]]` indicam qual elemento da lista está sendo apresentado, enquanto que o simples `[]` mostra o subelemento da lista.
+
+## Funções
+Um dos grandes poderes do R é a criação de funções com o intuito de realizar trabalhos específicos. A sintaxe básica é: function(lista de argumentos) corpo da função. function indica para o R que estamos criando uma função. Lista de argumentos são argumentos que serão avaliados pela função, tais argumentos são separados por vírgulas. Já o corpo da função é onde iremos escrever o nosso algoritmo a ser utilizado para realizar os cálculos. Utilizamos o assignment para nomear a função.
+```{r}
+# criando a funcao
+mult_lad <- function(x,y){
+  x * y
+}
+
+# executando a funcao
+mult_lad(2,5)
+mult_lad(10,17)
+```
+
+Podemos criar uma funcao que calcule o pH de écidos e bases fortes
+```{r}
+# criando a funcao
+ph <- function(h){
+  -log10(h)
+}
+
+# utilizando a funcao
+ph(0.01)
+ph(10^-5)
+```
+
+## Lista de exercícios
+1. Crie uma matriz com a sequência de 1 a 20, contendo 4 linhas
+2. Calcule a média de todas as colunas da matriz do exercício anterior.
+3. Calcule a média dos números pares de todas as colunas da matriz do exercício 1.
+4. Crie um objeto com 100 valores aleatórios de uma distribuição uniforme. Quantos elementos são maiores ou iguais a 0,5?
 
