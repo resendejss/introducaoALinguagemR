@@ -117,7 +117,7 @@
 
 \title{Introdução à linguagem R}
 \author{Jean S. S. Resende, Jéssica M. Magno, João C. D. Muzzi, Mauro A. A. Castro}
-\date{2023-06-03}
+\date{2023-06-04}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -317,45 +317,242 @@ Perceba que o conteúdo após o \texttt{\#} não é interpretado no R, ou seja, 
 \hypertarget{fundamentos-buxe1sicos-da-programauxe7uxe3o}{%
 \chapter{Fundamentos básicos da programação}\label{fundamentos-buxe1sicos-da-programauxe7uxe3o}}
 
+\hypertarget{variuxe1veis}{%
+\section{Variáveis}\label{variuxe1veis}}
+
+Utilizamos a variável para armazenar um valor qualquer em um local da memória RAM do computador. Deste modo, é possível reutilizar esse valor, usando o nome da sua variável.
+
+\hypertarget{declarauxe7uxe3o-e-atribuiuxe7uxe3o-de-variuxe1veis}{%
+\subsection{Declaração e atribuição de variáveis}\label{declarauxe7uxe3o-e-atribuiuxe7uxe3o-de-variuxe1veis}}
+
+Em R declaramos uma variável atribuindo a ela um valor em três formas diferente: \textbf{símbolo de atribuição \textless-}, \textbf{símbolo de atribuição =} e \textbf{função assign()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome.var }\OtherTok{\textless{}{-}}\NormalTok{ valor }\CommentTok{\# atribuicao: menor e traco}
+\NormalTok{nome.var }\OtherTok{=}\NormalTok{ valor }\CommentTok{\# atribuicao: igual}
+\FunctionTok{assign}\NormalTok{(}\StringTok{"nome\_var"}\NormalTok{,valor) }\CommentTok{\# funcao: assign}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{dicas-para-nomear-variuxe1veis}{%
+\subsection{Dicas para nomear variáveis}\label{dicas-para-nomear-variuxe1veis}}
+
+As variáveis podem ser nomeadas com o uso letras, números, ponto (.) e underline (\_), no entanto é necessário se atentar para algumas dicas de como nomear as variáveis:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  O nome da variável deve sempre começar com uma letra ou um ponto, ou seja, não pode iniciar com números ou símbolos. Se iniciar com ponto o próximo caracter não pode ser um número.
+\item
+  O nome da variável que contêm mais de uma palavra é recomendado o uso do underline (\_) para separa-la.
+\item
+  O nome da variável não pode ser palavras reservadas da linguagem como TRUE, if, while, entre outras.
+\item
+  O nome da variável não pode conter espaços.
+\item
+  O nome da variável deve ser condizente com o seu valor.
+\end{enumerate}
+
+\hypertarget{tipos-de-dados-das-variuxe1veis}{%
+\subsection{Tipos de dados das variáveis}\label{tipos-de-dados-das-variuxe1veis}}
+
+Em R o tipo de dado da variável é obtido a partir do valor atribuído à ela. Isto faz da linguagem R: \textbf{Linguagem dinamicamente tipada}. Pois, o tipo de dado de uma variável pode ser alterado dinamicamente enquanto o programa/script é executado.
+
+As variáveis em R podem ser do tipo: inteiro (interger), ponto flutuante (double), complexo (complex), caracteres (character/string) e lógico (logical).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{var\_int }\OtherTok{\textless{}{-}}\NormalTok{ 2L      }\CommentTok{\# var integer}
+\NormalTok{var\_db1 }\OtherTok{\textless{}{-}} \FloatTok{1.5}     \CommentTok{\# var double}
+\NormalTok{var\_db2 }\OtherTok{\textless{}{-}} \DecValTok{2}       \CommentTok{\# var double}
+\NormalTok{var\_comp }\OtherTok{\textless{}{-}} \DecValTok{2} \SpecialCharTok{+}\NormalTok{ 3i }\CommentTok{\# var complex}
+\NormalTok{var\_str }\OtherTok{\textless{}{-}} \StringTok{"a\_01"}  \CommentTok{\# var string/character}
+\NormalTok{var\_log }\OtherTok{\textless{}{-}} \ConstantTok{TRUE}    \CommentTok{\# var logical}
+\end{Highlighting}
+\end{Shaded}
+
+Podemos verificar o tipo das variáveis criadas no \emph{chunk} anterior através da função \texttt{typeof()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(var\_int)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(var\_db1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(var\_db2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(var\_comp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "complex"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(var\_str)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(var\_log)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "logical"
+\end{verbatim}
+
+Para verificar quais variáveis o R está usando \emph{workspace} usando a função \texttt{ls()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "var_comp" "var_db1"  "var_db2"  "var_int"  "var_log"  "var_str"
+\end{verbatim}
+
+Para excluir variáveis, ou seja, desalocar determinada variável da memória RAM, basta usar a função \texttt{rm()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(var\_str)     }\CommentTok{\# desaloca a variavel var\_str}
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{()) }\CommentTok{\# desaloca todas as variaveis}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operauxe7uxf5es-em-r}{%
+\section{Operações em R}\label{operauxe7uxf5es-em-r}}
+
+Podemos executar operações matemáticas, lógicas e comparações em R. Para isso o R faz uso de \textbf{operadores}. Os operadores são divididos em: aritmético, relacional e lógico.
+
+Os operadores aritméticos como o nome já diz são usados em operações aritméticas e são eles:
+
+\begin{itemize}
+\tightlist
+\item
+  Adição: +
+\item
+  Subtração: -
+\item
+  Multiplicação: *
+\item
+  Divisão: /
+\item
+  Resto de divisão: \%\%
+\item
+  Divisão inteira: \%/\%
+\item
+  Potenciação: \^{}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{+}\DecValTok{2}   \CommentTok{\# soma}
+\DecValTok{5{-}2}   \CommentTok{\# subtracao}
+\DecValTok{2}\SpecialCharTok{*}\DecValTok{5}   \CommentTok{\# multiplicacao}
+\DecValTok{5}\SpecialCharTok{/}\DecValTok{2}   \CommentTok{\# divisao}
+\DecValTok{5}\SpecialCharTok{\%\%}\DecValTok{2}  \CommentTok{\# resto de divisao}
+\DecValTok{5}\SpecialCharTok{\%/\%}\DecValTok{2} \CommentTok{\# divisao inteira}
+\DecValTok{2}\SpecialCharTok{\^{}}\DecValTok{5}   \CommentTok{\# potenciacao}
+\end{Highlighting}
+\end{Shaded}
+
+Já os operadores relacionais, tratam da relação de um valor com o outro e são eles:
+
+\begin{itemize}
+\tightlist
+\item
+  Menor: \textless{}
+\item
+  Maior: \textgreater{}
+\item
+  Menor ou igual: \textless=
+\item
+  Maior ou igual: \textgreater=
+\item
+  Igual: ==
+\item
+  Diferente: !=
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{\textless{}}\DecValTok{5} \CommentTok{\# menor}
+\DecValTok{2}\SpecialCharTok{\textgreater{}}\DecValTok{5} \CommentTok{\# maior}
+\DecValTok{2}\SpecialCharTok{\textless{}=}\DecValTok{2} \CommentTok{\# menor ou igual}
+\DecValTok{2}\SpecialCharTok{\textgreater{}=}\DecValTok{5} \CommentTok{\# maior ou igual}
+\DecValTok{5}\SpecialCharTok{==}\DecValTok{5} \CommentTok{\# igual}
+\DecValTok{2}\SpecialCharTok{!=}\DecValTok{2} \CommentTok{\# diferente}
+\end{Highlighting}
+\end{Shaded}
+
+Por fim, os operadores lógicos são:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{logical NOT}: !
+\item
+  \emph{logical AND}: \&
+\item
+  \emph{logical OR}: \textbar{}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{!}\ConstantTok{TRUE} \CommentTok{\# NOT = qual e o contrario de TRUE?}
+\ConstantTok{TRUE} \SpecialCharTok{|} \ConstantTok{FALSE} \CommentTok{\# OR = um dos dois ou os dois é ou são verdadeiros?}
+\ConstantTok{TRUE} \SpecialCharTok{\&} \ConstantTok{FALSE} \CommentTok{\# AND = os dois são verdadeiros?}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{condiuxe7uxf5es-e-loops}{%
+\section{Condições e loops}\label{condiuxe7uxf5es-e-loops}}
+
 Existem dois passos que são trilhados por toda linguagem de programação, e alguns progrmadores dizem que se uma linguagem de programação não permite a execução destes dois passos, ela não é bem considerada uma linguagem de programação. Um exemplo é a linguagem HTML, essa linguagem é dita como \textbf{linguagem de marcação} sua finalidade é trabalhar com estruturação de textos. Não iremos utilizá-la para cálculos ou procedimentos que demandam de uma rotina computacional com base em cálculos e nos dois passos. Mas quais são estes dois passos? R: condições e \emph{loops}.
 
 \hypertarget{condiuxe7uxf5es}{%
-\section{Condições}\label{condiuxe7uxf5es}}
+\subsection{Condições}\label{condiuxe7uxf5es}}
 
-Se alguma coisa for verdadeira (TRUE) o R vai agir de uma maneira, caso seja mentira (FALSE) ele vai agir de outra maneira. Você pode estabelecer algumas condições para que seja feita uma função. Veremos alguns operadores de comparação e operadores lógicos utilizados na linguagem R para trabalhar com condições.
+Se alguma coisa for verdadeira (TRUE) o R vai agir de uma maneira, caso seja mentira (FALSE) ele vai agir de outra maneira. Você pode estabelecer algumas condições para que seja feita uma função.
 
-\hypertarget{operadores-de-comparauxe7uxe3o}{%
-\subsection{Operadores de comparação}\label{operadores-de-comparauxe7uxe3o}}
-
-\begin{itemize}
-\tightlist
-\item
-  igualdade: ==
-\item
-  diferente: !=
-\item
-  menor: \textless{}
-\item
-  maior: \textgreater{}
-\item
-  menor ou igual: \textless=
-\item
-  maior ou igual: \textgreater=
-\end{itemize}
-
-\hypertarget{operadores-luxf3gicos}{%
-\subsection{Operadores lógicos}\label{operadores-luxf3gicos}}
-
-\begin{itemize}
-\tightlist
-\item
-  E: \&\&
-\item
-  OU: \textbar\textbar{}
-\end{itemize}
-
-\hypertarget{condiuxe7uxe3o-if-funuxe7uxe3o-if}{%
-\subsubsection{\texorpdfstring{Condição: if (função \texttt{if()})}{Condição: if (função if())}}\label{condiuxe7uxe3o-if-funuxe7uxe3o-if}}
+\hypertarget{condiuxe7uxe3o-if-if}{%
+\subsubsection{\texorpdfstring{Condição: if \texttt{if()}}{Condição: if if()}}\label{condiuxe7uxe3o-if-if}}
 
 Determinado código será executado somente se a condição for verdadeira, abaixo é apresentado a estrura do \texttt{if}.
 
@@ -385,6 +582,8 @@ Vamos agora fazer uma aplicação: se o número dois for maior que o número um,
 ## [1] "dois é maior que um"
 \end{verbatim}
 
+No exemplo abaixo a condição é falsa, logo o comando dentro de if não é executado.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \DocumentationTok{\#\# {-}{-} falso}
@@ -394,37 +593,270 @@ Vamos agora fazer uma aplicação: se o número dois for maior que o número um,
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{condiuxe7uxe3o-if-else-if-else}{%
+\subsubsection{\texorpdfstring{Condição: if else \texttt{if()\ else()}}{Condição: if else if() else()}}\label{condiuxe7uxe3o-if-else-if-else}}
+
+Podemos querer que um comando seja executado se condição for verdadeira e outro comando seja executado se a condição for falsa. Faremos da seguinte forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{)\{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"comando dentro do if"}\NormalTok{)}
+\NormalTok{\}}\ControlFlowTok{else}\NormalTok{\{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"comando dentro do else"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "comando dentro do if"
+\end{verbatim}
+
+Por ser verdadeira a condição dentro do \texttt{if}, foi executado o primeiro comando.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\ConstantTok{FALSE}\NormalTok{)\{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"comando dentro do if"}\NormalTok{)}
+\NormalTok{\}}\ControlFlowTok{else}\NormalTok{\{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"comando dentro do else"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "comando dentro do else"
+\end{verbatim}
+
+A condição dentro do \texttt{if} é falsa então foi executado o comando dentro do \texttt{else}
+
+Outra forma de aplicar a condição if else é usando a função \texttt{ifelse()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ifelse}\NormalTok{(}\DecValTok{2} \SpecialCharTok{\textgreater{}} \DecValTok{1}\NormalTok{, }\DecValTok{2}\SpecialCharTok{*}\DecValTok{1}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{) }\CommentTok{\# condicao verdadeira}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ifelse}\NormalTok{(}\DecValTok{2} \SpecialCharTok{\textless{}} \DecValTok{1}\NormalTok{, }\DecValTok{2}\SpecialCharTok{*}\DecValTok{1}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{) }\CommentTok{\# condicao falsa}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5
+\end{verbatim}
+
 \hypertarget{loops}{%
-\section{\texorpdfstring{\emph{Loops}}{Loops}}\label{loops}}
+\subsection{\texorpdfstring{\emph{Loops}}{Loops}}\label{loops}}
 
-\hypertarget{parts}{%
-\chapter{Parts}\label{parts}}
+É muito trabalhoso reescrever código a fim de obeter repetições, sem mencionar o tempo gasto nesta reescrita. Sendo assi, o R possui algumas funções de repetições são elas: \texttt{for()}, \texttt{while()} e \texttt{repeat()}.
 
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
+A função \texttt{for()} repete o código para o comprimento da sequência indicada à ela.
 
-Add a numbered part: \texttt{\#\ (PART)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{(variavel }\ControlFlowTok{in}\NormalTok{ sequencia)\{}
+\NormalTok{  comandos a serem repetidos}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
+No exemplo abaixo a variável \emph{i} vai assumir um valor da sequência numérica 1, 2, 3, 4 e 5, e então executar a função \texttt{print()} em i para cada valor da sequência adotada por \emph{i}.
 
-Add an appendix as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# : cria uma sequencia Ex.: sequencia do 1 ao 5 = 1:5}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)\{ }
+  \FunctionTok{print}\NormalTok{(i)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{footnotes-and-citations}{%
-\chapter{Footnotes and citations}\label{footnotes-and-citations}}
+\begin{verbatim}
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+\end{verbatim}
 
-\hypertarget{footnotes}{%
-\section{Footnotes}\label{footnotes}}
+Outro exemplo do uso do for: Vamos printar na tela as cindo primeiras letras do alfabeto.
 
-Footnotes are put inside the square brackets after a caret \texttt{\^{}{[}{]}}. Like this one \footnote{This is a footnote.}.
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{(letra }\ControlFlowTok{in}\NormalTok{ letters[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{])\{}
+  \FunctionTok{print}\NormalTok{(letra)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{citations}{%
-\section{Citations}\label{citations}}
+\begin{verbatim}
+## [1] "a"
+## [1] "b"
+## [1] "c"
+## [1] "d"
+## [1] "e"
+\end{verbatim}
 
-Reference items in your bibliography file(s) using \texttt{@key}.
+Já a função \texttt{while()} executa os comandos enquanto a condição informada a ela for verdadeira.
 
-For example, we are using the \textbf{bookdown} package \citep{R-bookdown} (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015} (this citation was added manually in an external file book.bib).
-Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YAML \texttt{bibliography} key.
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{while}\NormalTok{(condição)\{}
+\NormalTok{  comandos a serem repetidos}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-The RStudio Visual Markdown Editor can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
+Por exempĺo: vamos construir um temporizador que determina um espaço de tempo de cinco segundos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{contador }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{while}\NormalTok{(contador }\SpecialCharTok{\textless{}=} \DecValTok{5}\NormalTok{)\{}
+  \FunctionTok{print}\NormalTok{(contador)}
+\NormalTok{  contador }\OtherTok{=}\NormalTok{ contador }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+\end{verbatim}
+
+Perceba que não foi exatamente um espaço de tempo de cinco segundos, foi mais rápido. Vamos inserir um comando ao R dizendo a ele para aguardar um segundo após a execução anterior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{contador }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{while}\NormalTok{(contador }\SpecialCharTok{\textless{}=} \DecValTok{5}\NormalTok{)\{}
+  \FunctionTok{print}\NormalTok{(contador)}
+\NormalTok{  contador }\OtherTok{=}\NormalTok{ contador }\SpecialCharTok{+} \DecValTok{1}
+  \FunctionTok{Sys.sleep}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+\end{verbatim}
+
+A função \texttt{repeat()} é usada quando queremos repetir um código sem a avaliação de uma condição. Atenção: vamos precisar utilizazr a função \texttt{break()} para dizer ao programa o momento em que deve parar a execução, ou seja a repetição. Também utilizaremos a função \texttt{if()} para avaliar a condição e então chamar o \textbf{break}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{contador }\OtherTok{\textless{}{-}} \DecValTok{10}
+\ControlFlowTok{repeat}\NormalTok{\{}
+  \FunctionTok{print}\NormalTok{(contador)}
+\NormalTok{  contador }\OtherTok{\textless{}{-}}\NormalTok{ contador }\SpecialCharTok{+} \DecValTok{10}
+  \ControlFlowTok{if}\NormalTok{(contador }\SpecialCharTok{\textgreater{}} \DecValTok{100}\NormalTok{) }\ControlFlowTok{break}\NormalTok{()}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+## [1] 20
+## [1] 30
+## [1] 40
+## [1] 50
+## [1] 60
+## [1] 70
+## [1] 80
+## [1] 90
+## [1] 100
+\end{verbatim}
+
+\hypertarget{lista-de-exercuxedcios}{%
+\section{Lista de exercícios}\label{lista-de-exercuxedcios}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Declare três variáveis atribuindo valores numéricos e apresente o resultado da multiplicação das suas combinações dois a dois destas três variáveis (cada variável com um número). Ex.: variáveis A, B, e C mostre AxB, AxC e BxC com atribuição dos valores as variáveis.
+\item
+  Converta (no R) a temperatura Fahrenheit 78 °F para Centígrados. Fórmula: C = (F-32) x (5/9).
+\item
+  Calcule (no R):
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  o resto da divisão de 7 por 9
+\item
+  2 elevado ao cubo
+\item
+  raiz quadrada de 64
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Elabore um algoritmo que:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  crie um vetor com uma sequência numérica de 5 números
+\item
+  faça um loop para calcular a soma destes números
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Elabore um algoritmo que:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  crie um vetor com uma sequência numérica de 7 números
+\item
+  faça um loop para calcular a média destes números
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Elabore um algoritmo que:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  crie um vetor com uma sequência numérica de 12 números
+\item
+  faça a soma dos números pares
+\end{itemize}
+
+\hypertarget{fundamentos-do-r}{%
+\chapter{Fundamentos do R}\label{fundamentos-do-r}}
+
+\hypertarget{processamento-de-dados}{%
+\chapter{Processamento de dados}\label{processamento-de-dados}}
 
 \hypertarget{blocks}{%
 \chapter{Blocks}\label{blocks}}

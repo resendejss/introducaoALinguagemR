@@ -1,23 +1,124 @@
 # Fundamentos básicos da programação
 
+## Variáveis
+Utilizamos a variável para armazenar um valor qualquer em um local da memória RAM do computador. Deste modo, é possível reutilizar esse valor, usando o nome da sua variável. 
+
+### Declaração e atribuição de variáveis
+Em R declaramos uma variável atribuindo a ela um valor em três formas diferente: **símbolo de atribuição <-**, **símbolo de atribuição =** e **função assign()**.
+```{r eval=FALSE}
+nome.var <- valor # atribuicao: menor e traco
+nome.var = valor # atribuicao: igual
+assign("nome_var",valor) # funcao: assign
+```
+
+### Dicas para nomear variáveis
+As variáveis podem ser nomeadas com o uso letras, números, ponto (.) e underline (_), no entanto é necessário se atentar para algumas dicas de como nomear as variáveis:
+
+1. O nome da variável deve sempre começar com uma letra ou um ponto, ou seja, não pode iniciar com números ou símbolos. Se iniciar com ponto o próximo caracter não pode ser um número.
+
+2. O nome da variável que contêm mais de uma palavra é recomendado o uso do underline (_) para separa-la.
+
+3. O nome da variável não pode ser palavras reservadas da linguagem como TRUE, if, while, entre outras.
+
+4. O nome da variável não pode conter espaços.
+
+5. O nome da variável deve ser condizente com o seu valor.
+
+### Tipos de dados das variáveis
+Em R o tipo de dado da variável é obtido a partir do valor atribuído à ela. Isto faz da linguagem R: **Linguagem dinamicamente tipada**. Pois, o tipo de dado de uma variável pode ser alterado dinamicamente enquanto o programa/script é executado.
+
+As variáveis em R podem ser do tipo: inteiro (interger), ponto flutuante (double), complexo (complex), caracteres (character/string) e lógico (logical).
+```{r}
+var_int <- 2L      # var integer
+var_db1 <- 1.5     # var double
+var_db2 <- 2       # var double
+var_comp <- 2 + 3i # var complex
+var_str <- "a_01"  # var string/character
+var_log <- TRUE    # var logical
+```
+
+Podemos verificar o tipo das variáveis criadas no *chunk* anterior através da função `typeof()`.
+```{r}
+typeof(var_int)
+typeof(var_db1)
+typeof(var_db2)
+typeof(var_comp)
+typeof(var_str)
+typeof(var_log)
+```
+
+Para verificar quais variáveis o R está usando *workspace* usando a função `ls()`.
+```{r}
+ls()
+```
+
+Para excluir variáveis, ou seja, desalocar determinada variável da memória RAM, basta usar a função `rm()`.
+```{r}
+rm(var_str)     # desaloca a variavel var_str
+rm(list = ls()) # desaloca todas as variaveis
+```
+
+## Operações em R
+Podemos executar operações matemáticas, lógicas e comparações em R. Para isso o R faz uso de **operadores**. Os operadores são divididos em: aritmético, relacional e lógico.
+
+Os operadores aritméticos como o nome já diz são usados em operações aritméticas e são eles:
+
+* Adição: +
+* Subtração: -
+* Multiplicação: *
+* Divisão: /
+* Resto de divisão: %%
+* Divisão inteira: %/%
+* Potenciação: ^
+
+```{r eval=FALSE}
+2+2   # soma
+5-2   # subtracao
+2*5   # multiplicacao
+5/2   # divisao
+5%%2  # resto de divisao
+5%/%2 # divisao inteira
+2^5   # potenciacao
+```
+
+Já os operadores relacionais, tratam da relação de um valor com o outro e são eles:
+
+* Menor: <
+* Maior: >
+* Menor ou igual: <=
+* Maior ou igual: >=
+* Igual: ==
+* Diferente: !=
+
+```{r eval=FALSE}
+2<5 # menor
+2>5 # maior
+2<=2 # menor ou igual
+2>=5 # maior ou igual
+5==5 # igual
+2!=2 # diferente
+```
+
+Por fim, os operadores lógicos são:
+
+* *logical NOT*: !
+* *logical AND*: &
+* *logical OR*: |
+
+```{r eval=FALSE}
+!TRUE # NOT = qual e o contrario de TRUE?
+TRUE | FALSE # OR = um dos dois ou os dois é ou são verdadeiros?
+TRUE & FALSE # AND = os dois são verdadeiros?
+```
+
+## Condições e loops
+
 Existem dois passos que são trilhados por toda linguagem de programação, e alguns progrmadores dizem que se uma linguagem de programação não permite a execução destes dois passos, ela não é bem considerada uma linguagem de programação. Um exemplo é a linguagem HTML, essa linguagem é dita como **linguagem de marcação** sua finalidade é trabalhar com estruturação de textos. Não iremos utilizá-la para cálculos ou procedimentos que demandam de uma rotina computacional com base em cálculos e nos dois passos. Mas quais são estes dois passos? R: condições e *loops*.
 
-## Condições
-Se alguma coisa for verdadeira (TRUE) o R vai agir de uma maneira, caso seja mentira (FALSE) ele vai agir de outra maneira. Você pode estabelecer algumas condições para que seja feita uma função. Veremos alguns operadores de comparação e operadores lógicos utilizados na linguagem R para trabalhar com condições.
+### Condições
+Se alguma coisa for verdadeira (TRUE) o R vai agir de uma maneira, caso seja mentira (FALSE) ele vai agir de outra maneira. Você pode estabelecer algumas condições para que seja feita uma função. 
 
-### Operadores de comparação
-* igualdade: ==
-* diferente: !=
-* menor: <
-* maior: >
-* menor ou igual: <=
-* maior ou igual: >=
-
-### Operadores lógicos
-* E: &&
-* OU: ||
-
-#### Condição: if (função `if()`)
+#### Condição: if `if()`
 Determinado código será executado somente se a condição for verdadeira, abaixo é apresentado a estrura do `if`.
 ```{r eval=FALSE}
 # -- estrutura
@@ -36,7 +137,7 @@ if(2>1){
 }
 ```
 
-
+No exemplo abaixo a condição é falsa, logo o comando dentro de if não é executado.
 ```{r}
 ## -- falso
 if(2<1){
@@ -44,7 +145,115 @@ if(2<1){
 }
 ```
 
+#### Condição: if else `if() else()`
 
-## *Loops*
+Podemos querer que um comando seja executado se condição for verdadeira e outro comando seja executado se a condição for falsa. Faremos da seguinte forma:
+```{r}
+if(TRUE){
+  print("comando dentro do if")
+}else{
+  print("comando dentro do else")
+}
+```
+Por ser verdadeira a condição dentro do `if`, foi executado o primeiro comando. 
+
+```{r}
+if(FALSE){
+  print("comando dentro do if")
+}else{
+  print("comando dentro do else")
+}
+```
+A condição dentro do `if` é falsa então foi executado o comando dentro do `else`
+
+Outra forma de aplicar a condição if else é usando a função `ifelse()`.
+```{r}
+ifelse(2 > 1, 2*1, 1/2) # condicao verdadeira
+```
+
+```{r}
+ifelse(2 < 1, 2*1, 1/2) # condicao falsa
+```
+
+### *Loops*
+É muito trabalhoso reescrever código a fim de obeter repetições, sem mencionar o tempo gasto nesta reescrita. Sendo assi, o R possui algumas funções de repetições são elas: `for()`, `while()` e `repeat()`.
+
+A função `for()` repete o código para o comprimento da sequência indicada à ela.
+```{r eval=FALSE}
+for(variavel in sequencia){
+  comandos a serem repetidos
+}
+```
+
+No exemplo abaixo a variável *i* vai assumir um valor da sequência numérica 1, 2, 3, 4 e 5, e então executar a função `print()` em i para cada valor da sequência adotada por *i*.
+```{r}
+# : cria uma sequencia Ex.: sequencia do 1 ao 5 = 1:5
+for(i in 1:5){ 
+  print(i)
+}
+```
+
+Outro exemplo do uso do for: Vamos printar na tela as cindo primeiras letras do alfabeto.
+```{r}
+for(letra in letters[1:5]){
+  print(letra)
+}
+```
 
 
+Já a função `while()` executa os comandos enquanto a condição informada a ela for verdadeira.
+```{r eval=FALSE}
+while(condição){
+  comandos a serem repetidos
+}
+```
+
+Por exempĺo: vamos construir um temporizador que determina um espaço de tempo de cinco segundos.
+```{r}
+contador <- 1
+while(contador <= 5){
+  print(contador)
+  contador = contador + 1
+}
+```
+Perceba que não foi exatamente um espaço de tempo de cinco segundos, foi mais rápido. Vamos inserir um comando ao R dizendo a ele para aguardar um segundo após a execução anterior.
+```{r}
+contador <- 1
+while(contador <= 5){
+  print(contador)
+  contador = contador + 1
+  Sys.sleep(1)
+}
+```
+
+A função `repeat()` é usada quando queremos repetir um código sem a avaliação de uma condição. Atenção: vamos precisar utilizazr a função `break()` para dizer ao programa o momento em que deve parar a execução, ou seja a repetição. Também utilizaremos a função `if()` para avaliar a condição e então chamar o **break**.
+```{r}
+contador <- 10
+repeat{
+  print(contador)
+  contador <- contador + 10
+  if(contador > 100) break()
+}
+```
+
+## Lista de exercícios
+1. Declare três variáveis atribuindo valores numéricos e apresente o resultado da multiplicação das suas combinações dois a dois destas três variáveis (cada variável com um número). Ex.: variáveis A, B, e C mostre AxB, AxC e BxC com atribuição dos valores as variáveis.
+
+2. Converta (no R) a temperatura Fahrenheit 78 °F para Centígrados. Fórmula: C = (F-32) x (5/9).
+
+3. Calcule (no R):
+ * o resto da divisão de 7 por 9
+ * 2 elevado ao cubo
+ * raiz quadrada de 64
+
+4. Elabore um algoritmo que:
+ * crie um vetor com uma sequência numérica de 5 números
+ * faça um loop para calcular a soma destes números
+
+5. Elabore um algoritmo que:
+ * crie um vetor com uma sequência numérica de 7 números
+ * faça um loop para calcular a média destes números
+
+6. Elabore um algoritmo que:
+ * crie um vetor com uma sequência numérica de 12 números
+ * faça a soma dos números pares
