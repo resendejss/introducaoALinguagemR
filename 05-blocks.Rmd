@@ -20,12 +20,16 @@ as funções do pacote ggplot2.
 
 ### Criando gráficos de pontos
 Basicamente para montar um gráfico de pontos basta usar a função plot() e passar como argumento os valores de x e y. Na janela de comando no RStudio digite o seguinte código:
-```{r}
+```{r eval=FALSE}
 plot(mtcars$wt, mtcars$mpg)
 
 # com o ggplot2 faríamos
 qplot(wt, mpg, data = mtcars)
 ```
+
+![](g1.png)
+
+![](g2.png)
 
 ### Criando gráficos de linha
 Para fazer um gráfico em linha com a função plot, basta adicionar um outro argumento a função. Na janela de comando (Console) digite o código abaixo e atente para o argumento type = “l”.
