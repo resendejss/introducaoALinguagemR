@@ -326,15 +326,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 1 3 5 7 9</code></pre>
 <p>As funções que geram números aleatórios são importantes nos processos de amostragem. as funções mais utilizada para esse tipo de terafa são: <code>sample()</code> e <code>runif()</code>.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="fundamentos-do-r.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">10</span>) <span class="co"># gerar 10 num inteiros entre 0 e 50 sem reposicao</span></span></code></pre></div>
-<pre><code>##  [1] 33 17 25 48 14 28 35 13  5 43</code></pre>
+<pre><code>##  [1] 49 38 29 43 20 50 36 30  3  2</code></pre>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="fundamentos-do-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># gerar 5 valores entre 0 e 10 com reposicao</span></span></code></pre></div>
-<pre><code>## [1] 8 8 3 2 1</code></pre>
+<pre><code>## [1] 3 5 4 1 6</code></pre>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="fundamentos-do-r.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">10</span>) <span class="co"># gerar 5 valores decimais entre 0 e 10</span></span></code></pre></div>
-<pre><code>## [1] 7.947589 8.350671 1.393441 6.781255 6.819218</code></pre>
+<pre><code>## [1] 6.715084 7.638248 4.582566 7.654573 1.894360</code></pre>
 <p>Também podemos trabalhar com do tipo <code>character</code>.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="fundamentos-do-r.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;feminino&quot;</span>, <span class="st">&quot;masculino&quot;</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;feminino&quot;  &quot;masculino&quot; &quot;masculino&quot; &quot;feminino&quot;  &quot;masculino&quot; &quot;feminino&quot; 
-##  [7] &quot;feminino&quot;  &quot;feminino&quot;  &quot;feminino&quot;  &quot;masculino&quot;</code></pre>
+<pre><code>##  [1] &quot;feminino&quot;  &quot;feminino&quot;  &quot;masculino&quot; &quot;feminino&quot;  &quot;feminino&quot;  &quot;masculino&quot;
+##  [7] &quot;masculino&quot; &quot;feminino&quot;  &quot;feminino&quot;  &quot;feminino&quot;</code></pre>
 </div>
 <div id="operações-com-vetores" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Operações com vetores<a href="fundamentos-do-r.html#operações-com-vetores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -439,14 +439,14 @@ conformacionais de proteínas ao longo do tempo. Há diversas formas de construi
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="fundamentos-do-r.html#cb119-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">15</span>,<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
 <span id="cb119-2"><a href="fundamentos-do-r.html#cb119-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb119-3"><a href="fundamentos-do-r.html#cb119-3" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">3</span>,<span class="dv">2</span>] <span class="co"># elemento com coordenadas: terceira linha  e segunda coluna</span></span></code></pre></div>
-<pre><code>## [1] 5.333135</code></pre>
+<pre><code>## [1] 6.781636</code></pre>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="fundamentos-do-r.html#cb121-1" aria-hidden="true" tabindex="-1"></a>A[,<span class="dv">1</span>] <span class="co"># elemento com coordenadas: todas as linhas e somente a primeira coluna</span></span></code></pre></div>
-<pre><code>## [1] 3.384332 3.288770 3.414660 3.310634 9.975780</code></pre>
+<pre><code>## [1] 3.281233 3.737409 6.521338 2.226597 6.176863</code></pre>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="fundamentos-do-r.html#cb123-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,] <span class="co"># elemento com coordenadas: linhas 1, 2 e 3 e todas as colunas</span></span></code></pre></div>
-<pre><code>##          [,1]     [,2]     [,3]
-## [1,] 3.384332 5.507918 1.636879
-## [2,] 3.288770 1.274286 1.633551
-## [3,] 3.414660 5.333135 7.078009</code></pre>
+<pre><code>##          [,1]     [,2]      [,3]
+## [1,] 3.281233 0.615154 5.0716949
+## [2,] 3.737409 6.145584 0.4911909
+## [3,] 6.521338 6.781636 4.1654907</code></pre>
 </div>
 </div>
 <div id="data-frames" class="section level2 hasAnchor" number="4.3">
@@ -562,12 +562,12 @@ conformacionais de proteínas ao longo do tempo. Há diversas formas de construi
 ## [1] 1 2 3 4 5
 ## 
 ## [[3]]
-##          [,1]     [,2]     [,3]
-## [1,] 3.384332 5.507918 1.636879
-## [2,] 3.288770 1.274286 1.633551
-## [3,] 3.414660 5.333135 7.078009
-## [4,] 3.310634 1.907776 4.220883
-## [5,] 9.975780 2.435784 4.094553
+##          [,1]     [,2]      [,3]
+## [1,] 3.281233 0.615154 5.0716949
+## [2,] 3.737409 6.145584 0.4911909
+## [3,] 6.521338 6.781636 4.1654907
+## [4,] 2.226597 5.980561 1.5460740
+## [5,] 6.176863 3.818291 7.9665785
 ## 
 ## [[4]]
 ##   paciente idade      sexo fumante

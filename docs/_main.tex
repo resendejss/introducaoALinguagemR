@@ -1003,7 +1003,7 @@ As funções que geram números aleatórios são importantes nos processos de am
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 34 40 10 37 15 39 48 26 30 12
+##  [1] 39 31 15  9 24 41 17 47 22  8
 \end{verbatim}
 
 \begin{Shaded}
@@ -1013,7 +1013,7 @@ As funções que geram números aleatórios são importantes nos processos de am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 9 2 5 8 8
+## [1] 10  5  1  0  9
 \end{verbatim}
 
 \begin{Shaded}
@@ -1023,7 +1023,7 @@ As funções que geram números aleatórios são importantes nos processos de am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 7.140828 9.151112 1.084829 3.646512 3.254787
+## [1] 4.422555 2.100794 2.648453 7.113681 5.752628
 \end{verbatim}
 
 Também podemos trabalhar com do tipo \texttt{character}.
@@ -1035,7 +1035,7 @@ Também podemos trabalhar com do tipo \texttt{character}.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "masculino" "feminino"  "feminino"  "feminino"  "masculino" "masculino"
+##  [1] "feminino"  "masculino" "feminino"  "feminino"  "masculino" "feminino" 
 ##  [7] "masculino" "feminino"  "masculino" "masculino"
 \end{verbatim}
 
@@ -1308,7 +1308,7 @@ Os comandos para acessar elementos de uma matriz são parecidos com os comandos 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.855985
+## [1] 8.474918
 \end{verbatim}
 
 \begin{Shaded}
@@ -1318,7 +1318,7 @@ Os comandos para acessar elementos de uma matriz são parecidos com os comandos 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.306608 4.739329 9.630789 5.942796 3.803989
+## [1] 0.967248 1.747275 7.677017 3.665409 1.651815
 \end{verbatim}
 
 \begin{Shaded}
@@ -1329,9 +1329,9 @@ Os comandos para acessar elementos de uma matriz são parecidos com os comandos 
 
 \begin{verbatim}
 ##          [,1]     [,2]     [,3]
-## [1,] 1.306608 3.983593 9.743948
-## [2,] 4.739329 4.767966 1.260433
-## [3,] 9.630789 0.855985 5.003543
+## [1,] 0.967248 7.950007 6.293350
+## [2,] 1.747275 1.307484 3.659274
+## [3,] 7.677017 8.474918 6.885678
 \end{verbatim}
 
 \hypertarget{data-frames}{%
@@ -1529,11 +1529,11 @@ Para criar uma lista utilize a função \texttt{list()}
 ## 
 ## [[3]]
 ##          [,1]     [,2]     [,3]
-## [1,] 1.306608 3.983593 9.743948
-## [2,] 4.739329 4.767966 1.260433
-## [3,] 9.630789 0.855985 5.003543
-## [4,] 5.942796 5.574652 9.877238
-## [5,] 3.803989 4.237133 2.326340
+## [1,] 0.967248 7.950007 6.293350
+## [2,] 1.747275 1.307484 3.659274
+## [3,] 7.677017 8.474918 6.885678
+## [4,] 3.665409 8.011560 3.618637
+## [5,] 1.651815 4.469645 8.565035
 ## 
 ## [[4]]
 ##   paciente idade      sexo fumante
@@ -2571,16 +2571,6 @@ Abra o RStudio e na janela de comando instale o pacote \texttt{ggplot2}. Após a
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Installing package into '/home/jeanresende/R/x86_64-pc-linux-gnu-library/4.3'
-## (as 'lib' is unspecified)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(ggplot2)}
 \end{Highlighting}
 \end{Shaded}
@@ -2599,7 +2589,7 @@ Basicamente para montar um gráfico de pontos basta usar a função plot() e pas
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-92-1.pdf}
+\includegraphics{figure/g1.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2608,14 +2598,7 @@ Basicamente para montar um gráfico de pontos basta usar a função plot() e pas
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.
-\end{verbatim}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-92-2.pdf}
+\includegraphics{figure/g2.png}
 
 \hypertarget{criando-gruxe1ficos-de-linha}{%
 \subsection{Criando gráficos de linha}\label{criando-gruxe1ficos-de-linha}}
@@ -2625,7 +2608,13 @@ Para fazer um gráfico em linha com a função plot, basta adicionar um outro ar
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{plot}\NormalTok{(pressure}\SpecialCharTok{$}\NormalTok{temperature, pressure}\SpecialCharTok{$}\NormalTok{pressure, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\includegraphics{figure/g3.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# para adicionar pontos e/ou múltiplas linhas, primeiramente}
 \CommentTok{\# faz se o uso de plot() para a primeira linha e então usa{-}se}
 \CommentTok{\# a função points() para pontos adicionais e lines() para}
@@ -2638,7 +2627,7 @@ Para fazer um gráfico em linha com a função plot, basta adicionar um outro ar
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-93-1.pdf}
+\includegraphics{figure/g4.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2651,7 +2640,7 @@ Para fazer um gráfico em linha com a função plot, basta adicionar um outro ar
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-93-2.pdf}
+\includegraphics{figure/g5.png}
 
 \hypertarget{criando-gruxe1ficos-de-barra}{%
 \subsection{Criando gráficos de barra}\label{criando-gruxe1ficos-de-barra}}
@@ -2661,30 +2650,23 @@ A função utilizada para criar gráficos em barra é a \texttt{barplot()} e é 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{table}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{cyl)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##  4  6  8 
-## 11  7 14
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \DocumentationTok{\#\#}
 \DocumentationTok{\#\# 4 6 8}
 \DocumentationTok{\#\# 11 7 14}
 \CommentTok{\# o que significa que há 11 casos do valor 4, 7 casos do}
 \CommentTok{\# valor 6 e 14 casos do valor 8}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# para gerar um gráfico em barra dessas quantias basta passar}
 \CommentTok{\# como argumento para a função barplot()}
 \FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{cyl))}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-94-1.pdf}
+\includegraphics{figure/g6.png}
 
 \hypertarget{criando-histogramas}{%
 \subsection{Criando histogramas}\label{criando-histogramas}}
@@ -2697,7 +2679,7 @@ Para histogramas faz-se uso da função \texttt{hist()} passando como argumento 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-95-1.pdf}
+\includegraphics{figure/g7.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2707,7 +2689,7 @@ Para histogramas faz-se uso da função \texttt{hist()} passando como argumento 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-95-2.pdf}
+\includegraphics{figure/g8.png}
 
 \hypertarget{criando-boxplot}{%
 \subsection{Criando boxplot}\label{criando-boxplot}}
@@ -2720,7 +2702,7 @@ O gráfico do tipo boxplot é utilizado para comparar distribuições. Utiliza-s
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-96-1.pdf}
+\includegraphics{figure/g9.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2729,7 +2711,7 @@ O gráfico do tipo boxplot é utilizado para comparar distribuições. Utiliza-s
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-96-2.pdf}
+\includegraphics{figure/g10.png}
 
 Ao longo desta primeira parte da aula pudemos observar que os gráficos em R são montados passo a passo. E que, caso se queira incrementar títulos, e especificar outros detalhes, isso pode ser feito com a adição de outros argumentos nas funções utilizadas para criar os gráficos. Para saber mais a respeito dos argumentos de cada função, basta fazer \texttt{?} seguido do nome da função ou através de \texttt{help(“nomedafuncao”)}.
 
@@ -2740,26 +2722,11 @@ Ao longo desta primeira parte da aula pudemos observar que os gráficos em R sã
 
 \FunctionTok{data}\NormalTok{(mtcars)}
 \FunctionTok{head}\NormalTok{(mtcars)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{plot}\NormalTok{(disp }\SpecialCharTok{\textasciitilde{}}\NormalTok{ mpg, }\AttributeTok{data =}\NormalTok{ mtcars, }\AttributeTok{main =} \StringTok{"My First Plot"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-97-1.pdf}
+\includegraphics{figure/g11.png}
 
 \hypertarget{lista-de-exercuxedcios-01}{%
 \section{Lista de exercícios 01}\label{lista-de-exercuxedcios-01}}
@@ -2806,7 +2773,7 @@ Para isso vamos fazer uso de um dataset que vem com o pacote ggplot2, o dataset 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-98-1.pdf}
+\includegraphics{figure/g12.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2819,7 +2786,7 @@ Para isso vamos fazer uso de um dataset que vem com o pacote ggplot2, o dataset 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-98-2.pdf}
+\includegraphics{figure/g13.png}
 
 Utilizando o argumento geom (que se refere aos objetos geométricos) podemos especificar pontos, formas e até mesmo o tipo de gráfico que será plotado. Agora vamos construir um boxplot utilizando a função \texttt{qplot()}.
 
@@ -2834,25 +2801,20 @@ Utilizando o argumento geom (que se refere aos objetos geométricos) podemos esp
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-99-1.pdf}
+\includegraphics{figure/g14.png}
 
 Com o código acima pudemos visualizar 3 boxes, um para cada tipo de movimentação. No entanto, podemos definir com cores, para cada marca, basta colocar um outro argumento ao código anterior, color igual a manufacturer.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{qplot}\NormalTok{(drv, hwy, }\AttributeTok{data =}\NormalTok{ mpg, }\AttributeTok{geom =} \StringTok{"boxplot"}\NormalTok{, }\AttributeTok{color =}\NormalTok{ manufacturer)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-100-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# note que ainda temos 3 regiões nos gráficos,}
 \CommentTok{\# correspondentes aos 3 tipos de movimentação, e em cada}
 \CommentTok{\# temos subdivisões de acordo com as marcas}
 \end{Highlighting}
 \end{Shaded}
+
+\includegraphics{figure/g15.png}
 
 Agora depois de ver um pouco sobre a função \texttt{qplot()} iremos focar em alguns componentes fundamentais do pacote ggplot2. Para montar gráficos utilizando a função \texttt{ggplot()} vamos fazer em uma série de etapas. Isto com o intuito de analisar o que está acontecendo em cada passo até a obtenção do gráfico final. Primeiro iremos criar uma variável ``g'' e designar à esta uma chamada a função ggplot com 2 argumentos. O primeiro se refere a mpg (nosso data set em questão) e o segundo dirá a ggplot o que queremos plotar, que neste caso são as variáveis displ e hwy. Como estas se tratam das estéticas que queremos representar, passamos as mesmas como argumentos na função \texttt{aes}.
 
@@ -2866,13 +2828,6 @@ Agora depois de ver um pouco sobre a função \texttt{qplot()} iremos focar em a
 \CommentTok{\# Para criar um gráfico de pontos, podemos fazer por exemplo}
 
 \NormalTok{g }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-101-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# ao fazer chamada para a função geom\_point() foi adicionada}
 \CommentTok{\# uma camada ao objeto gráfico. Perceba que você nao precisou}
 \CommentTok{\# passar nenhum argumento para a função geom\_point(), isto}
@@ -2881,54 +2836,31 @@ Agora depois de ver um pouco sobre a função \texttt{qplot()} iremos focar em a
 \CommentTok{\# para a função geom\_smooth}
 
 \NormalTok{g }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-\end{verbatim}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-101-2.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# A sombra cinza ao redor da linha azul éo intervalo de}
 \CommentTok{\# confiança. Épossível utilizar uma função diferente de}
 \CommentTok{\# suavização, definindo método igual àlm (method = \textquotesingle{}lm\textquotesingle{})}
 \end{Highlighting}
 \end{Shaded}
 
+\includegraphics{figure/g16.png}
+
 Além das definições padrões, podemos adicionar outras anotações utilizando funções como \texttt{xlab()}, \texttt{ylab()} e \texttt{ggtitle()}. Vamos fazer um exemplo adicionando um título ao gráfico. Como por exemplo ``Meu GGPlot''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{g }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Meu GGPlot"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## `geom_smooth()` using formula = 'y ~ x'
-\end{verbatim}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-102-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# Podemos mudar outras estéticas do gráfico, ao definir cores}
 \CommentTok{\# e tamanhos, por ex:}
 \NormalTok{g }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"pink"}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{, }\AttributeTok{alpha =} \DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-102-2.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# os diferentes tons de rosa são resultado do argumento}
 \CommentTok{\# alpha, que diz o quão transparentes os pontos precisam ser.}
 \CommentTok{\# Os círculos mais escuros indicam que há múltiplos pontos}
 \end{Highlighting}
 \end{Shaded}
+
+\includegraphics{figure/g17.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2936,7 +2868,7 @@ Além das definições padrões, podemos adicionar outras anotações utilizando
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-103-1.pdf}
+\includegraphics{figure/g18.png}
 
 \hypertarget{exemplos-com-os-dados-de-tumor-de-mama-de-wiscosin}{%
 \subsection{Exemplos com os dados de tumor de mama de Wiscosin}\label{exemplos-com-os-dados-de-tumor-de-mama-de-wiscosin}}
@@ -2985,12 +2917,19 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
      \AttributeTok{xlab =} \StringTok{"radius\_mean"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Densidade"}\NormalTok{,}
      \AttributeTok{main =} \StringTok{"Raio médio de nódulos de mama"}\NormalTok{,}
      \AttributeTok{freq =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{figure/g19.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# Adicionar linha com a densidade}
 \FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(brca}\SpecialCharTok{$}\NormalTok{radius\_mean), }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-105-1.pdf}
+\includegraphics{figure/g20.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3007,11 +2946,6 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## pdf 
-##   2
-\end{verbatim}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# GGplot2}
@@ -3024,15 +2958,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
-## i Please use `after_stat(density)` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.
-\end{verbatim}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-105-2.pdf}
+\includegraphics{figure/g21.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3042,7 +2968,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-105-3.pdf}
+\includegraphics{figure/g22.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3057,7 +2983,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-105-4.pdf}
+\includegraphics{figure/g23.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3081,7 +3007,11 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
          \FunctionTok{ifelse}\NormalTok{(brca}\SpecialCharTok{$}\NormalTok{area\_mean }\SpecialCharTok{\textless{}} \DecValTok{750}\NormalTok{, }\StringTok{"Intermediário"}\NormalTok{, }\StringTok{"Alto"}\NormalTok{))}
 \NormalTok{brca}\SpecialCharTok{$}\NormalTok{Area }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(brca}\SpecialCharTok{$}\NormalTok{Area,}
                     \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Baixo"}\NormalTok{, }\StringTok{"Intermediário"}\NormalTok{, }\StringTok{"Alto"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# Agora os comandos para o gráfico em si}
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ brca,}
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ radius\_mean, }\AttributeTok{y =}\NormalTok{ perimeter\_mean,}
@@ -3095,7 +3025,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-105-5.pdf}
+\includegraphics{figure/g24.png}
 
 \textbf{Gráfico de barras}
 
@@ -3106,23 +3036,12 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 
 \CommentTok{\# R base}
 \FunctionTok{table}\NormalTok{(brca}\SpecialCharTok{$}\NormalTok{Area)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##         Baixo Intermediário          Alto 
-##           142           276           151
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{counts }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(brca}\SpecialCharTok{$}\NormalTok{Area)}
 \FunctionTok{barplot}\NormalTok{(counts, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"green"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"red"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-106-1.pdf}
+\includegraphics{figure/g25.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3134,7 +3053,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-106-2.pdf}
+\includegraphics{figure/g26.png}
 
 \textbf{Boxplot}
 
@@ -3153,7 +3072,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-107-1.pdf}
+\includegraphics{figure/g27.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3173,7 +3092,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-107-2.pdf}
+\includegraphics{figure/g28.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3183,7 +3102,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-107-3.pdf}
+\includegraphics{figure/g29.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3191,16 +3110,6 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \CommentTok{\# http://sthda.com/english/articles/24{-}ggpubr{-}publication{-}ready{-}plots/76{-}add{-}p{-}values{-}and{-}significance{-}levels{-}to{-}ggplots/}
 \CommentTok{\# Instalar pacote ggpubr caso não esteja instalado}
 \FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggpubr"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Installing package into '/home/jeanresende/R/x86_64-pc-linux-gnu-library/4.3'
-## (as 'lib' is unspecified)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# Carregar pacote}
 \FunctionTok{library}\NormalTok{(}\StringTok{"ggpubr"}\NormalTok{)}
 \CommentTok{\# Adicionar teste estatístico ao gráfico}
@@ -3210,7 +3119,7 @@ Nos exemplos abaixo, iremos utilizar novamente o data set com informações sobr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-107-4.pdf}
+\includegraphics{figure/g30.png}
 
 \hypertarget{bonus-track---gruxe1ficos-interativos-com-plotly}{%
 \section{Bonus track - Gráficos interativos com plotly}\label{bonus-track---gruxe1ficos-interativos-com-plotly}}
@@ -3223,6 +3132,10 @@ O pacote plotly é uma forma bastante simples de se produzir gráficos interativ
 \FunctionTok{library}\NormalTok{(plotly)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: ggplot2
+\end{verbatim}
 
 \begin{verbatim}
 ## 
@@ -3267,10 +3180,20 @@ O pacote plotly é uma forma bastante simples de se produzir gráficos interativ
 \end{Shaded}
 
 \begin{verbatim}
+## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+## i Please use `after_stat(density)` instead.
+## i The deprecated feature was likely used in the ggplot2 package.
+##   Please report the issue at <https://github.com/tidyverse/ggplot2/issues>.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\begin{verbatim}
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 \end{verbatim}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-108-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-126-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3281,7 +3204,7 @@ O pacote plotly é uma forma bastante simples de se produzir gráficos interativ
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-108-2.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-126-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3295,7 +3218,7 @@ O pacote plotly é uma forma bastante simples de se produzir gráficos interativ
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-108-3.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-126-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
